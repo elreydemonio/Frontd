@@ -1,0 +1,179 @@
+
+form {
+    width: 450px;
+    min-height: 500px;
+    height: auto;
+    border-radius: 5px;
+    margin: 2% auto;
+    box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+    padding: 2%;
+    background-image: linear-gradient(-228deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1));
+}
+
+form .con {
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+      margin: 0 auto;
+}
+
+header {
+    margin: 2% auto 10% auto;
+    text-align: center;
+}
+
+header h2 {
+    font-size: 250%;
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+}
+
+header p {letter-spacing: 0.05em; color: #fff;}
+
+
+
+
+
+.input-item {
+    background: #000;
+    color: rgba(151,0,255,1);
+    padding: 14.5px 0px 15px 9px;
+    border-radius: 5px 0px 0px 5px;
+}
+
+
+
+#eye {
+    background: #000;
+    color: rgba(151,0,255,1);
+
+    margin: 5.9px 0 0 0;
+    margin-left: -20px;
+    padding: 15px 9px 19px 0px;
+    border-radius: 0px 5px 5px 0px;
+
+    float: right;
+    position: relative;
+    right: 1%;
+    top: -.1%;
+    z-index: 5;
+
+    cursor: pointer;
+}
+
+input[class="form-input"]{
+    width: 240px;
+    height: 50px;
+    background: linear-gradient(50deg,  rgb(3, 3, 3) 50%, rgb(0, 0, 0) 5%);
+
+    margin-top: 2%;
+    padding: 15px;
+
+    font-size: 16px;
+    font-family: 'Abel', sans-serif;
+    color: rgba(151,0,255,1);
+
+    outline: none;
+    border: none;
+
+    border-radius: 0px 5px 5px 0px;
+    transition: 0.2s linear;
+
+}
+input[id="txt-input"] {width: 250px;}
+
+input[id="pwd"] {width: 250px;}
+
+input:focus {
+    transform: translateX(-2px);
+    border-radius: 5px;
+}
+
+a {
+    display: inline-block;
+    color: #fff;
+
+    width: 280px;
+    height: 50px;
+
+    padding: 0 20px;
+    background: #fff;
+    border-radius: 5px;
+
+    outline: none;
+    border: none;
+
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s linear;
+
+    margin: 7% auto;
+    letter-spacing: 0.05em;
+}
+
+button {
+  display: inline-block;
+  color: #fff;
+  font-weight: 600;
+
+  width: 277px;
+  height: 50px;
+
+  padding: 0 20px;
+  background: linear-gradient(50deg, rgba(151,0,255,1) 5%, rgba(39,35,40,1) 50%);
+  border-radius: 5px;
+
+  outline: none;
+  border: none;
+
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s linear;
+
+  margin: 7% auto;
+  letter-spacing: 0.05em;
+}
+
+.submits {
+    width: 48%;
+    display: inline-block;
+    float: left;
+    margin-left: 2%;
+}
+
+.frgt-pass {background: transparent;}
+
+.sign-up {background: transparent; width: auto;}
+
+
+a:hover {
+    transform: translatey(3px);
+    box-shadow: none;
+}
+
+a:hover {
+    animation: ani9 0.4s ease-in-out infinite alternate;
+}
+
+button:hover {
+  transform: translatey(3px);
+  box-shadow: none;
+}
+
+button:hover {
+  animation: ani9 0.4s ease-in-out infinite alternate;
+}
+@keyframes ani9 {
+    0% {
+        transform: translateY(3px);
+    }
+    100% {
+        transform: translateY(5px);
+    }
+}
