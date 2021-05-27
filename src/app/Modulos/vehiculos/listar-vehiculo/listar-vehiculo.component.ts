@@ -1,3 +1,4 @@
+import { ServicioVehiculosService } from './../Servicios/servicio-vehiculos.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarVehiculoComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public servicioVehiculo: ServicioVehiculosService) { }
   ngOnInit(): void {
+    this.servicioVehiculo.ListarVehiculos();
   }
-
 }

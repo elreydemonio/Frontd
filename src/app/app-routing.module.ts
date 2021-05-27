@@ -6,30 +6,37 @@ import { LoginComponent } from './Modulos/login/login.component';
 import { RegistroUsuarioComponent } from './Modulos/login/registro-usuario/registro-usuario.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/welcome' },
   { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule) },
-  { path: 'Vehiculos',
+  { path: 'vehiculos',
     children: [
       {
         path: '',
         pathMatch: 'prefix',
-        redirectTo: 'Listar'
+        redirectTo: 'listar'
       },
       {
-        path: 'Crear',
+        path: 'crearVehiculo',
         component: CrearVehiculoComponent
       },
       {
-        path: 'Listar',
+        path: 'listar',
         component: ListarVehiculoComponent
       }
     ]
-  }
-  { path: '', pathMatch: 'full', redirectTo: '/login' },
-  { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule) },
-  {path: 'login', component: LoginComponent,
+  },
+  { path: '', pathMatch: 'full', redirectTo: '/Usuarios' },
+  {path: 'Usuarios',
     children: [
-      {path: 'registro', component: RegistroUsuarioComponent}
+      {
+        path: '',
+        pathMatch: 'prefix',
+        redirectTo: 'Login'
+      },
+      {path: 'registro', component: RegistroUsuarioComponent},
+      {
+        path: 'Login',
+        component: LoginComponent
+      },
     ]}
 ];
 

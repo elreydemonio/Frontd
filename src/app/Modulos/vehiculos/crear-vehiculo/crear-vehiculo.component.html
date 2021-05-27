@@ -1,1 +1,192 @@
-<p>crear-vehiculo works!</p>
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col text-center">
+      <mat-card>
+        <mat-card-title>Registrar Vehiculo</mat-card-title>
+          <mat-card-content>
+          <hr>
+            <form [formGroup]="servicioVehiculo.FormularioRegistro" (ngSubmit)= "onSubmit()">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text bg-white">
+                        <i class="fa fa-car" [class.blue-icon]='IdMarca.valid' [class.red-icon]='IdMarca.invalid && IdMarca.touched'></i>
+                      </div>
+                    </div>
+                    <input type="hidden" name="CodigoV">
+                    <select name="IdTipoVehiculo" formControlName="IdMarca" class="form-control" id="">
+                      <option value="">Marca</option>
+                      <option *ngFor="let Marca of servicioVehiculo.Marca"  value="{{Marca.Id}}" >{{ Marca.Nombre }}</option>
+                    </select>
+                  </div>
+                  <!--Mesanje de error-->
+                  <div class="alert-danger" *ngIf='IdMarca.invalid && (IdMarca.touched || IdMarca.dirty)'>
+                    <div *ngIf="this.IdMarca.hasError('required')">
+                      Marca es requerido
+                    </div>
+                  </div>
+               </div>
+               <div class="form-group col-md-6">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                  <div class="input-group-text bg-white">
+                    <i class="fa fa-car" [class.blue-icon]='Modelo.valid' [class.red-icon]='Modelo.invalid && Modelo.touched'></i>
+                  </div>
+                  </div>
+                    <input name="Modelo" formControlName="Modelo" class="form-control" placeholder="Modelo del vehiculo">
+                  </div>
+                  <!--Mesanje de error-->
+                  <div class="alert-danger" *ngIf='Modelo.invalid && (Modelo.touched || Modelo.dirty)'>
+                    <div *ngIf="this.Modelo.hasError('required')">
+                      El Modelo es requerido
+                    </div>
+                    <div *ngIf="Modelo.invalid">
+                      El Modelo es muy largo, maximo 30 caracteres
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="formFile" class="form-label">Foto del vehiculo</label>
+                <div class="input-group">
+                  <input class="form-control" type="file" id="formFile" name="FotoV" formControlName="FotoV" (change)="saveImage($event)">
+                </div>
+                <!--Mesanje de error-->
+                <div class="alert-danger" *ngIf='FotoV.invalid && (FotoV.touched || FotoV.dirty)'>
+                  <div *ngIf="this.FotoV.hasError('required')">
+                    la foto  es requerido
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="formFile" class="form-label">Tecno Mecanica</label>
+                <div class="input-group">
+                  <input class="form-control" type="file" id="formFile" name="TecnoMecanica" formControlName="TecnoMecanica" (change)="saveImage4($event)">
+                </div>
+                <!--Mesanje de error-->
+                <div class="alert-danger" *ngIf='TecnoMecanica.invalid && (TecnoMecanica.touched || TecnoMecanica.dirty)'>
+                  <div *ngIf="this.TecnoMecanica.hasError('required')">
+                    la tecno mecanica es requerido
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="formFile" class="form-label">Seguro </label>
+                <div class="input-group">
+                  <input class="form-control" type="file" id="formFile" name="SeguroCarga" formControlName="SeguroCarga" (change)="saveImage2($event)">
+                </div>
+                <!--Mesanje de error-->
+                <div class="alert-danger" *ngIf='SeguroCarga.invalid && (SeguroCarga.touched || SeguroCarga.dirty)'>
+                  <div *ngIf="this.SeguroCarga.hasError('required')">
+                    la foto del seguro es requerido
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text bg-white">
+                        <i class="fa fa-car" [class.blue-icon]='IdColor.valid' [class.red-icon]='IdColor.invalid && IdColor.touched'></i>
+                      </div>
+                    </div>
+                    <select name="IdTipoVehiculo" formControlName="IdColor" class="form-control" id="">
+                      <option value="">Marca</option>
+                      <option *ngFor="let Color of servicioVehiculo.Color"  value="{{Color.Id}}" >{{ Color.Nombre }}</option>
+                    </select>
+                  </div>
+                  <!--Mesanje de error-->
+                  <div class="alert-danger" *ngIf='IdColor.invalid && (IdColor.touched || IdColor.dirty)'>
+                      <div *ngIf="this.idColor.hasError('required')">
+                        El color es requerido
+                      </div>
+                  </div>
+               </div>
+               <div class="form-group col-md-6">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                  <div class="input-group-text bg-white">
+                    <i class="fa fa-car" [class.blue-icon]='Cilindraje.valid' [class.red-icon]='Cilindraje.invalid && Cilindraje.touched'></i>
+                  </div>
+                  </div>
+                    <input name="Cilindraje" type="number" formControlName="Cilindraje" class="form-control" placeholder="Cilindraje del vehiculo">
+                  </div>
+                  <!--Mesanje de error-->
+                  <div class="alert-danger" *ngIf='Cilindraje.invalid && (Cilindraje.touched || Cilindraje.dirty)'>
+                    <div *ngIf="this.Cilindraje.hasError('required')">
+                      El Cilindraje es requerido
+                    </div>
+                    <div *ngIf="this.Cilindraje.hasError('pattern')">
+                      El cilindraje debe tener solo numeros
+                    </div>
+                </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text bg-white">
+                        <i class="fa fa-car" [class.blue-icon]='IdTipoVehiculo.valid' [class.red-icon]='IdTipoVehiculo.invalid && IdTipoVehiculo.touched'></i>
+                      </div>
+                    </div>
+                    <select name="IdTipoVehiculo" formControlName="IdTipoVehiculo" class="form-control" id="">
+                      <option value="">Tipo de vehiculo</option>
+                      <option *ngFor="let tipo of servicioVehiculo.tipoVehiculo "  value="{{tipo.IdTipoVehiculo}}" >{{ tipo.Descripcion }}</option>
+                    </select>
+                  </div>
+                  <!--Mesanje de error-->
+                  <div class="alert-danger" *ngIf='IdTipoVehiculo.invalid && (IdTipoVehiculo.touched || IdTipoVehiculo.dirty)'>
+                    <div *ngIf="this.IdTipoVehiculo.hasError('required')">
+                      El tipo de vehiculo  es requerido
+                    </div>
+                </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                      <i class="fa fa-car" [class.blue-icon]='Placa.valid' [class.red-icon]='Placa.invalid && Placa.touched'></i>
+                    </div>
+                    </div>
+                      <input name="Placa" formControlName="Placa" class="form-control" placeholder="placa del vehiculo">
+                    </div>
+                    <!--Mesanje de error-->
+                    <div class="alert-danger" *ngIf='Placa.invalid && (Placa.touched || Placa.dirty)'>
+                      <div *ngIf="this.Placa.hasError('required')">
+                        La placa del vehiculo  es requerido
+                      </div>
+                  </div>
+                  </div>
+              </div>
+              <div class="form-group">
+                <label for="formFile" class="form-label">Soat</label>
+                <div class="input-group">
+                  <input class="form-control" type="file" id="formFile" name="Soat" formControlName="Soat" (change)="saveImage3($event)">
+                </div>
+                <!--Mesanje de error-->
+                <div class="alert-danger" *ngIf='Soat.invalid && (Soat.touched || Soat.dirty)'>
+                  <div *ngIf="this.Soat.hasError('required')">
+                    la placa es obligatorio
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <button class="btn btn-primary btn-lg btn-block" [disabled]="servicioVehiculo.FormularioRegistro.invalid" type="submit"><i class="fa fa-save"></i> Guardar</button>
+              </div>
+            </form>
+          </mat-card-content>
+          <mat-card-footer>
+
+          </mat-card-footer>
+        </mat-card>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
