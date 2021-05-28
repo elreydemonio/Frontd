@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Detalle Usuarios</h1>
+  <div class="card mb-3" *ngFor='let detalle of gestionUsuarioService.detalleusuario'>
+    <div class="card-body">
+      <h5 class="card-title">{{ id }}</h5>
+      <h5 class="card-title">{{detalle.UserName}}</h5>
+      <h5 class="card-title">{{detalle.NombreDoocumento}}</h5>
+      <h5 class="card-title">{{detalle.NumeroDocumento}}</h5>
+      <h5 class="card-title">{{detalle.NombreRol}}</h5>
+      <h5 class="card-title">{{detalle.NombreGenero}}</h5>
+      <h5 class="card-title">{{detalle.Email}}</h5>
+      <h5 class="card-title">{{detalle.Nombre}}</h5>
+      <h5 class="card-title">{{detalle.Apellido}}</h5>
+      <h5 class="card-title">{{detalle.Celular}}</h5>
+      <h5 class="card-title">{{detalle.Direccion}}</h5>
+    </div>
+  </div>
+</div>

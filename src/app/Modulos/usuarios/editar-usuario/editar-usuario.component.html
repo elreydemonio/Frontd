@@ -1,0 +1,208 @@
+
+  <form [formGroup]="gestionUsuarioService.formularioRegistroUsuario" (ngSubmit)="onSubmit()">
+    <div class="contact-form row">
+
+      <!--Nombre de Usuario-->
+
+      <div class="form-field col-lg-4">
+        <input type="hidden">
+        <input class="input-text" type="name" name="NombreUsuario" formControlName="NombreUsuario" [ngModel]="this.gestionUsuarioService.editardetalle.Username">
+        <label for="NombreUsuario" class="label">Nombre de usuario</label>
+      </div>
+
+      <div class="form-field col-lg-4" *ngIf="NombreUsuario.invalid && (NombreUsuario.touched || NombreUsuario.dirty)">
+
+        <div class="alert" *ngIf="this.Nombre.hasError('required')">
+          El Nombre de Usuario es requerido
+        </div>
+        <div class="alert" *ngIf="this.Nombre.hasError('pattern')">
+          El Nombre de Usuario debe contener solo letras
+        </div>
+        <div class="alert" *ngIf="this.Nombre.hasError('maxlength')">
+          El Nombre de Usuario debe tener máximo 20 carácteres
+        </div>
+        <div class="alert" *ngIf="this.Nombre.hasError('minlength')">
+          El Nombre de Usuario debe tener mínimo 4 carácteres
+        </div>
+      </div>
+
+      <!--Numero de documento-->
+
+      <div class="form-field col-lg-4">
+        <input class="input-text" type="number" name="NumeroDocumento" formControlName="NumeroDocumento" [ngModel]="this.gestionUsuarioService.editardetalle.NumeroDocumento">
+        <label for="NumeroDocumento" class="label">Número de documento</label>
+      </div>
+
+      <div class="form-field col-lg-4" *ngIf="NumeroDocumento.invalid && (NumeroDocumento.touched || NumeroDocumento.dirty)">
+
+        <div class="alert" *ngIf="this.NumeroDocumento.hasError('required')">
+          El número de documento es requerido
+        </div>
+        <div class="alert" *ngIf="this.NumeroDocumento.hasError('pattern')">
+          El número de documento debe contener solo números
+        </div>
+        <div class="alert" *ngIf="this.NumeroDocumento.hasError('maxlength')">
+          El número de documento debe tener máximo 15 carácteres
+        </div>
+        <div class="alert" *ngIf="this.NumeroDocumento.hasError('minlength')">
+          El número de documento debe tener mínimo 5 carácteres
+        </div>
+      </div>
+
+      <!--Tipo de documento-->
+
+      <div class="form-field col-lg-4">
+        <select class="label-pablo" name="IdTipoDocumento" formControlName="IdTipoDocumento">
+        <option value="">Seleccione su tipo de documento</option>
+        <option *ngFor="let Documento of gestionUsuarioService.tipoDocumento"
+        value="{{ Documento.IdTipoDocumento }}"> {{Documento.NombreDoocumento }}</option>
+        </select>
+      </div>
+
+      <div class="form-field col-lg-4" *ngIf="IdTipoDocumento.invalid && (IdTipoDocumento.touched || IdTipoDocumento.dirty)">
+
+        <div class="alert" *ngIf="this.IdTipoDocumento.hasError('required')">
+          El tipo de documento es requerido
+        </div>
+      </div>
+
+      <!--Tipo de usuario-->
+
+      <div class="form-field col-lg-4">
+        <select class="label-pablo" name="IdRol" formControlName="IdRol">
+        <option value="">Seleccione su rol</option>
+        <option *ngFor="let Rol of gestionUsuarioService.roles"
+        value="{{Rol.IdRol}}">{{Rol.NombreRol}}</option>
+        </select>
+      </div>
+
+      <div class="form-field col-lg-4" *ngIf="IdRol.invalid && (IdRol.touched || IdRol.dirty)">
+
+        <div class="alert" *ngIf="this.IdRol.hasError('required')">
+          El tipo de usuario es requerido
+        </div>
+      </div>
+
+      <!--Genero-->
+
+      <div class="form-field col-lg-4">
+        <select class="label-pablo" name="IdGenero" formControlName="IdGenero">
+        <option value=""></option>
+        <option *ngFor="let IdGenero of gestionUsuarioService.genero"
+        value="{{ IdGenero.IdGenero }}">{{ IdGenero.NombreGenero }}</option>
+        </select>
+      </div>
+
+      <div class="form-field col-lg-4" *ngIf="IdGenero.invalid && (IdGenero.touched || IdGenero.dirty)">
+
+        <div class="alert" *ngIf="this.IdGenero.hasError('required')">
+          El genero es requerido
+        </div>
+      </div>
+
+      <!--Nombre-->
+
+      <div class="form-field col-lg-4">
+        <input name="Nombre" class="input-text" type="text" formControlName = "Nombre" [ngModel]="this.gestionUsuarioService.editardetalle.Nombre">
+        <label for="Nombre" class="label">Nombre</label>
+      </div>
+      <div class="form-field col-lg-4" *ngIf="Nombre.invalid && (Nombre.touched || Nombre.dirty)">
+
+        <div class="alert" *ngIf="this.Nombre.hasError('required')">
+          El nombre es requerido
+        </div>
+        <div class="alert" *ngIf="this.Nombre.hasError('pattern')">
+          El nombre debe contener solo letras
+        </div>
+        <div class="alert" *ngIf="this.Nombre.hasError('maxlength')">
+          El nombre debe tener máximo 30 carácteres
+        </div>
+        <div class="alert" *ngIf="this.Nombre.hasError('minlength')">
+          El nombre debe tener mínimo 3 carácteres
+        </div>
+      </div>
+
+      <!--Apellido-->
+
+      <div class="form-field col-lg-4">
+        <input class="input-text" type="text" name="Apellido" formControlName="Apellido" [ngModel]="this.gestionUsuarioService.editardetalle.Apellido">
+        <label for="Apellido" class="label">Apellido</label>
+      </div>
+
+      <div class="form-field col-lg-4" *ngIf="Apellido.invalid && (Apellido.touched || Apellido.dirty)">
+
+        <div class="alert" *ngIf="this.Apellido.hasError('required')">
+          El Apellido es requerido
+        </div>
+        <div class="alert" *ngIf="this.Apellido.hasError('pattern')">
+          El Apellido debe contener solo letras
+        </div>
+        <div class="alert" *ngIf="this.Apellido.hasError('maxlength')">
+          El Apellido debe tener máximo 50 carácteres
+        </div>
+        <div class="alert" *ngIf="this.Apellido.hasError('minlength')">
+          El Apellido debe tener mínimo 3 carácteres
+        </div>
+      </div>
+
+      <!--Correo-->
+
+       <div class="form-field col-lg-4">
+        <input class="input-text" type="email" name="Email" formControlName="Email" [ngModel]="this.gestionUsuarioService.editardetalle.Email">
+        <label for="Email" class="label">Correo</label>
+      </div>
+
+      <div class="form-field col-lg-4" *ngIf="Email.invalid && (Email.touched || Email.dirty)">
+
+        <div class="alert" *ngIf="this.Email.hasError('required')">
+          El correo electrónico es requerido
+        </div>
+        <div class="alert" *ngIf="this.Email.hasError('pattern')">
+          El formato del correo electrónico es incorrecto
+        </div>
+      </div>
+
+      <!--Direccion-->
+
+      <div class="form-field col-lg-6">
+        <input class="input-text" type="text" name="Direccion" formControlName="Direccion" [ngModel]="this.gestionUsuarioService.editardetalle.Direccion">
+        <label for="direccion" class="label">Dirección</label>
+      </div>
+
+      <div class="form-field col-lg-4" *ngIf="Direccion.invalid && (Direccion.touched || Direccion.dirty)">
+
+        <div class="alert" *ngIf="this.Direccion.hasError('required')">
+          El correo electrónico es requerido
+        </div>
+      </div>
+
+      <!--Celular-->
+
+      <div class="form-field col-lg-6">
+        <input class="input-text" type="number" name="Celular" formControlName="Celular" [ngModel]="this.gestionUsuarioService.editardetalle.Celular">
+        <label for="celular" class="label">Celular</label>
+      </div>
+
+      <div class="form-field col-lg-4" *ngIf="Celular.invalid && (Celular.touched || Celular.dirty)">
+
+        <div class="alert" *ngIf="this.Celular.hasError('required')">
+          El celular es requerido
+        </div>
+        <div class="alert" *ngIf="this.Celular.hasError('pattern')">
+          El celular debe contener solo números
+        </div>
+        <div class="alert" *ngIf="this.Celular.hasError('minlength')">
+          El celular debe tener mínimo 5 carácteres
+        </div>
+      </div>
+
+      <!--Registrar-->
+
+
+    </div>
+    <div class="form-group" align="center">
+      <button class="btn-dark btn-lg btn-block" type="submit" [disabled]="gestionUsuarioService.formularioRegistroUsuario.invalid"><i class="fa fa-save"></i>Editar</button>
+    </div>
+</form>
+
+
