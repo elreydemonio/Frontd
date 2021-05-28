@@ -56,12 +56,13 @@ const routes: Routes = [
         path: 'perfil',
         component: VerPerfilComponent
       }
-
     ]
   },
   { path: 'vehiculos',
     children: [
       {
+        path: '',
+        pathMatch: 'prefix',
         redirectTo: 'listar'
       },
       {
