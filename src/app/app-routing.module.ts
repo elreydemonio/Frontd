@@ -1,3 +1,6 @@
+import { DetallevehiculoComponent } from './Modulos/vehiculos/detallevehiculo/detallevehiculo.component';
+import { ListarVehiculoComponent } from './Modulos/vehiculos/listar-vehiculo/listar-vehiculo.component';
+import { CrearVehiculoComponent } from './Modulos/vehiculos/crear-vehiculo/crear-vehiculo.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './Modulos/login/login.component';
@@ -12,7 +15,6 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'Inicio/Login' },
 
   { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule) },
-
   {path: 'Inicio',
     children: [
       {
@@ -56,7 +58,26 @@ const routes: Routes = [
       }
 
     ]
-  }
+  },
+  { path: 'vehiculos',
+    children: [
+      {
+        redirectTo: 'listar'
+      },
+      {
+        path: 'crearVehiculo',
+        component: CrearVehiculoComponent
+      },
+      {
+        path: 'listar',
+        component: ListarVehiculoComponent
+      },
+      {
+        path: 'detalle/:id',
+        component: DetallevehiculoComponent
+      }
+    ]
+  },
 ];
 
 @NgModule({
