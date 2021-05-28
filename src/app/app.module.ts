@@ -14,14 +14,31 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
-import { MatCardModule } from '@angular/material/card';
+import { ListarUsuarioComponent } from './Modulos/usuarios/listar-usuario/listar-usuario.component';
+import { RegistrarUsuarioComponent } from './Modulos/usuarios/registrar-usuario/registrar-usuario.component';
+import { EditarUsuarioComponent } from './Modulos/usuarios/editar-usuario/editar-usuario.component';
 import { ToastrModule } from 'ngx-toastr';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormField, MatFormFieldModule} from '@angular/material/form-field';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatInputModule } from '@angular/material/input';
+import { DetalleUsuarioComponent } from './Modulos/usuarios/detalle-usuario/detalle-usuario.component';
 import { DetallevehiculoComponent } from './Modulos/vehiculos/detallevehiculo/detallevehiculo.component';
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
+    ListarUsuarioComponent,
+    RegistrarUsuarioComponent,
+    EditarUsuarioComponent,
+    DetalleUsuarioComponent,
     ListarVehiculoComponent,
     CrearVehiculoComponent,
     DetallevehiculoComponent
@@ -35,9 +52,18 @@ registerLocaleData(en);
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
-    MatCardModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
