@@ -16,13 +16,15 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { MatCardModule } from '@angular/material/card';
 import { ToastrModule } from 'ngx-toastr';
+import { DetallevehiculoComponent } from './Modulos/vehiculos/detallevehiculo/detallevehiculo.component';
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
     ListarVehiculoComponent,
-    CrearVehiculoComponent
+    CrearVehiculoComponent,
+    DetallevehiculoComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,7 @@ registerLocaleData(en);
     NzMenuModule,
     MatCardModule,
     ReactiveFormsModule,
-    ToastrModule
+    ToastrModule.forRoot()
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

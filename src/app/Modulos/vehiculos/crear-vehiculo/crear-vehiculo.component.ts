@@ -16,7 +16,7 @@ export class CrearVehiculoComponent implements OnInit {
   SegurodecargaFile: File;
   SoatFile: File;
   TecnoMecanicaFile: File;
-  constructor(public servicioVehiculo: ServicioVehiculosService, private formbuilder: FormBuilder) { }
+  constructor(public servicioVehiculo: ServicioVehiculosService, private formbuilder: FormBuilder, private toast: ToastrService) { }
 
   ngOnInit(): void {
     this.servicioVehiculo.ListarTiposVehiculos();
@@ -146,7 +146,7 @@ export class CrearVehiculoComponent implements OnInit {
     );
     this.servicioVehiculo.registrarVehiculo().subscribe(
       res => {
-        console.log(res);
+        this.toast.success('Guardado correctamente');
       },
       err => {
         console.log(err);

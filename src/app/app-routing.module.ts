@@ -1,3 +1,4 @@
+import { DetallevehiculoComponent } from './Modulos/vehiculos/detallevehiculo/detallevehiculo.component';
 import { ListarVehiculoComponent } from './Modulos/vehiculos/listar-vehiculo/listar-vehiculo.component';
 import { CrearVehiculoComponent } from './Modulos/vehiculos/crear-vehiculo/crear-vehiculo.component';
 import { NgModule } from '@angular/core';
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'listar',
         component: ListarVehiculoComponent
+      },
+      {
+        path: 'detalle/:id',
+        component: DetallevehiculoComponent
       }
     ]
   },

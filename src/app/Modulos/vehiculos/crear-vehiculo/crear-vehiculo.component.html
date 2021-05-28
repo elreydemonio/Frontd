@@ -20,7 +20,7 @@
                     <input type="hidden" name="CodigoV">
                     <select name="IdTipoVehiculo" formControlName="IdMarca" class="form-control" id="">
                       <option value="">Marca</option>
-                      <option *ngFor="let Marca of servicioVehiculo.Marca"  value="{{Marca.Id}}" >{{ Marca.Nombre }}</option>
+                      <option *ngFor="let Marca of servicioVehiculo.Marca"  value="{{Marca.Id}}" >{{ Marca.NombreMarca }}</option>
                     </select>
                   </div>
                   <!--Mesanje de error-->
@@ -96,7 +96,7 @@
                     </div>
                     <select name="IdTipoVehiculo" formControlName="IdColor" class="form-control" id="">
                       <option value="">Marca</option>
-                      <option *ngFor="let Color of servicioVehiculo.Color"  value="{{Color.Id}}" >{{ Color.Nombre }}</option>
+                      <option *ngFor="let Color of servicioVehiculo.Color"  value="{{Color.Id}}" >{{ Color.NombreColor }}</option>
                     </select>
                   </div>
                   <!--Mesanje de error-->

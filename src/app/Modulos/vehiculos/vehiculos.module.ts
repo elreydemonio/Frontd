@@ -7,10 +7,12 @@ import {MatCardModule} from '@angular/material/card';
 import {  MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
 import { BrowserModule } from '@angular/platform-browser';
 import { ToastrModule } from 'ngx-toastr';
+import { DetallevehiculoComponent } from './detallevehiculo/detallevehiculo.component';
 @NgModule({
   declarations: [
     CrearVehiculoComponent,
-    ListarVehiculoComponent
+    ListarVehiculoComponent,
+    DetallevehiculoComponent
   ],
   imports: [
     CommonModule,

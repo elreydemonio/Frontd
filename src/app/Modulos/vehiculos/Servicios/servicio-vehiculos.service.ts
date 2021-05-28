@@ -17,6 +17,7 @@ export class ServicioVehiculosService {
   tipoVehiculo: TipoVehiculos[];
   Marca: Marcas[];
   Color: Colores[];
+  detalleVehiculo: ListaVehiculo[];
   FormularioRegistro: FormGroup;
   constructor(private http: HttpClient) { }
   // tslint:disable-next-line: typedef
@@ -57,5 +58,15 @@ export class ServicioVehiculosService {
     this.http.get(this.rootUrl + '/Vehiculos/Colores')
     .toPromise()
     .then(res => this.Color = res as Colores[]);
+  }
+  // tslint:disable-next-line: typedef
+  CambarEstado(CodigoV: string){
+    return this.http.put(this.rootUrl + '/Vehiculos/CambiarEstado/' + CodigoV, CodigoV );
+  }
+  // tslint:disable-next-line: typedef
+  DetalleVehiculo(CodigoV: string){
+    this.http.get(this.rootUrl + '/Vehiculos/DetalleVehiculo/' + CodigoV)
+    .toPromise()
+    .then(res => this.detalleVehiculo = res as ListaVehiculo[]);
   }
 }
