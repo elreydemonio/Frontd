@@ -1,0 +1,189 @@
+
+  <form>
+    <div class="contact-form row">
+
+      <!--Nombre de Usuario-->
+
+      <div class="form-field col-lg-4">
+        <input type="hidden" name="Id">
+        <input class="input-text" type="name" name="NombreUsuario" formControlName="NombreUsuario">
+        <label for="NombreUsuario" class="label">Nombre de usuario</label>
+      </div>
+
+      <!--Contraseña-->
+
+      <div class="form-field col-lg-4">
+        <input class="input-text" type="password" name="Password" formControlName="Password">
+        <label for="Password" class="label">Contraseña</label>
+      </div>
+
+      <!--Numero de documento-->
+
+      <div class="form-field col-lg-4">
+        <input class="input-text" type="number" name="NumeroDocumento" formControlName="NumeroDocumento">
+        <label for="NumeroDocumento" class="label">Número de documento</label>
+      </div>
+
+      <!--Tipo de documento-->
+
+      <div class="form-field col-lg-4">
+        <select class="label-pablo" name="IdTipoDocumento" formControlName="IdTipoDocumento">
+        <option value="">Seleccione su tipo de documento</option>
+        <!--<option *ngFor="let Documento of gestionUsuarioService.tipoDocumento"
+        value="{{ Documento.IdTipoDocumento }}"> {{Documento.NombreDoocumento }}</option>-->
+        </select>
+      </div>
+
+      <!--Tipo de usuario-->
+
+      <div class="form-field col-lg-4">
+        <select class="label-pablo" name="IdRol" formControlName="IdRol">
+        <option value="">Seleccione su rol</option>
+        <!--<option *ngFor="let Rol of gestionUsuarioService.roles"
+        value="{{Rol.IdRol}}">{{Rol.NombreRol}}</option>-->
+        </select>
+      </div>
+
+      <!--Genero-->
+
+      <div class="form-field col-lg-4">
+        <select class="label-pablo" name="IdGenero" formControlName="IdGenero">
+        <option value="">Seleccione su genero</option>
+        <!--<option *ngFor="let IdGenero of gestionUsuarioService.genero"
+        value="{{ IdGenero.IdGenero }}">{{ IdGenero.NombreGenero }}</option>-->
+        </select>
+      </div>
+
+      <!--Nombre-->
+
+      <div class="form-field col-lg-4">
+        <input name="Nombre" class="input-text" type="text" formControlName = "Nombre">
+        <label for="Nombre" class="label">Nombre</label>
+      </div>
+      <!--<div class="form-field col-lg-4" *ngIf="Nombre.invalid && (Nombre.touched || Nombre.dirty)">
+
+        <div class="alert" *ngIf="this.Nombre.hasError('required')">
+          El nombre es requerido
+        </div>
+        <div class="alert" *ngIf="this.Nombre.hasError('pattern')">
+          El nombre debe contener solo letras
+        </div>
+        <div class="alert" *ngIf="this.Nombre.hasError('maxlength')">
+          El nombre debe tener máximo 30 carácteres
+        </div>
+        <div class="alert" *ngIf="this.Nombre.hasError('minlength')">
+          El nombre debe tener mínimo 3 carácteres
+        </div>
+      </div>-->
+
+      <!--Apellido-->
+
+      <div class="form-field col-lg-4">
+        <input class="input-text" type="text" name="Apellido" formControlName="Apellido">
+        <label for="Apellido" class="label">Apellido</label>
+      </div>
+
+      <!--<div class="form-field col-lg-4" *ngIf="Apellido.invalid && (Apellido.touched || Apellido.dirty)">
+
+        <div class="alert" *ngIf="this.Apellido.hasError('required')">
+          El Apellido es requerido
+        </div>
+        <div class="alert" *ngIf="this.Apellido.hasError('pattern')">
+          El Apellido debe contener solo letras
+        </div>
+        <div class="alert" *ngIf="this.Apellido.hasError('maxlength')">
+          El Apellido debe tener máximo 50 carácteres
+        </div>
+        <div class="alert" *ngIf="this.Apellido.hasError('minlength')">
+          El Apellido debe tener mínimo 3 carácteres
+        </div>
+      </div>-->
+
+      <!--Correo-->
+
+       <div class="form-field col-lg-4">
+        <input class="input-text" type="email" name="Email" formControlName="Email">
+        <label for="Email" class="label">Correo</label>
+      </div>
+
+      <!--<div class="form-field col-lg-4" *ngIf="Email.invalid && (Email.touched || Email.dirty)">
+
+        <div class="alert" *ngIf="this.Email.hasError('required')">
+          El correo electrónico es requerido
+        </div>
+        <div class="alert" *ngIf="this.Email.hasError('pattern')">
+          El formato del correo electrónico es incorrecto
+        </div>
+      </div>-->
+
+      <!--Direccion-->
+
+      <div class="form-field col-lg-3">
+        <input class="input-text" type="text" name="Direccion" formControlName="Direccion">
+        <label for="direccion" class="label">Dirección</label>
+      </div>
+
+      <!--<div class="form-field col-lg-4" *ngIf="Direccion.invalid && (Direccion.touched || Direccion.dirty)">
+
+        <div class="alert" *ngIf="this.Direccion.hasError('required')">
+          El correo electrónico es requerido
+        </div>
+      </div>-->
+
+      <!--Celular-->
+
+      <div class="form-field col-lg-3">
+        <input class="input-text" type="number" name="Celular" formControlName="Celular">
+        <label for="celular" class="label">Celular</label>
+      </div>
+
+      <!--<div class="form-field col-lg-4" *ngIf="Celular.invalid && (Celular.touched || Celular.dirty)">
+
+        <div class="alert" *ngIf="this.Celular.hasError('required')">
+          El celular es requerido
+        </div>
+        <div class="alert" *ngIf="this.Celular.hasError('pattern')">
+          El celular debe contener solo números
+        </div>
+        <div class="alert" *ngIf="this.Celular.hasError('minlength')">
+          El celular debe tener mínimo 5 carácteres
+        </div>
+      </div>-->
+
+      <!--Fecha inicio-->
+
+      <div class="form-field col-lg-3">
+        <input class="input-text" type="date" name="FechaInicio" formControlName="FechaInicio">
+        <label for="fechainicio" class="label">Fecha inicio</label>
+      </div>
+
+      <!--Fecha Fin-->
+
+      <div class="form-field col-lg-3">
+        <input class="input-text" type="date" name="FechaFin" formControlName="FechaFin">
+        <label for="fechafin" class="label">Fecha inicio</label>
+      </div>
+
+      <!--Foto-->
+
+      <div class="form-field col-lg-12">
+        <div class="custom-input-file">
+          <input class="input-file" type="file" name="Foto" formControlName="Foto"  (change)="readUrl($event)">
+          Subir foto
+        </div>
+      </div>
+      <img [src]="url">
+
+
+
+      <!--Registrar-->
+
+
+    </div>
+    <div class="form-group" align="center">
+      <button class="btn-dark btn-lg btn-block" type="submit"><i class="fa fa-save"></i>Registrar</button>
+      <button class="btn-dark btn-lg btn-block"><i class="fa fa-arrow-circle-left"><a href="conductores/">Volver</a></i></button>
+    </div>
+</form>
+
+

@@ -31,6 +31,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { DetalleUsuarioComponent } from './Modulos/usuarios/detalle-usuario/detalle-usuario.component';
+import { ListarConductorComponent } from './Modulos/usuarios/conductor/listar-conductor/listar-conductor.component';
 import { DetallevehiculoComponent } from './Modulos/vehiculos/detallevehiculo/detallevehiculo.component';
 import { AuthInterceptor } from './Components/auth/auth.interceptor';
 registerLocaleData(en);
@@ -42,8 +43,10 @@ registerLocaleData(en);
     RegistrarUsuarioComponent,
     EditarUsuarioComponent,
     DetalleUsuarioComponent,
+    ListarConductorComponent
     ListarVehiculoComponent,
     CrearVehiculoComponent,
+    DetallevehiculoComponent
     DetallevehiculoComponent,
     RegistroUsuarioComponent,
     LoginComponent
