@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ListarUsuarioComponent } from './listar-usuario/listar-usuario.component';
 import { RegistrarUsuarioComponent } from './registrar-usuario/registrar-usuario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 import { DetalleUsuarioComponent } from './detalle-usuario/detalle-usuario.component';
 import { ToastrModule } from 'ngx-toastr';
@@ -14,9 +14,7 @@ import { RegistrarConductorComponent } from './conductor/registrar-conductor/reg
 import { EditarConductorComponent } from './conductor/editar-conductor/editar-conductor.component';
 import { DetalleConductorComponent } from './conductor/detalle-conductor/detalle-conductor.component';
 import { VerperfilConductorComponent } from './conductor/verperfil-conductor/verperfil-conductor.component';
-
-
-
+import { AuthInterceptor } from 'src/app/Components/auth/auth.interceptor';
 @NgModule({
   declarations: [
       ListarUsuarioComponent,
@@ -44,6 +42,14 @@ import { VerperfilConductorComponent } from './conductor/verperfil-conductor/ver
     EditarUsuarioComponent,
     DetalleUsuarioComponent,
     ListarConductorComponent
+    DetalleUsuarioComponent
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ]
 })
 export class UsuariosModule { }

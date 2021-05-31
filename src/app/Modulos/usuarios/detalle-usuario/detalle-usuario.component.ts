@@ -13,7 +13,7 @@ export class DetalleUsuarioComponent implements OnInit {
     private rutaActiva:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.id = this.rutaActiva.snapshot.paramMap.get('variable');
+    this.id = this.rutaActiva.snapshot.paramMap.get('variale');
     this.gestionUsuarioService.detalleUsuario(this.id);
   }
 

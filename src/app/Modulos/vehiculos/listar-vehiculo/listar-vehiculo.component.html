@@ -9,10 +9,9 @@
           <h5 class="card-title">Codigo: {{ item.CodigoV }}</h5>
           <p class="card-text">Marca: {{ item.NombreMarca }}</p>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"></li>
-            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">Cilindraje: {{ item.Cilindraje }}</li>
             <li class="list-group-item">Tipo Vehiculo: {{ item.Descripcion }}</li>
-            <li class="list-group-item"><button class="btn btn-outline-info" (click)="CambiarEstado(item.CodigoV)">Cambias estado</button> </li>
+            <li class="list-group-item"><button class="btn btn-outline-info" (click)="CambiarEstado(item.CodigoV)">Cambiar estado</button> </li>
           </ul>
         </div>
         <div class="card-footer">

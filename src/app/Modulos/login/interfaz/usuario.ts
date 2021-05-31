@@ -1,12 +1,11 @@
 export interface Usuario {
     Id: string;
-    NombreDocumento: number;
-    NombreGenero: number;
-    IdEstadoUsuario: number;
-    EstadoNombre: string;
-    NombreUsuario: string;
     NumeroDocumento: number;
-    NombreRol: string;
+    IdGenero: number;
+    IdEstado: string;
+    NombreUsuario: string;
+    IdTipoDocumento: number;
+    IdRol: string;
     Email: string;
     Nombre: string;
     Apellido: string;

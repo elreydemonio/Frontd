@@ -1,5 +1,5 @@
 <div class="overlay">
-  <form>
+  <form [formGroup]="this.usuarioService.formularioLogin" (ngSubmit)="this.onSubmit()">
 
     <div class="con">
       <header class="head-form">
@@ -13,32 +13,38 @@
         <span class="input-item">
           <i class="fa fa-user-circle"></i>
         </span>
-        <input class="form-input" id="txt-input" type="text" placeholder="Nombre de usuario" required>
+        <input class="form-input " id="txt-input" type="text" placeholder="Nombre de usuario" formControlName="NombreUsuario" required>
+        <!--Validaciones-->
 
+        <div *ngIf="this.usuarioService.NombreUsuarioLogin.invalid && (this.usuarioService.NombreUsuarioLogin.touched || this.usuarioService.NombreUsuarioLogin.dirty)" class="alert alert-danger">
+
+          <div *ngIf="this.usuarioService.NombreUsuarioLogin.hasError('required')">
+
+              El nombre de usuario es requerido
+
+          </div>
+
+
+          <div *ngIf="this.usuarioService.NombreUsuarioLogin.hasError('maxlength')">
+
+              El nombre de usuario debe contener máximo 20 caracteres
+
+          </div>
+
+      </div>
         <br>
-
-
         <span class="input-item">
           <i class="fa fa-key"></i>
         </span>
-        <input class="form-input" type="password" placeholder="Password" id="pwd" name="Contraseña" required>
-
-        <span>
-          <i class="fa fa-eye"  type="button" id="eye"></i>
-        </span>
-
+        <input type="password" name="Password" class="form-control input_pass" formControlName="Password" placeholder="Contraseña">
         <br>
-
-        <button class="log-in"> Acceder </button>
-
+        <button type="submit" name="button" class="btn btn-info my-4 btn-block" [disabled]="this.usuarioService.formularioLogin.invalid">Ingresar</button>
       </div>
-
       <div class="other">
         <a class="btn submits frgt-pass">¿Ólvido su contraseña?</a>
-        <a href="Inicio/registro" routerLink='' class="btn submits sign-up">Registrarse
+        <a href="usuarios/registrar" class="btn submits sign-up">Registrarse
           <i class="fa fa-user-plus" aria-hidden="true"></i>
         </a>
-
       </div>
 
     </div>
