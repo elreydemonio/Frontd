@@ -1,3 +1,5 @@
+import { LoginComponent } from './Modulos/login/login.component';
+import { RegistroUsuarioComponent } from './Modulos/login/registro-usuario/registro-usuario.component';
 import { CrearVehiculoComponent } from './Modulos/vehiculos/crear-vehiculo/crear-vehiculo.component';
 import { ListarVehiculoComponent } from './Modulos/vehiculos/listar-vehiculo/listar-vehiculo.component';
 import { NgModule } from '@angular/core';
@@ -9,7 +11,7 @@ import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
@@ -30,6 +32,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { DetalleUsuarioComponent } from './Modulos/usuarios/detalle-usuario/detalle-usuario.component';
 import { DetallevehiculoComponent } from './Modulos/vehiculos/detallevehiculo/detallevehiculo.component';
+import { AuthInterceptor } from './Components/auth/auth.interceptor';
 registerLocaleData(en);
 
 @NgModule({
@@ -41,7 +44,9 @@ registerLocaleData(en);
     DetalleUsuarioComponent,
     ListarVehiculoComponent,
     CrearVehiculoComponent,
-    DetallevehiculoComponent
+    DetallevehiculoComponent,
+    RegistroUsuarioComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,13 @@ registerLocaleData(en);
     MatInputModule,
     MatFormFieldModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [{ provide: NZ_I18N, useValue: en_US },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

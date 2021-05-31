@@ -21,7 +21,11 @@
 
 .contact-form .form-field{
 	position: relative;
-	margin: 20px 0;
+	margin: 10px 0;
+}
+
+.alert{
+  color: red;
 }
 
 .contact-form .input-text{
@@ -65,44 +69,11 @@
 	font-size: 18px;
 	line-height: 26px;
 	font-weight: 400;
-	color: #fff;
 	text-transform: capitalize;
 	transition: transform 0.2s ease-in-out;
 	background: linear-gradient(50deg, rgba(151,0,255,1) 5%, rgba(39,35,40,1) 50%);
 }
 
-button{
-	display: inline-block;
-	background: linear-gradient(50deg, rgba(151,0,255,1) 5%, rgba(39,35,40,1) 50%);
-	color: #fff;
-  font-weight: 600;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	font-size: 16px;
-	padding: 8px 16px;
-	border: none;
-	width: 200px;
-	cursor: pointer;
-  border-radius: 5px;
-  transition: all 0.2s linear;
-  height: 50px;
-}
 
-button:hover {
-  transform: translatey(3px);
-  box-shadow: none;
-}
 
-button:hover {
-  animation: ani9 0.4s ease-in-out infinite alternate;
-}
-
-@keyframes ani9 {
-  0% {
-      transform: translateY(3px);
-  }
-  100% {
-      transform: translateY(5px);
-  }
-}
 

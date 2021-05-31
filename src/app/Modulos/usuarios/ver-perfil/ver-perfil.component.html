@@ -1,23 +1,19 @@
 
     <section class="section-plans" id="section-plans">
-
-
-
           <div class="card">
             <div class="card__side card__side--front-2">
               <div class="card__title card__title--2">
                 <h4 class="card__heading">Su perfil:</h4>
               </div>
-
               <div class="card__details">
                 <ul>
-                  <li><strong>Nombre completo: </strong></li>
-                  <li><strong>Genero: </strong></li>
-                  <li><strong>Tipo documento: </strong></li>
-                  <li><strong>Numero Documento:</strong></li>
-                  <li><strong>Email: </strong></li>
-                  <li><strong>Direccion: </strong></li>
-                  <li><strong>Celular: </strong></li>
+                  <li><strong>Nombre completo: {{this.perfilUsuario.Nombre + ' ' + this.perfilUsuario.Apellido}}</strong></li>
+                  <li><strong>Numero Documento: {{this.perfilUsuario.NumeroDocumento}}</strong></li>
+                  <li><strong>Email: {{this.perfilUsuario.Email}}</strong></li>
+                  <li><strong>Direccion:  {{this.perfilUsuario.Direccion}}</strong></li>
+                  <li><strong>Celular: {{this.perfilUsuario.Celular}}</strong></li>
+                  <li><strong>Celular: {{this.perfilUsuario.Celular}}</strong></li>
+                  <li><strong> <button class="btn btn-info"  (click)="this.cerrarSesion()">Cerrar session</button>  </strong></li>
                 </ul>
               </div>
             </div>

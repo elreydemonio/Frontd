@@ -1,58 +1,355 @@
-<nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar"
-            nzCollapsible
-            nzWidth="256px"
-            nzBreakpoint="md"
-            [(nzCollapsed)]="isCollapsed"
-            [nzTrigger]="null"
-            style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
-    <div class="sidebar-logo" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
-      <a href="" target="_blank">
-        <img src="assets/img/Icono Meraki.png" alt="logo">
-        <h1>Meraki</h1>
-      </a>
-    </div>
-    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
-      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
-        <ul style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Welcome</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/usuarios">Usuarios</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Propietarios</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/vehiculos">Vehiculos</a>
-          </li>
-        </ul>
-      </li>
-      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
-        <ul style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
-          <li nz-menu-item nzMatchRouter>
-            <a>Basic Form</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </nz-sider>
-  <nz-layout>
-    <nz-header>
-      <div class="app-header">
-        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-            <i class="trigger"
-               nz-icon
-               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-            ></i>
-        </span>
+<div *ngIf="this.token === null">
+  <nz-layout class="app-layout">
+    <nz-sider class="menu-sidebar"
+              nzCollapsible
+              nzWidth="256px"
+              nzBreakpoint="md"
+              [(nzCollapsed)]="isCollapsed"
+              [nzTrigger]="null"
+              style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+      <div class="sidebar-logo" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+        <a href="" target="_blank">
+          <img src="assets/img/Icono Meraki.png" alt="logo">
+          <h1>Meraki</h1>
+        </a>
       </div>
-    </nz-header>
-    <nz-content>
-      <div class="inner-content">
-        <router-outlet></router-outlet>
-      </div>
-    </nz-content>
+      <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+        <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+          <ul style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/Inicio/Login">Login</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/Inicio/registro">Registro</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Sobre nosotros</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-header>
+        <div class="app-header">
+          <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+              <i class="trigger"
+                 nz-icon
+                 [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+              ></i>
+          </span>
+        </div>
+      </nz-header>
+      <nz-content>
+        <div class="inner-content">
+          <router-outlet></router-outlet>
+        </div>
+      </nz-content>
+    </nz-layout>
   </nz-layout>
-</nz-layout>
+</div>
+<div *ngIf="this.Rol === '3' ">
+  <nz-layout class="app-layout">
+    <nz-sider class="menu-sidebar"
+              nzCollapsible
+              nzWidth="256px"
+              nzBreakpoint="md"
+              [(nzCollapsed)]="isCollapsed"
+              [nzTrigger]="null"
+              style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+      <div class="sidebar-logo" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+        <a href="" target="_blank">
+          <img src="assets/img/Icono Meraki.png" alt="logo">
+          <h1>Meraki</h1>
+        </a>
+      </div>
+      <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+        <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+          <ul style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/Servicios">Servicios</a>
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu nzOpen nzTitle="Form" nzIcon="form" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+          <ul style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/usuarios/perfil">Ver perfil</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-header>
+        <div class="app-header">
+          <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+              <i class="trigger"
+                 nz-icon
+                 [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+              ></i>
+          </span>
+        </div>
+      </nz-header>
+      <nz-content>
+        <div class="inner-content">
+          <router-outlet></router-outlet>
+        </div>
+      </nz-content>
+    </nz-layout>
+  </nz-layout>
+</div>
+<div *ngIf="this.Rol === '2' ">
+  <nz-layout class="app-layout">
+    <nz-sider class="menu-sidebar"
+              nzCollapsible
+              nzWidth="256px"
+              nzBreakpoint="md"
+              [(nzCollapsed)]="isCollapsed"
+              [nzTrigger]="null"
+              style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+      <div class="sidebar-logo" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+        <a href="" target="_blank">
+          <img src="assets/img/Icono Meraki.png" alt="logo">
+          <h1>Meraki</h1>
+        </a>
+      </div>
+      <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+        <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+          <ul style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/Conductores">Welcome</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/vehiculos">Vehiculos</a>
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu nzOpen nzTitle="Form" nzIcon="form" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+          <ul style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+            <li nz-menu-item nzMatchRouter>
+              <a>Basic Form</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-header>
+        <div class="app-header">
+          <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+              <i class="trigger"
+                 nz-icon
+                 [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+              ></i>
+          </span>
+        </div>
+      </nz-header>
+      <nz-content>
+        <div class="inner-content">
+          <router-outlet></router-outlet>
+        </div>
+      </nz-content>
+    </nz-layout>
+  </nz-layout>
+</div>
+<div *ngIf="this.Rol === '1' ">
+  <nz-layout class="app-layout">
+    <nz-sider class="menu-sidebar"
+              nzCollapsible
+              nzWidth="256px"
+              nzBreakpoint="md"
+              [(nzCollapsed)]="isCollapsed"
+              [nzTrigger]="null"
+              style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+      <div class="sidebar-logo" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+        <a href="" target="_blank">
+          <img src="assets/img/Icono Meraki.png" alt="logo">
+          <h1>Meraki</h1>
+        </a>
+      </div>
+      <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+        <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+          <ul style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/welcome">Welcome</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/usuarios">Usuarios</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Propietarios</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/vehiculos">Vehiculos</a>
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu nzOpen nzTitle="Form" nzIcon="form" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+          <ul style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+            <li nz-menu-item nzMatchRouter>
+              <a>Basic Form</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-header>
+        <div class="app-header">
+          <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+              <i class="trigger"
+                 nz-icon
+                 [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+              ></i>
+          </span>
+        </div>
+      </nz-header>
+      <nz-content>
+        <div class="inner-content">
+          <router-outlet></router-outlet>
+        </div>
+      </nz-content>
+    </nz-layout>
+  </nz-layout>
+</div>
+<div *ngIf="this.Rol === '4' ">
+  <nz-layout class="app-layout">
+    <nz-sider class="menu-sidebar"
+              nzCollapsible
+              nzWidth="256px"
+              nzBreakpoint="md"
+              [(nzCollapsed)]="isCollapsed"
+              [nzTrigger]="null"
+              style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+      <div class="sidebar-logo" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+        <a href="" target="_blank">
+          <img src="assets/img/Icono Meraki.png" alt="logo">
+          <h1>Meraki</h1>
+        </a>
+      </div>
+      <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+        <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+          <ul style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/Servicios"> Servicios</a>
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu nzOpen nzTitle="Form" nzIcon="form" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+          <ul style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+            <li nz-menu-item nzMatchRouter>
+              <a>Ver perfil</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-header>
+        <div class="app-header">
+          <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+              <i class="trigger"
+                 nz-icon
+                 [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+              ></i>
+          </span>
+        </div>
+      </nz-header>
+      <nz-content>
+        <div class="inner-content">
+          <router-outlet></router-outlet>
+        </div>
+      </nz-content>
+    </nz-layout>
+  </nz-layout>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

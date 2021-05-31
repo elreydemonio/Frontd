@@ -1,3 +1,6 @@
+import { PropietarioAuthGuard } from './Components/auth/propietario-auth.guard';
+import { AdminGuard } from './Components/auth/admin.guard';
+import { AuthGuard } from './Components/auth/auth.guard';
 import { DetallevehiculoComponent } from './Modulos/vehiculos/detallevehiculo/detallevehiculo.component';
 import { ListarVehiculoComponent } from './Modulos/vehiculos/listar-vehiculo/listar-vehiculo.component';
 import { CrearVehiculoComponent } from './Modulos/vehiculos/crear-vehiculo/crear-vehiculo.component';
@@ -13,7 +16,6 @@ import { VerPerfilComponent } from './Modulos/usuarios/ver-perfil/ver-perfil.com
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'Inicio/Login' },
-
   { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule) },
   {path: 'Inicio',
     children: [
@@ -28,7 +30,6 @@ const routes: Routes = [
         component: LoginComponent
       }
     ]},
-
     { path: 'usuarios',
     children: [
       {
@@ -38,7 +39,8 @@ const routes: Routes = [
       },
       {
         path: 'listar',
-        component: ListarUsuarioComponent
+        component: ListarUsuarioComponent,
+        canActivate: [AdminGuard]
       },
       {
         path: 'registrar',
@@ -46,35 +48,42 @@ const routes: Routes = [
       },
       {
         path: 'editar/:variable',
-        component: EditarUsuarioComponent
+        component: EditarUsuarioComponent,
+        canActivate: [AdminGuard]
       },
       {
         path: 'detalle/:variale',
-        component: DetalleUsuarioComponent
+        component: DetalleUsuarioComponent,
+        canActivate: [AdminGuard]
       },
       {
         path: 'perfil',
-        component: VerPerfilComponent
+        component: VerPerfilComponent,
+        canActivate: [AuthGuard]
       }
-
     ]
   },
   { path: 'vehiculos',
     children: [
       {
+        path: '',
+        pathMatch: 'prefix',
         redirectTo: 'listar'
       },
       {
         path: 'crearVehiculo',
-        component: CrearVehiculoComponent
+        component: CrearVehiculoComponent,
+        canActivate: [PropietarioAuthGuard]
       },
       {
         path: 'listar',
-        component: ListarVehiculoComponent
+        component: ListarVehiculoComponent,
+        canActivate: [PropietarioAuthGuard]
       },
       {
         path: 'detalle/:id',
-        component: DetallevehiculoComponent
+        component: DetallevehiculoComponent,
+        canActivate: [PropietarioAuthGuard]
       }
     ]
   },

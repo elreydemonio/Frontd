@@ -3,75 +3,225 @@
 
   <div class="container">
 
+
+  <form [formGroup]="usuarioService.formularioRegistroUsuario" (ngSubmit)="onSubmit()">
     <div class="contact-form row">
 
-      <div class="form-field col-lg-4">
-        <input id="name" class="input-text" type="name" name="">
-        <label for="name" class="label">Nombre de usuario</label>
-      </div>
+      <!--Nombre de Usuario-->
 
       <div class="form-field col-lg-4">
-        <input id="password" class="input-text" type="password" name="">
-        <label for="password" class="label">Contraseña</label>
+        <input type="hidden" name="Id">
+        <input class="input-text" type="name" name="NombreUsuario" formControlName="NombreUsuario">
+        <label for="NombreUsuario" class="label">Nombre de usuario</label>
       </div>
 
-      <div class="form-field col-lg-4">
-        <input id="barrio" class="input-text" type="number" name="">
-        <label for="barrio" class="label">Número de documento</label>
+      <div class="form-field col-lg-4" *ngIf="this.usuarioService.NombreUsuario.invalid && (this.usuarioService.NombreUsuario.touched || this.usuarioService.NombreUsuario.dirty)">
+
+        <div class="alert" *ngIf="this.usuarioService.Nombre.hasError('required')">
+          El Nombre de Usuario es requerido
+        </div>
+        <div class="alert" *ngIf="this.usuarioService.Nombre.hasError('pattern')">
+          El Nombre de Usuario debe contener solo letras
+        </div>
+        <div class="alert" *ngIf="this.usuarioService.Nombre.hasError('maxlength')">
+          El Nombre de Usuario debe tener máximo 20 carácteres
+        </div>
+        <div class="alert" *ngIf="this.usuarioService.Nombre.hasError('minlength')">
+          El Nombre de Usuario debe tener mínimo 4 carácteres
+        </div>
       </div>
 
+      <!--Contraseña-->
+
       <div class="form-field col-lg-4">
-        <select class="label-pablo">
-        <option value="">Tipo de documento</option>
-        <option value="">Cédula de ciudadanía</option>
-        <option value="">Pasaporte</option>
+        <input class="input-text" type="password" name="Password" formControlName="Password">
+        <label for="Password" class="label">Contraseña</label>
+      </div>
+
+      <div class="form-field col-lg-4" *ngIf="this.usuarioService.Password.invalid && (this.usuarioService.Password.touched || this.usuarioService.Password.dirty)">
+
+        <div class="alert" *ngIf="this.usuarioService.Password.hasError('required')">
+          La contraseña es requerida
+        </div>
+      </div>
+
+      <!--Numero de documento-->
+
+      <div class="form-field col-lg-4">
+        <input class="input-text" type="number" name="NumeroDocumento" formControlName="NumeroDocumento">
+        <label for="NumeroDocumento" class="label">Número de documento</label>
+      </div>
+
+      <div class="form-field col-lg-4" *ngIf="this.usuarioService.NumeroDocumento.invalid && (this.usuarioService.NumeroDocumento.touched || this.usuarioService.NumeroDocumento.dirty)">
+
+        <div class="alert" *ngIf="this.usuarioService.NumeroDocumento.hasError('required')">
+          El número de documento es requerido
+        </div>
+        <div class="alert" *ngIf="this.usuarioService.NumeroDocumento.hasError('pattern')">
+          El número de documento debe contener solo números
+        </div>
+        <div class="alert" *ngIf="this.usuarioService.NumeroDocumento.hasError('maxlength')">
+          El número de documento debe tener máximo 15 carácteres
+        </div>
+        <div class="alert" *ngIf="this.usuarioService.NumeroDocumento.hasError('minlength')">
+          El número de documento debe tener mínimo 5 carácteres
+        </div>
+      </div>
+
+      <!--Tipo de documento-->
+
+      <div class="form-field col-lg-4">
+        <select class="label-pablo" name="IdTipoDocumento" formControlName="IdTipoDocumento">
+        <option value="">Seleccione su tipo de documento</option>
+        <option *ngFor="let Documento of gestionUsuarioService.tipoDocumento"
+        value="{{ Documento.IdTipoDocumento }}"> {{Documento.NombreDoocumento }}</option>
         </select>
       </div>
 
+      <div class="form-field col-lg-4" *ngIf="usuarioService.IdTipoDocumento.invalid && (usuarioService.IdTipoDocumento.touched || usuarioService.IdTipoDocumento.dirty)">
+
+        <div class="alert" *ngIf="usuarioService.IdTipoDocumento.hasError('required')">
+          El tipo de documento es requerido
+        </div>
+      </div>
+
+      <!--Tipo de usuario-->
+
       <div class="form-field col-lg-4">
-        <select class="label-pablo">
-        <option value="">Tipo de usuario</option>
-        <option value="">Cliente</option>
-        <option value="">Propietario</option>
+        <select class="label-pablo" name="IdRol" formControlName="IdRol">
+        <option value="">Seleccione su rol</option>
+        <option *ngFor="let Rol of gestionUsuarioService.roles"
+        value="{{Rol.IdRol}}">{{Rol.NombreRol}}</option>
         </select>
       </div>
 
+      <div class="form-field col-lg-4" *ngIf="usuarioService.IdRol.invalid && (usuarioService.IdRol.touched || usuarioService.IdRol.dirty)">
+
+        <div class="alert" *ngIf="usuarioService.IdRol.hasError('required')">
+          El tipo de usuario es requerido
+        </div>
+      </div>
+
+      <!--Genero-->
+
       <div class="form-field col-lg-4">
-        <select class="label-pablo">
-        <option value="">Genero</option>
-        <option value="">Hombre</option>
-        <option value="">Mujer</option>
+        <select class="label-pablo" name="IdGenero" formControlName="IdGenero">
+        <option value="">Seleccione su genero</option>
+        <option *ngFor="let IdGenero of gestionUsuarioService.genero"
+        value="{{ IdGenero.IdGenero }}">{{ IdGenero.NombreGenero }}</option>
         </select>
       </div>
 
-      <div class="form-field col-lg-4">
-        <input id="celular" class="input-text" type="text" name="">
-        <label for="celular" class="label">Nombre</label>
+      <div class="form-field col-lg-4" *ngIf="usuarioService.IdGenero.invalid && (usuarioService.IdGenero.touched || usuarioService.IdGenero.dirty)">
+
+        <div class="alert" *ngIf="usuarioService.IdGenero.hasError('required')">
+          El genero es requerido
+        </div>
       </div>
 
+      <!--Nombre-->
+
       <div class="form-field col-lg-4">
-        <input  class="input-text" type="text" name="">
-        <label for="celular" class="label">Apellido</label>
+        <input name="Nombre" class="input-text" type="text" formControlName = "Nombre">
+        <label for="Nombre" class="label">Nombre</label>
       </div>
+      <div class="form-field col-lg-4" *ngIf="usuarioService.Nombre.invalid && (usuarioService.Nombre.touched || usuarioService.Nombre.dirty)">
+
+        <div class="alert" *ngIf="usuarioService.Nombre.hasError('required')">
+          El nombre es requerido
+        </div>
+        <div class="alert" *ngIf="usuarioService.Nombre.hasError('pattern')">
+          El nombre debe contener solo letras
+        </div>
+        <div class="alert" *ngIf="usuarioService.Nombre.hasError('maxlength')">
+          El nombre debe tener máximo 30 carácteres
+        </div>
+        <div class="alert" *ngIf="usuarioService.Nombre.hasError('minlength')">
+          El nombre debe tener mínimo 3 carácteres
+        </div>
+      </div>
+
+      <!--Apellido-->
+
+      <div class="form-field col-lg-4">
+        <input class="input-text" type="text" name="Apellido" formControlName="Apellido">
+        <label for="Apellido" class="label">Apellido</label>
+      </div>
+
+      <div class="form-field col-lg-4" *ngIf="usuarioService.Apellido.invalid && (usuarioService.Apellido.touched || usuarioService.Apellido.dirty)">
+
+        <div class="alert" *ngIf="usuarioService.Apellido.hasError('required')">
+          El Apellido es requerido
+        </div>
+        <div class="alert" *ngIf="usuarioService.Apellido.hasError('pattern')">
+          El Apellido debe contener solo letras
+        </div>
+        <div class="alert" *ngIf="usuarioService.Apellido.hasError('maxlength')">
+          El Apellido debe tener máximo 50 carácteres
+        </div>
+        <div class="alert" *ngIf="usuarioService.Apellido.hasError('minlength')">
+          El Apellido debe tener mínimo 3 carácteres
+        </div>
+      </div>
+
+      <!--Correo-->
 
        <div class="form-field col-lg-4">
-        <input  class="input-text" type="email" name="">
-        <label for="celular" class="label">Correo</label>
+        <input class="input-text" type="email" name="Email" formControlName="Email">
+        <label for="Email" class="label">Correo</label>
       </div>
 
-      <div class="form-field col-lg-6">
-        <input  class="input-text" type="text" name="">
-        <label for="celular" class="label">Dirección</label>
+      <div class="form-field col-lg-4" *ngIf="usuarioService.Email.invalid && (usuarioService.Email.touched || usuarioService.Email.dirty)">
+
+        <div class="alert" *ngIf="usuarioService.Email.hasError('required')">
+          El correo electrónico es requerido
+        </div>
+        <div class="alert" *ngIf="usuarioService.Email.hasError('pattern')">
+          El formato del correo electrónico es incorrecto
+        </div>
       </div>
 
+      <!--Direccion-->
+
       <div class="form-field col-lg-6">
-        <input  class="input-text" type="number" name="">
+        <input class="input-text" type="text" name="Direccion" formControlName="Direccion">
+        <label for="direccion" class="label">Dirección</label>
+      </div>
+
+      <div class="form-field col-lg-4" *ngIf="usuarioService.Direccion.invalid && (usuarioService.Direccion.touched || usuarioService.Direccion.dirty)">
+
+        <div class="alert" *ngIf="usuarioService.Direccion.hasError('required')">
+          El correo electrónico es requerido
+        </div>
+      </div>
+
+      <!--Celular-->
+
+      <div class="form-field col-lg-6">
+        <input class="input-text" type="number" name="Celular" formControlName="Celular">
         <label for="celular" class="label">Celular</label>
       </div>
 
-      <div class="form-field col-lg-12" align="center">
-        <button class="submit-btn">Registrar</button>
+      <div class="form-field col-lg-4" *ngIf="usuarioService.Celular.invalid && (usuarioService.Celular.touched || usuarioService.Celular.dirty)">
+
+        <div class="alert" *ngIf="usuarioService.Celular.hasError('required')">
+          El celular es requerido
+        </div>
+        <div class="alert" *ngIf="usuarioService.Celular.hasError('pattern')">
+          El celular debe contener solo números
+        </div>
+        <div class="alert" *ngIf="usuarioService.Celular.hasError('minlength')">
+          El celular debe tener mínimo 5 carácteres
+        </div>
       </div>
+
+      <!--Registrar-->
+
+
     </div>
+    <div class="form-group" align="center">
+      <button class="btn-dark btn-lg btn-block" type="submit" [disabled]="usuarioService.formularioRegistroUsuario.invalid"><i class="fa fa-save"></i>Registrar</button>
+    </div>
+    </form>
   </div>
 </section>
