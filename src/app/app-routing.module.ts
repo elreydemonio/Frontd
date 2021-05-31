@@ -1,3 +1,6 @@
+import { DetallevehiculoComponent } from './Modulos/vehiculos/detallevehiculo/detallevehiculo.component';
+import { ListarVehiculoComponent } from './Modulos/vehiculos/listar-vehiculo/listar-vehiculo.component';
+import { CrearVehiculoComponent } from './Modulos/vehiculos/crear-vehiculo/crear-vehiculo.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './Modulos/login/login.component';
@@ -17,7 +20,6 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'Inicio/Login' },
 
   { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule) },
-
   {path: 'Inicio',
     children: [
       {
@@ -60,6 +62,7 @@ const routes: Routes = [
         component: VerPerfilComponent
       }
 
+<<<<<<< HEAD
     ]},
 
     { path: 'conductores',
@@ -90,6 +93,29 @@ const routes: Routes = [
         component: VerperfilConductorComponent
       }
     ]}
+=======
+    ]
+  },
+  { path: 'vehiculos',
+    children: [
+      {
+        redirectTo: 'listar'
+      },
+      {
+        path: 'crearVehiculo',
+        component: CrearVehiculoComponent
+      },
+      {
+        path: 'listar',
+        component: ListarVehiculoComponent
+      },
+      {
+        path: 'detalle/:id',
+        component: DetallevehiculoComponent
+      }
+    ]
+  },
+>>>>>>> b2df478c139699e4f7c199d96e989b5a2dc6a3ce
 ];
 
 @NgModule({

@@ -1,6 +1,7 @@
+import { CrearVehiculoComponent } from './Modulos/vehiculos/crear-vehiculo/crear-vehiculo.component';
+import { ListarVehiculoComponent } from './Modulos/vehiculos/listar-vehiculo/listar-vehiculo.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
@@ -28,10 +29,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { DetalleUsuarioComponent } from './Modulos/usuarios/detalle-usuario/detalle-usuario.component';
+<<<<<<< HEAD
 import { ListarConductorComponent } from './Modulos/usuarios/conductor/listar-conductor/listar-conductor.component';
 
 
 
+=======
+import { DetallevehiculoComponent } from './Modulos/vehiculos/detallevehiculo/detallevehiculo.component';
+>>>>>>> b2df478c139699e4f7c199d96e989b5a2dc6a3ce
 registerLocaleData(en);
 
 @NgModule({
@@ -41,7 +46,13 @@ registerLocaleData(en);
     RegistrarUsuarioComponent,
     EditarUsuarioComponent,
     DetalleUsuarioComponent,
+<<<<<<< HEAD
     ListarConductorComponent
+=======
+    ListarVehiculoComponent,
+    CrearVehiculoComponent,
+    DetallevehiculoComponent
+>>>>>>> b2df478c139699e4f7c199d96e989b5a2dc6a3ce
   ],
   imports: [
     BrowserModule,
@@ -64,7 +75,6 @@ registerLocaleData(en);
     MatMenuModule,
     MatInputModule,
     MatFormFieldModule
-
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
