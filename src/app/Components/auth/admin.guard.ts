@@ -10,7 +10,7 @@ export class AdminGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-      if (localStorage.getItem('Rol') !== '1' && localStorage.getItem('token') !== null){
+      if (localStorage.getItem('Rol') === '1' && localStorage.getItem('token') !== null){
         return true;
       }else {
         this.router.navigate(['usuario/login']);

@@ -17,6 +17,7 @@ export class VerPerfilComponent implements OnInit {
   cerrarSesion(){
     localStorage.removeItem('token');
     this.router.navigateByUrl('Inicio/Login');
+    window.location.reload();
   }
   ngOnInit(): void {
     this.gestionUsuarioService.obtenerPerfil().subscribe(

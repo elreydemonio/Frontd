@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Detelle de vehiculos </h1>
   <div class="card mb-3" *ngFor='let item of servicioVehicuo.detalleVehiculo'>
-    <img class="card-img-top" src="assets/img/{{ item.FotoV }}" alt="Card image cap">
+    <img class="card-img-top" src="assets/img/{{ item.FotoV }}" alt="Card image cap" style="height: 330px; width: 1050px ;">
     <div class="card-body">
       <h5 class="card-title">{{ item.CodigoV }}</h5>
       <p class="card-text">Marca {{ item.NombreMarca }}, es un modelo {{ item.Modelo }} y es de color {{ item.NombreColor }}</p>

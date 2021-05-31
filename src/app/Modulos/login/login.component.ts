@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if (localStorage.getItem('token') != null) {
-      this.router.navigateByUrl('vehiculos');
+      this.router.navigateByUrl('/usuarios/perfil');
     }
   }
   // tslint:disable-next-line: typedef
@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
         this.Rol = this.parseJWT.Rol;
         localStorage.setItem('Rol', this.Rol);
         this.router.navigateByUrl('welcome');
+        window.location.reload();
       },
       error => {
         if (error.status === 400){

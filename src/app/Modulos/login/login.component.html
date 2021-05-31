@@ -37,15 +37,12 @@
           <i class="fa fa-key"></i>
         </span>
         <input type="password" name="Password" class="form-control input_pass" formControlName="Password" placeholder="Contraseña">
-        <span>
-          <i class="fa fa-eye"  type="button" id="eye"></i>
-        </span>
         <br>
         <button type="submit" name="button" class="btn btn-info my-4 btn-block" [disabled]="this.usuarioService.formularioLogin.invalid">Ingresar</button>
       </div>
       <div class="other">
         <a class="btn submits frgt-pass">¿Ólvido su contraseña?</a>
-        <a href="Inicio/registro" class="btn submits sign-up">Registrarse
+        <a href="usuarios/registrar" class="btn submits sign-up">Registrarse
           <i class="fa fa-user-plus" aria-hidden="true"></i>
         </a>
       </div>
