@@ -95,7 +95,6 @@ const routes: Routes = [
         component: VerperfilConductorComponent
       }
     ]
-    }
   },
   { path: 'vehiculos',
     children: [
