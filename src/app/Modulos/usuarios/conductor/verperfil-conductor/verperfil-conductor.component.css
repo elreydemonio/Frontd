@@ -1,0 +1,32 @@
+
+
+.card-body{
+  width: 550px;
+  background: rgb(0, 0, 0);
+  margin: auto;
+}
+
+h1{
+  color: rgba(151,0,255,1);
+}
+
+strong{
+  color: rgb(125, 4, 161);
+  font-weight: 500;
+}
+
+h5{
+  color: rgb(255, 255, 255);
+}
+
+img{
+  width: 120px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  padding: 5px;
+  height: auto;
+}
+img:hover{
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  transform: scaleX(-1);
+}

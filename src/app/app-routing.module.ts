@@ -2,6 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './Modulos/login/login.component';
 import { RegistroUsuarioComponent } from './Modulos/login/registro-usuario/registro-usuario.component';
+import { DetalleConductorComponent } from './Modulos/usuarios/conductor/detalle-conductor/detalle-conductor.component';
+import { EditarConductorComponent } from './Modulos/usuarios/conductor/editar-conductor/editar-conductor.component';
+import { ListarConductorComponent } from './Modulos/usuarios/conductor/listar-conductor/listar-conductor.component';
+import { RegistrarConductorComponent } from './Modulos/usuarios/conductor/registrar-conductor/registrar-conductor.component';
+import { VerperfilConductorComponent } from './Modulos/usuarios/conductor/verperfil-conductor/verperfil-conductor.component';
 import { DetalleUsuarioComponent } from './Modulos/usuarios/detalle-usuario/detalle-usuario.component';
 import { EditarUsuarioComponent } from './Modulos/usuarios/editar-usuario/editar-usuario.component';
 import { ListarUsuarioComponent } from './Modulos/usuarios/listar-usuario/listar-usuario.component';
@@ -47,7 +52,7 @@ const routes: Routes = [
         component: EditarUsuarioComponent
       },
       {
-        path: 'detalle/:variale',
+        path: 'detalle/:variable',
         component: DetalleUsuarioComponent
       },
       {
@@ -55,8 +60,36 @@ const routes: Routes = [
         component: VerPerfilComponent
       }
 
-    ]
-  }
+    ]},
+
+    { path: 'conductores',
+    children: [
+      {
+        path: '',
+        pathMatch: 'prefix',
+        redirectTo: 'listar'
+      },
+      {
+        path: 'listar',
+        component: ListarConductorComponent
+      },
+      {
+        path: 'registrar',
+        component: RegistrarConductorComponent
+      },
+      {
+        path: 'editar',
+        component: EditarConductorComponent
+      },
+      {
+        path: 'detalle',
+        component: DetalleConductorComponent
+      },
+      {
+        path: 'perfil',
+        component: VerperfilConductorComponent
+      }
+    ]}
 ];
 
 @NgModule({

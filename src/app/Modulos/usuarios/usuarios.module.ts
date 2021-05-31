@@ -9,6 +9,11 @@ import { DetalleUsuarioComponent } from './detalle-usuario/detalle-usuario.compo
 import { ToastrModule } from 'ngx-toastr';
 import { MatCardModule } from '@angular/material/card';
 import { VerPerfilComponent } from './ver-perfil/ver-perfil.component';
+import { ListarConductorComponent } from './conductor/listar-conductor/listar-conductor.component';
+import { RegistrarConductorComponent } from './conductor/registrar-conductor/registrar-conductor.component';
+import { EditarConductorComponent } from './conductor/editar-conductor/editar-conductor.component';
+import { DetalleConductorComponent } from './conductor/detalle-conductor/detalle-conductor.component';
+import { VerperfilConductorComponent } from './conductor/verperfil-conductor/verperfil-conductor.component';
 
 
 
@@ -18,7 +23,12 @@ import { VerPerfilComponent } from './ver-perfil/ver-perfil.component';
       RegistrarUsuarioComponent,
       EditarUsuarioComponent,
       DetalleUsuarioComponent,
-      VerPerfilComponent
+      VerPerfilComponent,
+      ListarConductorComponent,
+      RegistrarConductorComponent,
+      EditarConductorComponent,
+      DetalleConductorComponent,
+      VerperfilConductorComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +42,8 @@ import { VerPerfilComponent } from './ver-perfil/ver-perfil.component';
     ListarUsuarioComponent,
     RegistrarUsuarioComponent,
     EditarUsuarioComponent,
-    DetalleUsuarioComponent
+    DetalleUsuarioComponent,
+    ListarConductorComponent
   ]
 })
 export class UsuariosModule { }

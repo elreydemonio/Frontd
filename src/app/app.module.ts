@@ -28,6 +28,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { DetalleUsuarioComponent } from './Modulos/usuarios/detalle-usuario/detalle-usuario.component';
+import { ListarConductorComponent } from './Modulos/usuarios/conductor/listar-conductor/listar-conductor.component';
 
 
 
@@ -39,7 +40,8 @@ registerLocaleData(en);
     ListarUsuarioComponent,
     RegistrarUsuarioComponent,
     EditarUsuarioComponent,
-    DetalleUsuarioComponent
+    DetalleUsuarioComponent,
+    ListarConductorComponent
   ],
   imports: [
     BrowserModule,

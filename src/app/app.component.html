@@ -7,32 +7,26 @@
             [nzTrigger]="null"
             style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
     <div class="sidebar-logo" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
-      <a href="" target="_blank">
+      <a href="" target="_blank" >
         <img src="assets/img/Icono Meraki.png" alt="logo">
         <h1>Meraki</h1>
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
-      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+      <li nz-submenu nzOpen nzTitle="Inicio" nzIcon="dashboard" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
         <ul style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Welcome</a>
-          </li>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/usuarios">Usuarios</a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a>Propietarios</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Propietarios</a>
+            <a routerLink="/conductores">Conductores</a>
           </li>
         </ul>
       </li>
       <li nz-submenu nzOpen nzTitle="Form" nzIcon="form" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
         <ul style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
           <li nz-menu-item nzMatchRouter>
-            <a>Basic Form</a>
+            <a>Vehículos</a>
           </li>
         </ul>
       </li>
