@@ -13,25 +13,8 @@
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
-      <li nz-submenu nzOpen nzTitle="Inicio" nzIcon="dashboard" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
-        <ul style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/usuarios">Usuarios</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/conductores">Conductores</a>
-            <a>Propietarios</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/vehiculos">Vehiculos</a>
-          </li>
-        </ul>
-      </li>
       <li nz-submenu nzOpen nzTitle="Form" nzIcon="form" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
         <ul style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
-          <li nz-menu-item nzMatchRouter>
-            <a>Vehículos</a>
-          </li>
           <div *ngIf="this.token === null">
             <li nz-menu-item nzMatchRouter>
               <a routerLink="/Inicio/Login">Login</a>
