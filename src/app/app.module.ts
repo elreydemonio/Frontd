@@ -43,10 +43,10 @@ registerLocaleData(en);
     RegistrarUsuarioComponent,
     EditarUsuarioComponent,
     DetalleUsuarioComponent,
-    ListarConductorComponent
+    ListarConductorComponent,
     ListarVehiculoComponent,
     CrearVehiculoComponent,
-    DetallevehiculoComponent
+    DetallevehiculoComponent,
     DetallevehiculoComponent,
     RegistroUsuarioComponent,
     LoginComponent

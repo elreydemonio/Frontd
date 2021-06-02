@@ -21,7 +21,7 @@
 
 .contact-form .form-field{
 	position: relative;
-	margin: 10px 0;
+	margin: 15px 0;
 }
 
 .alert{
@@ -66,6 +66,7 @@
 	border-width: 0 0 2px 0;
 	left: 20px;
 	bottom: 11px;
+  color: white;
 	font-size: 18px;
 	line-height: 26px;
 	font-weight: 400;
