@@ -6,22 +6,22 @@
 
       <div class="form-field col-lg-4">
         <input type="hidden">
-        <input class="input-text" type="name" name="NombreUsuario" formControlName="NombreUsuario" [ngModel]="this.gestionUsuarioService.editardetalle.Username">
+        <input class="input-text" type="name" name="NombreUsuario" formControlName="NombreUsuario" [ngModel]="this.gestionUsuarioService.editardetalle.UserName">
         <label for="NombreUsuario" class="label">Nombre de usuario</label>
       </div>
 
       <div class="form-field col-lg-4" *ngIf="NombreUsuario.invalid && (NombreUsuario.touched || NombreUsuario.dirty)">
 
-        <div class="alert" *ngIf="this.Nombre.hasError('required')">
+        <div class="alert" *ngIf="this.NombreUsuario.hasError('required')">
           El Nombre de Usuario es requerido
         </div>
-        <div class="alert" *ngIf="this.Nombre.hasError('pattern')">
+        <div class="alert" *ngIf="this.NombreUsuario.hasError('pattern')">
           El Nombre de Usuario debe contener solo letras
         </div>
-        <div class="alert" *ngIf="this.Nombre.hasError('maxlength')">
+        <div class="alert" *ngIf="this.NombreUsuario.hasError('maxlength')">
           El Nombre de Usuario debe tener máximo 20 carácteres
         </div>
-        <div class="alert" *ngIf="this.Nombre.hasError('minlength')">
+        <div class="alert" *ngIf="this.NombreUsuario.hasError('minlength')">
           El Nombre de Usuario debe tener mínimo 4 carácteres
         </div>
       </div>

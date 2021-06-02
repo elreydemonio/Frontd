@@ -43,8 +43,8 @@ header p {letter-spacing: 0.05em; color: #fff;}
 .input-item {
     background: #000;
     color: rgba(151,0,255,1);
-    padding: 14.5px 0px 15px 9px;
     border-radius: 5px 0px 0px 5px;
+    padding: 10px;
 }
 
 
@@ -53,10 +53,9 @@ header p {letter-spacing: 0.05em; color: #fff;}
     background: #000;
     color: rgba(151,0,255,1);
 
-    margin: 5.9px 0 0 0;
-    margin-left: -20px;
-    padding: 15px 9px 19px 0px;
-    border-radius: 0px 5px 5px 0px;
+    margin: 6px 0 0 0;
+    margin-left: -34px;
+    padding: 10px;
 
     float: right;
     position: relative;
@@ -69,11 +68,11 @@ header p {letter-spacing: 0.05em; color: #fff;}
 
 input[class="form-input"]{
     width: 240px;
-    height: 50px;
+    height: 80px;
     background: linear-gradient(50deg,  rgb(3, 3, 3) 50%, rgb(0, 0, 0) 5%);
 
     margin-top: 2%;
-    padding: 15px;
+    padding: 35px;
 
     font-size: 16px;
     font-family: 'Abel', sans-serif;
@@ -86,9 +85,26 @@ input[class="form-input"]{
     transition: 0.2s linear;
 
 }
-input[id="txt-input"] {width: 250px;}
+input[id="txt-input"] {width: 250px;
+  height: 35px;
+  background: linear-gradient(50deg,  rgb(3, 3, 3) 50%, rgb(0, 0, 0) 5%);
+  font-size: 16px;
+  font-family: 'Abel', sans-serif;
+  color: rgba(151,0,255,1);
+  margin-top: 2%;
+  outline: none;
+    border: none;
+  }
 
-input[id="pwd"] {width: 250px;}
+input[id="pwd"] {width: 250px; height: 35px;
+  background: linear-gradient(50deg,  rgb(3, 3, 3) 50%, rgb(0, 0, 0) 5%);
+  font-size: 16px;
+  font-family: 'Abel', sans-serif;
+  color: rgba(151,0,255,1);
+  margin-top: 2%;
+  outline: none;
+  border: none;
+}
 
 input:focus {
     transform: translateX(-2px);
@@ -120,9 +136,10 @@ a {
 button {
   display: inline-block;
   color: #fff;
-  font-weight: 600;
+  font-weight: 400;
+  font-size: 20px;
 
-  width: 277px;
+  width: 282px;
   height: 50px;
 
   padding: 0 20px;
@@ -155,6 +172,7 @@ button {
 a:hover {
     transform: translatey(3px);
     box-shadow: none;
+    color: #fff;
 }
 
 a:hover {
@@ -164,6 +182,7 @@ a:hover {
 button:hover {
   transform: translatey(3px);
   box-shadow: none;
+  color: #fff;
 }
 
 button:hover {
