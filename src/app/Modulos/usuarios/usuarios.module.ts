@@ -41,7 +41,7 @@ import { AuthInterceptor } from 'src/app/Components/auth/auth.interceptor';
     RegistrarUsuarioComponent,
     EditarUsuarioComponent,
     DetalleUsuarioComponent,
-    ListarConductorComponent
+    ListarConductorComponent,
     DetalleUsuarioComponent
   ],
   providers: [
