@@ -2,6 +2,8 @@
   <form [formGroup]="gestionUsuarioService.formularioRegistroUsuario" (ngSubmit)="onSubmit()">
     <div class="contact-form row">
 
+      <h1 align="center" style="color: blueviolet;">Registrar Usuario</h1>
+
       <!--Nombre de Usuario-->
 
       <div class="form-field col-lg-4">
@@ -23,6 +25,23 @@
         </div>
         <div class="alert" *ngIf="this.NombreUsuario.hasError('minlength')">
           El Nombre de Usuario debe tener mínimo 4 carácteres
+        </div>
+      </div>
+
+      <!--Correo-->
+
+      <div class="form-field col-lg-4">
+        <input class="input-text" type="email" name="Email" formControlName="Email" [ngModel]="this.gestionUsuarioService.editardetalle.Email">
+        <label for="Email" class="label">Correo</label>
+      </div>
+
+      <div class="form-field col-lg-4" *ngIf="Email.invalid && (Email.touched || Email.dirty)">
+
+        <div class="alert" *ngIf="this.Email.hasError('required')">
+          El correo electrónico es requerido
+        </div>
+        <div class="alert" *ngIf="this.Email.hasError('pattern')">
+          El formato del correo electrónico es incorrecto
         </div>
       </div>
 
@@ -53,8 +72,8 @@
 
       <div class="form-field col-lg-4">
         <select class="label-pablo" name="IdTipoDocumento" formControlName="IdTipoDocumento">
-        <option value="">Seleccione su tipo de documento</option>
-        <option *ngFor="let Documento of gestionUsuarioService.tipoDocumento"
+        <option value="" style="background: #000">Seleccione su tipo de documento</option>
+        <option *ngFor="let Documento of gestionUsuarioService.tipoDocumento" style="background: #000"
         value="{{ Documento.IdTipoDocumento }}"> {{Documento.NombreDoocumento }}</option>
         </select>
       </div>
@@ -70,8 +89,8 @@
 
       <div class="form-field col-lg-4">
         <select class="label-pablo" name="IdRol" formControlName="IdRol">
-        <option value="">Seleccione su rol</option>
-        <option *ngFor="let Rol of gestionUsuarioService.roles"
+        <option value="" style="background: #000">Seleccione su rol</option>
+        <option *ngFor="let Rol of gestionUsuarioService.roles" style="background: #000"
         value="{{Rol.IdRol}}">{{Rol.NombreRol}}</option>
         </select>
       </div>
@@ -87,8 +106,8 @@
 
       <div class="form-field col-lg-4">
         <select class="label-pablo" name="IdGenero" formControlName="IdGenero">
-        <option value=""></option>
-        <option *ngFor="let IdGenero of gestionUsuarioService.genero"
+        <option value="" style="background: #000">Seleccione su género</option>
+        <option *ngFor="let IdGenero of gestionUsuarioService.genero" style="background: #000"
         value="{{ IdGenero.IdGenero }}">{{ IdGenero.NombreGenero }}</option>
         </select>
       </div>
@@ -102,7 +121,7 @@
 
       <!--Nombre-->
 
-      <div class="form-field col-lg-4">
+      <div class="form-field col-lg-3">
         <input name="Nombre" class="input-text" type="text" formControlName = "Nombre" [ngModel]="this.gestionUsuarioService.editardetalle.Nombre">
         <label for="Nombre" class="label">Nombre</label>
       </div>
@@ -124,7 +143,7 @@
 
       <!--Apellido-->
 
-      <div class="form-field col-lg-4">
+      <div class="form-field col-lg-3">
         <input class="input-text" type="text" name="Apellido" formControlName="Apellido" [ngModel]="this.gestionUsuarioService.editardetalle.Apellido">
         <label for="Apellido" class="label">Apellido</label>
       </div>
@@ -145,26 +164,11 @@
         </div>
       </div>
 
-      <!--Correo-->
 
-       <div class="form-field col-lg-4">
-        <input class="input-text" type="email" name="Email" formControlName="Email" [ngModel]="this.gestionUsuarioService.editardetalle.Email">
-        <label for="Email" class="label">Correo</label>
-      </div>
-
-      <div class="form-field col-lg-4" *ngIf="Email.invalid && (Email.touched || Email.dirty)">
-
-        <div class="alert" *ngIf="this.Email.hasError('required')">
-          El correo electrónico es requerido
-        </div>
-        <div class="alert" *ngIf="this.Email.hasError('pattern')">
-          El formato del correo electrónico es incorrecto
-        </div>
-      </div>
 
       <!--Direccion-->
 
-      <div class="form-field col-lg-6">
+      <div class="form-field col-lg-3">
         <input class="input-text" type="text" name="Direccion" formControlName="Direccion" [ngModel]="this.gestionUsuarioService.editardetalle.Direccion">
         <label for="direccion" class="label">Dirección</label>
       </div>
@@ -178,7 +182,7 @@
 
       <!--Celular-->
 
-      <div class="form-field col-lg-6">
+      <div class="form-field col-lg-3">
         <input class="input-text" type="number" name="Celular" formControlName="Celular" [ngModel]="this.gestionUsuarioService.editardetalle.Celular">
         <label for="celular" class="label">Celular</label>
       </div>
@@ -196,12 +200,13 @@
         </div>
       </div>
 
-      <!--Registrar-->
+      <!--Editar-->
 
 
     </div>
     <div class="form-group" align="center">
-      <button class="btn-dark btn-lg btn-block" type="submit" [disabled]="gestionUsuarioService.formularioRegistroUsuario.invalid"><i class="fa fa-save"></i>Editar</button>
+      <button class="btn-dark btn-lg btn-block" type="submit" [disabled]="gestionUsuarioService.formularioRegistroUsuario.invalid"><i class="fa fa-pencil"></i>Editar</button>
+      <a class="btn-dark btn-lg btn-block" href="usuarios/listar/"><i class="fa fa-undo" style="color: rgb(119, 0, 255);"></i>Volver</a>
     </div>
 </form>
 

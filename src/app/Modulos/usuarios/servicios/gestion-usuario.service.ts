@@ -72,7 +72,7 @@ export class GestionUsuarioService {
     Number(this.usuario.NombreRol);
     Number(this.usuario.Celular);
     Number(this.usuario.NumeroDocumento);
-    if (this.usuario.Id === '') {
+    if (this.usuario.Id === "") {
       console.log(this.usuario);
     }
     return this.http.put(this.rootURL + '/Usuarios/EditarClieProp/' + this.usuario.Id, this.usuario);
