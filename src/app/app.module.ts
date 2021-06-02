@@ -47,7 +47,6 @@ registerLocaleData(en);
     ListarVehiculoComponent,
     CrearVehiculoComponent,
     DetallevehiculoComponent,
-    DetallevehiculoComponent,
     RegistroUsuarioComponent,
     LoginComponent
   ],
