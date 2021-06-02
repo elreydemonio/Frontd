@@ -16,7 +16,7 @@ export class VerPerfilComponent implements OnInit {
   // tslint:disable-next-line: typedef
   cerrarSesion(){
     localStorage.removeItem('token');
-    this.router.navigateByUrl('Inicio/Login');
+    this.router.navigateByUrl('Inicio/Login/');
     window.location.reload();
   }
   ngOnInit(): void {

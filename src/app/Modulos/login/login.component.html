@@ -13,10 +13,10 @@
         <span class="input-item">
           <i class="fa fa-user-circle"></i>
         </span>
-        <input class="form-input " id="txt-input" type="text" placeholder="Nombre de usuario" formControlName="NombreUsuario" required>
+        <input class="form-input" id="txt-input" type="text" placeholder="Nombre de usuario" formControlName="NombreUsuario" required>
         <!--Validaciones-->
 
-        <div *ngIf="this.usuarioService.NombreUsuarioLogin.invalid && (this.usuarioService.NombreUsuarioLogin.touched || this.usuarioService.NombreUsuarioLogin.dirty)" class="alert alert-danger">
+        <div *ngIf="this.usuarioService.NombreUsuarioLogin.invalid && (this.usuarioService.NombreUsuarioLogin.touched || this.usuarioService.NombreUsuarioLogin.dirty)" style="color: rgb(253, 0, 0);">
 
           <div *ngIf="this.usuarioService.NombreUsuarioLogin.hasError('required')">
 
@@ -32,16 +32,20 @@
           </div>
 
       </div>
+
         <br>
         <span class="input-item">
           <i class="fa fa-key"></i>
         </span>
-        <input type="password" name="Password" class="form-control input_pass" formControlName="Password" placeholder="Contraseña">
+        <input type="password" id="pwd" name="Password" class="form-input" formControlName="Password" placeholder="Contraseña">
+        <span>
+          <i class="fa fa-eye" aria-hidden="true"  type="button" id="eye"></i>
+       </span>
         <br>
-        <button type="submit" name="button" class="btn btn-info my-4 btn-block" [disabled]="this.usuarioService.formularioLogin.invalid">Ingresar</button>
+        <button type="submit" name="button" class="btn btn" [disabled]="this.usuarioService.formularioLogin.invalid">Ingresar</button>
       </div>
       <div class="other">
-        <a class="btn submits frgt-pass">¿Ólvido su contraseña?</a>
+        <a class="btn submits frgt-pass">¿Olvidó su contraseña?</a>
         <a href="usuarios/registrar" class="btn submits sign-up">Registrarse
           <i class="fa fa-user-plus" aria-hidden="true"></i>
         </a>
