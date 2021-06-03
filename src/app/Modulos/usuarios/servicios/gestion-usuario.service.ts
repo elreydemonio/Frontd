@@ -94,5 +94,9 @@ export class GestionUsuarioService {
   // tslint:disable-next-line: typedef
   obtenerPerfil(){
     return this.http.get(this.rootURL + '/Usuarios/Perfil');
-   }
+  }
+  // tslint:disable-next-line: typedef
+  ListarConductorVehiculo(id: string){
+    return this.http.get(this.rootURL + '/Vehiculos/ListarConductor/' + id);
+  }
 }

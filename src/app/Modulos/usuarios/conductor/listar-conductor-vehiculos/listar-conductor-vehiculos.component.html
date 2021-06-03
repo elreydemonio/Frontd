@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-6" align="center">
+  <h1>Listado Conductores</h1>
+</div>
+<div class="col-md-6" align="center">
+  <a href="conductores/registrar" class="btn-dark btn-lg btn-block text-center" >Registrar Conductor</a>
+</div>
+  <div class="scroll">
+
+      <table>
+  <thead>
+    <tr>
+      <th scope="col">Tipo de usuario</th>
+      <th scope="col">Genero</th>
+      <th scope="col">Fecha Inicio</th>
+      <th scope="col">Nombres</th>
+      <th scope="col">Tipo de documento</th>
+      <th scope="col">Número de documento</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Detalle</th>
+      <th scope="col">Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usuario of listarConductor">
+      <td class="text-center">{{ usuario.NombreRol }}</td>
+      <td class="text-center">{{ usuario.Nombre }}</td>
+      <td class="text-center">{{ usuario.Celular }}</td>
+      <td class="text-center">Armando Gruas</td>
+      <td class="text-center">Pasaporte</td>
+      <td class="text-center">1049493</td>
+      <td class="text-center detalle"><a href="conductores/editar" style="color: rgb(255, 255, 255)"><i class="fa fa-pencil-square-o"></i></a></td>
+      <td class="text-center detalle"><a href="conductores/detalle" style="color: rgb(255, 255, 255)"><i class="fa fa-eye"></i></a></td>
+      <td><button class=" text-center btn btn-outline-success ">activo</button></td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+</div>
+
