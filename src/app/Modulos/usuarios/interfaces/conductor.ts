@@ -1,0 +1,21 @@
+export interface Conductor {
+    id: string,
+    NombreUsuario: string,
+    IdRol: number,
+    Email: string,
+    Password: string,
+    Nombre: string,
+    Apellido: string,
+    IdEstado: number,
+    IdTipoDocumento: number,
+    IdGenero: number,
+    Direccion: string,
+    NumeroDocumento: number,
+    Celular: number,
+    IdInfo: number,
+    FechaInicio: undefined,
+    FechaFin: undefined,
+    FotoConductor: string,
+    IdConductor: string,
+    CodigoV: string
+}

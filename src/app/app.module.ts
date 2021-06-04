@@ -35,6 +35,7 @@ import { DetalleUsuarioComponent } from './Modulos/usuarios/detalle-usuario/deta
 import { ListarConductorComponent } from './Modulos/usuarios/conductor/listar-conductor/listar-conductor.component';
 import { DetallevehiculoComponent } from './Modulos/vehiculos/detallevehiculo/detallevehiculo.component';
 import { AuthInterceptor } from './Components/auth/auth.interceptor';
+import { RegistrarConductorComponent } from './Modulos/usuarios/conductor/registrar-conductor/registrar-conductor.component';
 registerLocaleData(en);
 
 @NgModule({
@@ -50,7 +51,8 @@ registerLocaleData(en);
     DetallevehiculoComponent,
     RegistroUsuarioComponent,
     LoginComponent,
-    ListarConductorVehiculosComponent
+    ListarConductorVehiculosComponent,
+    RegistrarConductorComponent
   ],
   imports: [
     BrowserModule,

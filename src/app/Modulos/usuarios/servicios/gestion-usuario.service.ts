@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { exit } from 'process';
+import { Conductor } from '../interfaces/conductor';
 import { Detalleusuario } from '../interfaces/detalleusuario';
 import { Editardetalle } from '../interfaces/editardetalle';
 import { Genero } from '../interfaces/genero';
@@ -13,8 +15,10 @@ import { Usuario } from '../interfaces/usuario';
 })
 export class GestionUsuarioService {
 
-  readonly rootURL = 'https://localhost:44363/api';
-
+  readonly rootURL = 'https://localhost:44323/api';
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  }
   formularioRegistroUsuario: FormGroup;
   usuario: Usuario;
   listaUsuarios: Usuario[];
@@ -23,7 +27,7 @@ export class GestionUsuarioService {
   roles: Roles[];
   detalleusuario: Detalleusuario;
   editardetalle: Editardetalle;
-
+  Conductor: Conductor;
   constructor(private http: HttpClient) { }
   // tslint:disable-next-line: typedef
   listarUsuarios(){
@@ -98,5 +102,24 @@ export class GestionUsuarioService {
   // tslint:disable-next-line: typedef
   ListarConductorVehiculo(id: string){
     return this.http.get(this.rootURL + '/Vehiculos/ListarConductor/' + id);
+  }
+  GuardarConductor(){
+    this.Conductor = this.formularioRegistroUsuario.value;
+    Number(this.Conductor.IdEstado = 1);
+    Number(this.Conductor.NumeroDocumento);
+    Number(this.Conductor.IdGenero);
+    Number(this.Conductor.IdRol);
+    Number(this.Conductor.Celular);
+    Number(this.Conductor.NumeroDocumento);
+    console.log(this.Conductor);
+    this.Conductor.FechaInicio = null;
+    this.Conductor.FechaFin = null;
+    return this.http.post(this.rootURL + '/Usuarios/AgregarConductor', this.usuario);
+
+  }
+  registrarImaganes(file: File){
+    const formData = new FormData();
+    formData.append('File', file);
+    return this.http.post(this.rootURL + '/Vehiculos/Imagenes', formData);
   }
 }
