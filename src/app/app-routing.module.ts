@@ -79,23 +79,28 @@ const routes: Routes = [
       },
       {
         path: 'registrar',
-        component: RegistrarConductorComponent
+        component: RegistrarConductorComponent,
+        canActivate: [PropietarioAuthGuard]
       },
       {
         path: 'editar',
-        component: EditarConductorComponent
+        component: EditarConductorComponent,
+        canActivate: [PropietarioAuthGuard]
       },
       {
-        path: 'detalle',
-        component: DetalleConductorComponent
+        path: 'detalle/:variable',
+        component: DetalleConductorComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'perfil',
-        component: VerperfilConductorComponent
+        component: VerperfilConductorComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'ListarConductoresVehiculos/:variable',
-        component: ListarConductorVehiculosComponent
+        component: ListarConductorVehiculosComponent,
+        canActivate: [PropietarioAuthGuard]
       }
     ]
   },
@@ -107,7 +112,7 @@ const routes: Routes = [
         redirectTo: 'listar'
       },
       {
-        path: 'crearVehiculo/:id',
+        path: 'crearVehiculo',
         component: CrearVehiculoComponent,
         canActivate: [PropietarioAuthGuard]
       },

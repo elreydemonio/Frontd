@@ -196,20 +196,6 @@
         </div>
       </div>
 
-      <!--Confirmar Contraseña-->
-
-      <div class="form-field col-lg-4">
-        <input class="input-text" type="password" name="ConfirPassword" formControlName="ConfirPassword">
-        <label for="ConfirPassword" class="label">Confirmar contraseña</label>
-      </div>
-
-      <div class="form-field col-lg-4" *ngIf="Password.invalid && (Password.touched || Password.dirty)">
-
-        <div class="alert" *ngIf="this.Password.hasError('required')">
-          La contraseña es requerida
-        </div>
-      </div>
-
       <!--Celular-->
 
       <div class="form-field col-lg-4">

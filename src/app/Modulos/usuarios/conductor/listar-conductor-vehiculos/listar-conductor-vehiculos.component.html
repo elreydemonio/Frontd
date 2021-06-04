@@ -11,7 +11,7 @@
   <thead>
     <tr>
       <th scope="col">Tipo de usuario</th>
-      <th scope="col">Genero</th>
+      <th scope="col">Celular </th>
       <th scope="col">Fecha Inicio</th>
       <th scope="col">Nombres</th>
       <th scope="col">Tipo de documento</th>
@@ -24,14 +24,15 @@
   <tbody>
     <tr *ngFor="let usuario of listarConductor">
       <td class="text-center">{{ usuario.NombreRol }}</td>
-      <td class="text-center">{{ usuario.Nombre }}</td>
       <td class="text-center">{{ usuario.Celular }}</td>
-      <td class="text-center">Armando Gruas</td>
-      <td class="text-center">Pasaporte</td>
-      <td class="text-center">1049493</td>
+      <td class="text-center">{{ usuario.FechaInicio }}</td>
+      <td class="text-center">{{ usuario.Nombre +' '+ usuario.Apellido }}</td>
+      <td class="text-center">{{ usuario.NombreDoocumento }}</td>
+      <td class="text-center">{{ usuario.NumeroDocumento }}</td>
       <td class="text-center detalle"><a href="conductores/editar" style="color: rgb(255, 255, 255)"><i class="fa fa-pencil-square-o"></i></a></td>
-      <td class="text-center detalle"><a href="conductores/detalle" style="color: rgb(255, 255, 255)"><i class="fa fa-eye"></i></a></td>
-      <td><button class=" text-center btn btn-outline-success ">activo</button></td>
+      <td class="text-center detalle"><a href="conductores/detalle/{{ usuario.Id }}" style="color: rgb(255, 255, 255)"><i class="fa fa-eye"></i></a></td>
+      <td *ngIf="usuario.IdEstado == 1"><button class=" text-center btn btn-outline-success " (click)="EditarEstadoConductor(usuario.Id ,usuario.Id )">{{ usuario.EstadoNombre }}</button></td>
+      <td *ngIf="usuario.IdEstado == 2"><button class=" text-center btn btn-outline-success "  (click)="EditarEstadoConductor(usuario.Id ,usuario.Id )">{{ usuario.EstadoNombre }}</button></td>
     </tr>
   </tbody>
 </table>

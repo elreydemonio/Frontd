@@ -99,4 +99,12 @@ export class GestionUsuarioService {
   ListarConductorVehiculo(id: string){
     return this.http.get(this.rootURL + '/Vehiculos/ListarConductor/' + id);
   }
+  // tslint:disable-next-line: typedef
+  DetalleConductor(id: string){
+    return this.http.get(this.rootURL + '/Usuarios/DetalleUsuarioConductor/' + id);
+  }
+  // tslint:disable-next-line: typedef
+  EditarEstadoConductor(IdEstadoUsuario: any, Id){
+    return this.http.put(this.rootURL + '/Usuarios/CambiarEstadoConductor/' + IdEstadoUsuario, Id);
+  }
 }
