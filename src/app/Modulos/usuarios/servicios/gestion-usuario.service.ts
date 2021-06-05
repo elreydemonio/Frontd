@@ -13,7 +13,7 @@ import { Usuario } from '../interfaces/usuario';
 })
 export class GestionUsuarioService {
 
-  readonly rootURL = 'https://localhost:44379/api';
+  readonly rootURL = 'https://localhost:44363/api';
 
   formularioRegistroUsuario: FormGroup;
   usuario: Usuario;
@@ -94,5 +94,17 @@ export class GestionUsuarioService {
   // tslint:disable-next-line: typedef
   obtenerPerfil(){
     return this.http.get(this.rootURL + '/Usuarios/Perfil');
-   }
+  }
+  // tslint:disable-next-line: typedef
+  ListarConductorVehiculo(id: string){
+    return this.http.get(this.rootURL + '/Vehiculos/ListarConductor/' + id);
+  }
+  // tslint:disable-next-line: typedef
+  DetalleConductor(id: string){
+    return this.http.get(this.rootURL + '/Usuarios/DetalleUsuarioConductor/' + id);
+  }
+  // tslint:disable-next-line: typedef
+  EditarEstadoConductor(IdEstadoUsuario: any, Id){
+    return this.http.put(this.rootURL + '/Usuarios/CambiarEstadoConductor/' + IdEstadoUsuario, Id);
+  }
 }
