@@ -12,6 +12,7 @@ export class ListarVehiculoComponent implements OnInit {
   constructor(public servicioVehiculo: ServicioVehiculosService,private toast: ToastrService) { }
   ngOnInit(): void {
     this.servicioVehiculo.ListarVehiculos();
+    this.servicioVehiculo.ListarValidation();
   }
   // tslint:disable-next-line: typedef
   CambiarEstado(CodgioV: any){
