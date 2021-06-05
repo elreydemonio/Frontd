@@ -1,0 +1,19 @@
+strong{
+  color: rgba(151,0,255,1);
+}
+
+hr{
+  color: rgba(151,0,255,1);
+}
+
+h1{
+  color: rgba(39,35,40,1)
+}
+
+.card-body{
+  padding: 30px;
+}
+
+.row{
+  padding: 15px;
+}
