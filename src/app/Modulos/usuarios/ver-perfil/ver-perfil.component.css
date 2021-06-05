@@ -1,90 +1,20 @@
-
-
-.card {
-  height: 22rem;
+.card-body{
+  width: 550px;
+  background: rgb(0, 0, 0);
+  margin: auto;
+  height: 400px;
+  border-radius: 20px;
 }
 
-.card__side {
-  height: auto;
-  transition: all 0.8s ease;
-  width: 700px;
-  border-radius: 3px;
-  position: absolute;
-  top: 0;
-  left: 0;
+h1{
+  color: rgb(125, 4, 161);
 }
 
-
-
-.card__side--front-2 {
-  background: linear-gradient(-45deg, #9a4eff, #1b1b1b);
+strong{
+  color: rgb(125, 4, 161);
+  font-weight: 500;
 }
 
-
-
-.card__title {
-  height: 5rem;
-  padding: 4rem 2rem 2rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+h5{
+  color: rgb(255, 255, 255);
 }
-
-.card__title--1 .fas {
-  font-size: 5rem;
-}
-
-.card__title--2 .fas {
-  font-size: 5rem;
-}
-
-.card__title--3 .fas {
-  font-size: 5rem;
-}
-
-.card__heading {
-  font-size: 4rem;
-  font-weight: 300;
-  text-transform: uppercase;
-  text-align: center;
-  color: #fff;
-  width: 75%;
-}
-
-.card__heading-span {
-  padding: 1rem 1.5rem;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
-
-.card__details {
-  padding: 0 2rem 2rem;
-}
-
-.card__details ul {
-  list-style: none;
-  width: 80%;
-  margin: 0 auto;
-}
-
-.card__details ul li {
-  text-align: center;
-  font-size: 1.5rem;
-  padding: 1rem;
-}
-
-.card__details ul li:not(:last-child) {
-  border-bottom: 1px solid #eee;
-}
-
-

@@ -29,8 +29,8 @@
       <td class="text-center">{{usuario.Nombre + ' ' + usuario.Apellido}}</td>
       <td class="text-center">{{usuario.NombreDoocumento}}</td>
       <td class="text-center">{{usuario.NumeroDocumento}}</td>
-      <td class="text-center detalle"><a href="usuarios/editar/{{usuario.Id}}"><i class="fa fa-pencil-square-o"></i></a></td>
-      <td class="text-center detalle"><a href="usuarios/detalle/{{usuario.Id}}"><i class="fa fa-eye"></i></a></td>
+      <td class="text-center" ><a href="usuarios/editar/{{usuario.Id}}"><i class="fa fa-pencil-square-o" style="color: white;"></i></a></td>
+      <td class="text-center" ><a href="usuarios/detalle/{{usuario.Id}}"><i class="fa fa-eye" style="color: white;"></i></a></td>
 
       <td *ngIf="usuario.IdEstadoUsuario == 1" class="text-center detalle">
         <button class="btn btn-outline-success" (click)="CambiarEstado(usuario.Id, usuario.IdEstadoUsuario)">

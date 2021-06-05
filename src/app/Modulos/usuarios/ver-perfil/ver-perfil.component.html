@@ -1,21 +1,32 @@
 
-    <section class="section-plans" id="section-plans">
-          <div class="card">
-            <div class="card__side card__side--front-2">
-              <div class="card__title card__title--2">
-                <h4 class="card__heading">Su perfil:</h4>
-              </div>
-              <div class="card__details">
-                <ul>
-                  <li><strong>Nombre completo: {{this.perfilUsuario.Nombre + ' ' + this.perfilUsuario.Apellido}}</strong></li>
-                  <li><strong>Numero Documento: {{this.perfilUsuario.NumeroDocumento}}</strong></li>
-                  <li><strong>Email: {{this.perfilUsuario.Email}}</strong></li>
-                  <li><strong>Direccion:  {{this.perfilUsuario.Direccion}}</strong></li>
-                  <li><strong>Celular: {{this.perfilUsuario.Celular}}</strong></li>
-                  <li><strong>Celular: {{this.perfilUsuario.Celular}}</strong></li>
-                  <li><strong> <button class="btn btn-info"  (click)="this.cerrarSesion()">Cerrar session</button>  </strong></li>
-                </ul>
-              </div>
-            </div>
+
+    <div class="container">
+      <h1 class="text-center">Su perfil:</h1>
+        <div class="card-body">
+
+            <div class="row">
+            <strong class="col-md-12 text-center">Nombre completo<h5 class="card-title text-center">{{this.perfilUsuario.Nombre + ' ' + this.perfilUsuario.Apellido}}</h5></strong>
+            <strong class="col-md-12 text-center">Nombre de usuario<h5 class="card-title text-center">{{this.perfilUsuario.UserName}}</h5></strong>
           </div>
-    </section>
+
+          <div class="row">
+            <strong class="col-md-12 text-center">Correo electrónico<h5 class="card-title text-center">{{this.perfilUsuario.Email}}</h5></strong>
+            <strong class="col-md-12 text-center">Dirección<h5 class="card-title text-center">{{this.perfilUsuario.Direccion}}</h5></strong>
+          </div>
+
+          <div class="row">
+            <strong class="col-md-12 text-center">Número de documento<h5 class="card-title text-center">{{this.perfilUsuario.NumeroDocumento}}</h5></strong>
+            <strong class="col-md-12 text-center">Celular<h5 class="card-title text-center">{{this.perfilUsuario.Celular}}</h5></strong>
+          </div>
+<br>
+            <div class="row">
+              <div class="col-md-6" align="center">
+                <button class="btn-light btn-lg" (click)="this.cerrarSesion()"><i class="fa fa-sign-out">Cerrar Sesión</i></button>
+              </div>
+                <div class="col-md-6" align="center">
+                <button href="usuarios/registrar" class="btn-light btn-lg btn-block"><i class="fa fa-pencil-square-o">Editar</i></button>>
+              </div>
+          </div>
+        </div>
+    </div>
+

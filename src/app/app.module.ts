@@ -1,3 +1,5 @@
+import { DetalleConductorComponent } from './Modulos/usuarios/conductor/detalle-conductor/detalle-conductor.component';
+import { ListarConductorVehiculosComponent } from './Modulos/usuarios/conductor/listar-conductor-vehiculos/listar-conductor-vehiculos.component';
 import { LoginComponent } from './Modulos/login/login.component';
 import { RegistroUsuarioComponent } from './Modulos/login/registro-usuario/registro-usuario.component';
 import { CrearVehiculoComponent } from './Modulos/vehiculos/crear-vehiculo/crear-vehiculo.component';
@@ -48,7 +50,9 @@ registerLocaleData(en);
     CrearVehiculoComponent,
     DetallevehiculoComponent,
     RegistroUsuarioComponent,
-    LoginComponent
+    LoginComponent,
+    ListarConductorVehiculosComponent,
+    DetalleConductorComponent
   ],
   imports: [
     BrowserModule,

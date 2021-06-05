@@ -1,18 +1,39 @@
 <div class="container">
-  <h1>Detalle Usuarios</h1>
+  <h1 class="text-center">Detalle Usuario</h1>
   <div class="card mb-3" *ngFor='let detalle of gestionUsuarioService.detalleusuario'>
     <div class="card-body">
-      <h5 class="card-title">{{ id }}</h5>
-      <h5 class="card-title">{{detalle.UserName}}</h5>
-      <h5 class="card-title">{{detalle.NombreDoocumento}}</h5>
-      <h5 class="card-title">{{detalle.NumeroDocumento}}</h5>
-      <h5 class="card-title">{{detalle.NombreRol}}</h5>
-      <h5 class="card-title">{{detalle.NombreGenero}}</h5>
-      <h5 class="card-title">{{detalle.Email}}</h5>
-      <h5 class="card-title">{{detalle.Nombre}}</h5>
-      <h5 class="card-title">{{detalle.Apellido}}</h5>
-      <h5 class="card-title">{{detalle.Celular}}</h5>
-      <h5 class="card-title">{{detalle.Direccion}}</h5>
+
+
+
+      <div class="row">
+        <strong class="col-md-12 text-center">Id<h5 class="card-title text-center">{{ id }}</h5></strong>
+      </div>
+<hr>
+      <div class="row">
+        <strong class="col-md-4 text-center">Nombre completo<h5 class="card-title text-center">{{detalle.Nombre + ' ' + detalle.Apellido}}</h5></strong>
+        <strong class="col-md-4 text-center">Nombre de usuario<h5 class="card-title text-center">{{detalle.UserName}}</h5></strong>
+        <strong class="col-md-4 text-center">Rol<h5 class="card-title text-center">{{detalle.NombreRol}}</h5></strong>
+      </div>
+<hr>
+      <div class="row">
+        <strong class="col-md-4 text-center">Tipo de documento<h5 class="card-title text-center">{{detalle.NombreDoocumento}}</h5></strong>
+        <strong class="col-md-4 text-center">Número de documento<h5 class="card-title text-center">{{detalle.NumeroDocumento}}</h5></strong>
+        <strong class="col-md-4 text-center">Género<h5 class="card-title text-center">{{detalle.NombreGenero}}</h5></strong>
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <strong class="col-md-4 text-center">Correo electrónico<h5 class="card-title text-center">{{detalle.Email}}</h5></strong>
+        <strong class="col-md-4 text-center">Celular<h5 class="card-title text-center">{{detalle.Celular}}</h5></strong>
+        <strong class="col-md-4 text-center">Dirección<h5 class="card-title text-center">{{detalle.Direccion}}</h5></strong>
+      </div>
+<br>
+<br>
+        <div align="center">
+        <button class="btn btn-white"><a href="usuarios/" style="color: rgba(151,0,255,1);">Volver</a></button>
+      </div>
     </div>
   </div>
 </div>
+

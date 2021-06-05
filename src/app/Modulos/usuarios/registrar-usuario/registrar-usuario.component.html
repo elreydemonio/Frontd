@@ -2,6 +2,8 @@
   <form [formGroup]="gestionUsuarioService.formularioRegistroUsuario" (ngSubmit)="onSubmit()">
     <div class="contact-form row">
 
+      <h1 align="center" style="color: blueviolet;">Registrar Usuario</h1>
+
       <!--Nombre de Usuario-->
 
       <div class="form-field col-lg-4">
@@ -26,19 +28,21 @@
         </div>
       </div>
 
-      <!--Contraseña-->
 
-      <div class="form-field col-lg-4">
-        <input class="input-text" type="password" name="Password" formControlName="Password">
-        <label for="Password" class="label">Contraseña</label>
+    <!--Direccion-->
+
+    <div class="form-field col-lg-4">
+      <input class="input-text" type="text" name="Direccion" formControlName="Direccion">
+      <label for="direccion" class="label">Dirección</label>
+    </div>
+
+    <div class="form-field col-lg-4" *ngIf="Direccion.invalid && (Direccion.touched || Direccion.dirty)">
+
+      <div class="alert" *ngIf="this.Direccion.hasError('required')">
+        La dirección es requerida
       </div>
+    </div>
 
-      <div class="form-field col-lg-4" *ngIf="Password.invalid && (Password.touched || Password.dirty)">
-
-        <div class="alert" *ngIf="this.Password.hasError('required')">
-          La contraseña es requerida
-        </div>
-      </div>
 
       <!--Numero de documento-->
 
@@ -67,8 +71,8 @@
 
       <div class="form-field col-lg-4">
         <select class="label-pablo" name="IdTipoDocumento" formControlName="IdTipoDocumento">
-        <option value="">Seleccione su tipo de documento</option>
-        <option *ngFor="let Documento of gestionUsuarioService.tipoDocumento"
+        <option value=""  style="background: #000">Tipo de documento</option>
+        <option *ngFor="let Documento of gestionUsuarioService.tipoDocumento" style="background: #000"
         value="{{ Documento.IdTipoDocumento }}"> {{Documento.NombreDoocumento }}</option>
         </select>
       </div>
@@ -84,8 +88,8 @@
 
       <div class="form-field col-lg-4">
         <select class="label-pablo" name="IdRol" formControlName="IdRol">
-        <option value="">Seleccione su rol</option>
-        <option *ngFor="let Rol of gestionUsuarioService.roles"
+        <option value="" style="background: #000">Seleccione su rol</option>
+        <option *ngFor="let Rol of gestionUsuarioService.roles" style="background: #000"
         value="{{Rol.IdRol}}">{{Rol.NombreRol}}</option>
         </select>
       </div>
@@ -101,8 +105,8 @@
 
       <div class="form-field col-lg-4">
         <select class="label-pablo" name="IdGenero" formControlName="IdGenero">
-        <option value="">Seleccione su genero</option>
-        <option *ngFor="let IdGenero of gestionUsuarioService.genero"
+        <option value="" style="background: #000">Seleccione su género</option>
+        <option *ngFor="let IdGenero of gestionUsuarioService.genero" style="background: #000"
         value="{{ IdGenero.IdGenero }}">{{ IdGenero.NombreGenero }}</option>
         </select>
       </div>
@@ -176,23 +180,25 @@
         </div>
       </div>
 
-      <!--Direccion-->
 
-      <div class="form-field col-lg-6">
-        <input class="input-text" type="text" name="Direccion" formControlName="Direccion">
-        <label for="direccion" class="label">Dirección</label>
+
+      <!--Contraseña-->
+
+      <div class="form-field col-lg-4">
+        <input class="input-text" type="password" name="Password" formControlName="Password">
+        <label for="Password" class="label">Contraseña</label>
       </div>
 
-      <div class="form-field col-lg-4" *ngIf="Direccion.invalid && (Direccion.touched || Direccion.dirty)">
+      <div class="form-field col-lg-4" *ngIf="Password.invalid && (Password.touched || Password.dirty)">
 
-        <div class="alert" *ngIf="this.Direccion.hasError('required')">
-          El correo electrónico es requerido
+        <div class="alert" *ngIf="this.Password.hasError('required')">
+          La contraseña es requerida
         </div>
       </div>
 
       <!--Celular-->
 
-      <div class="form-field col-lg-6">
+      <div class="form-field col-lg-4">
         <input class="input-text" type="number" name="Celular" formControlName="Celular">
         <label for="celular" class="label">Celular</label>
       </div>
@@ -215,7 +221,8 @@
 
     </div>
     <div class="form-group" align="center">
-      <button class="btn-dark btn-lg btn-block" type="submit" [disabled]="gestionUsuarioService.formularioRegistroUsuario.invalid"><i class="fa fa-save"></i>Registrar</button>
+      <button class="btn-dark btn-lg btn-block" type="submit" [disabled]="gestionUsuarioService.formularioRegistroUsuario.invalid"><i class="fa fa-save" style="color: rgb(119, 0, 255);"></i>Registrar</button>
+      <a class="btn-dark btn-lg btn-block" href="Inicio/Login/"><i class="fa fa-undo" style="color: rgb(119, 0, 255);"></i>Volver</a>
     </div>
 </form>
 

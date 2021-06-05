@@ -92,7 +92,8 @@ export class RegistrarUsuarioComponent implements OnInit {
     this.gestionUsuarioService.guardarUsuario().subscribe(
       res=>{
         this.gestionUsuarioService.formularioRegistroUsuario.reset();
-        this.toastr.success("Registro exitoso")
+        this.toastr.success("Registro exitoso");
+        window.location.href = "Inicio/Login/";
       },
       err=>{
         console.log(err)

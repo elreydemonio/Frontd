@@ -72,7 +72,7 @@ export class GestionUsuarioService {
     Number(this.usuario.NombreRol);
     Number(this.usuario.Celular);
     Number(this.usuario.NumeroDocumento);
-    if (this.usuario.Id === '') {
+    if (this.usuario.Id === "") {
       console.log(this.usuario);
     }
     return this.http.put(this.rootURL + '/Usuarios/EditarClieProp/' + this.usuario.Id, this.usuario);
@@ -94,5 +94,17 @@ export class GestionUsuarioService {
   // tslint:disable-next-line: typedef
   obtenerPerfil(){
     return this.http.get(this.rootURL + '/Usuarios/Perfil');
-   }
+  }
+  // tslint:disable-next-line: typedef
+  ListarConductorVehiculo(id: string){
+    return this.http.get(this.rootURL + '/Vehiculos/ListarConductor/' + id);
+  }
+  // tslint:disable-next-line: typedef
+  DetalleConductor(id: string){
+    return this.http.get(this.rootURL + '/Usuarios/DetalleUsuarioConductor/' + id);
+  }
+  // tslint:disable-next-line: typedef
+  EditarEstadoConductor(IdEstadoUsuario: any, Id){
+    return this.http.put(this.rootURL + '/Usuarios/CambiarEstadoConductor/' + IdEstadoUsuario, Id);
+  }
 }
