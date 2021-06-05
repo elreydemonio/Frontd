@@ -18,6 +18,12 @@ import { EditarUsuarioComponent } from './Modulos/usuarios/editar-usuario/editar
 import { ListarUsuarioComponent } from './Modulos/usuarios/listar-usuario/listar-usuario.component';
 import { RegistrarUsuarioComponent } from './Modulos/usuarios/registrar-usuario/registrar-usuario.component';
 import { VerPerfilComponent } from './Modulos/usuarios/ver-perfil/ver-perfil.component';
+import { ListarServiciosComponent } from './Modulos/servicios/listar-servicios/listar-servicios.component';
+import { GeolocalizacionComponent } from './Modulos/servicios/geolocalizacion/geolocalizacion.component';
+import { DetalleServiciosComponent } from './Modulos/servicios/detalle-servicios/detalle-servicios.component';
+import { PedirServicioComponent } from './Modulos/servicios/pedir-servicio/pedir-servicio.component';
+import { VehiculosDisponiblesComponent } from './Modulos/servicios/vehiculos-disponibles/vehiculos-disponibles.component';
+import { AceptarServicioComponent } from './Modulos/servicios/aceptar-servicio/aceptar-servicio.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'Inicio/Login' },
@@ -118,8 +124,42 @@ const routes: Routes = [
         component: DetallevehiculoComponent,
         canActivate: [PropietarioAuthGuard]
       }
+    ]},
+
+  {
+    path: 'servicios',
+    children: [
+      {
+        path: '',
+        pathMatch: 'prefix',
+        redirectTo: 'listar'
+      },
+      {
+        path: 'listar',
+        component: ListarServiciosComponent
+      },
+      {
+        path: 'geolocalizacion',
+        component: GeolocalizacionComponent
+      },
+      {
+        path: 'detalle',
+        component: DetalleServiciosComponent
+      },
+      {
+        path: 'pedir',
+        component: PedirServicioComponent
+      },
+      {
+        path: 'vehiculos',
+        component: VehiculosDisponiblesComponent
+      },
+      {
+        path: 'aceptar',
+        component: AceptarServicioComponent
+      }
     ]
-  },
+  }
 ];
 
 @NgModule({

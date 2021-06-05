@@ -34,6 +34,8 @@ import { DetalleUsuarioComponent } from './Modulos/usuarios/detalle-usuario/deta
 import { ListarConductorComponent } from './Modulos/usuarios/conductor/listar-conductor/listar-conductor.component';
 import { DetallevehiculoComponent } from './Modulos/vehiculos/detallevehiculo/detallevehiculo.component';
 import { AuthInterceptor } from './Components/auth/auth.interceptor';
+import { GeolocalizacionComponent } from './Modulos/servicios/geolocalizacion/geolocalizacion.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 registerLocaleData(en);
 
 @NgModule({
@@ -48,6 +50,7 @@ registerLocaleData(en);
     CrearVehiculoComponent,
     DetallevehiculoComponent,
     RegistroUsuarioComponent,
+    GeolocalizacionComponent,
     LoginComponent
   ],
   imports: [
@@ -70,7 +73,8 @@ registerLocaleData(en);
     MatCardModule,
     MatMenuModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    NgbModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US },
     {
