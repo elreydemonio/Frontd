@@ -143,7 +143,7 @@ const routes: Routes = [
         component: GeolocalizacionComponent
       },
       {
-        path: 'detalle',
+        path: 'detalle/:variable',
         component: DetalleServiciosComponent
       },
       {

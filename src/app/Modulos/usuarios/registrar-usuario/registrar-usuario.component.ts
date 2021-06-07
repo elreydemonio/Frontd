@@ -25,7 +25,7 @@ export class RegistrarUsuarioComponent implements OnInit {
     Direccion:["", [Validators.required]],
     Email:["", [Validators.required, Validators.pattern(this.exRegularCorreo)]],
     NombreUsuario:["", [Validators.required , Validators.minLength(4), Validators.maxLength(20)]],
-    Password:["", [Validators.required]],
+    Password:["", [Validators.required, Validators.pattern(this.exRegularPassword)]],
     Nombre:["", [Validators.required, Validators.pattern(this.exRegularLetras) , Validators.minLength(3), Validators.maxLength(30)]],
     Apellido:["", [Validators.required, Validators.pattern(this.exRegularLetras) , Validators.minLength(4), Validators.maxLength(50)]],
     NumeroDocumento:["", [Validators.required, Validators.pattern(this.exRegularNumeros) , Validators.minLength(5), Validators.maxLength(15)]],
@@ -33,9 +33,10 @@ export class RegistrarUsuarioComponent implements OnInit {
     })
   }
 
-  exRegularLetras: any = "^[a-zA-ZÀ -ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ -ÿ\u00f1\u00d1]*)*[a-zA-ZÀ -ÿ\u00f1\u00d1]+$";
+  exRegularLetras: any = "^[a-zA-Z\u00f1\u00d1 ]*$";
   exRegularCorreo: any = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$";
   exRegularNumeros: any = "^[0-9]*$";
+  exRegularPassword: any = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@#$!%*?&/()])[A-Za-z\d*[$@#$!%*?&].{8,15}[^'\s]";
 
   get NombreUsuario(){
     return this.gestionUsuarioService.formularioRegistroUsuario.controls["NombreUsuario"];

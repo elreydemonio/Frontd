@@ -36,6 +36,11 @@ import { DetallevehiculoComponent } from './Modulos/vehiculos/detallevehiculo/de
 import { AuthInterceptor } from './Components/auth/auth.interceptor';
 import { GeolocalizacionComponent } from './Modulos/servicios/geolocalizacion/geolocalizacion.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ListarServiciosComponent } from './Modulos/servicios/listar-servicios/listar-servicios.component';
+import { DetalleServiciosComponent } from './Modulos/servicios/detalle-servicios/detalle-servicios.component';
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
+
 registerLocaleData(en);
 
 @NgModule({
@@ -45,8 +50,10 @@ registerLocaleData(en);
     RegistrarUsuarioComponent,
     EditarUsuarioComponent,
     DetalleUsuarioComponent,
+    DetalleServiciosComponent,
     ListarConductorComponent,
     ListarVehiculoComponent,
+    ListarServiciosComponent,
     CrearVehiculoComponent,
     DetallevehiculoComponent,
     RegistroUsuarioComponent,
@@ -74,7 +81,8 @@ registerLocaleData(en);
     MatMenuModule,
     MatInputModule,
     MatFormFieldModule,
-    NgbModule
+    NgbModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US },
     {

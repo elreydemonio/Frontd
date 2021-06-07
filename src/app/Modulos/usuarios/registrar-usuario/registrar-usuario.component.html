@@ -194,9 +194,12 @@
         <div class="alert" *ngIf="this.Password.hasError('required')">
           La contraseña es requerida
         </div>
+        <div class="alert" *ngIf="this.Password.hasError('pattern')">
+          La contraseña debe contener al menos una mayúscula, una minúscula, un número, un carácter especial y entre 8 a 15 carácteres máximo.
+        </div>
       </div>
 
-      <!--Confirmar Contraseña-->
+      <!--Confirmar Contraseña
 
       <div class="form-field col-lg-4">
         <input class="input-text" type="password" name="ConfirPassword" formControlName="ConfirPassword">
@@ -209,6 +212,7 @@
           La contraseña es requerida
         </div>
       </div>
+      -->
 
       <!--Celular-->
 
