@@ -7,6 +7,9 @@ import { PedirServicioComponent } from './pedir-servicio/pedir-servicio.componen
 import { HttpClientModule } from '@angular/common/http';
 import { VehiculosDisponiblesComponent } from './vehiculos-disponibles/vehiculos-disponibles.component';
 import { AceptarServicioComponent } from './aceptar-servicio/aceptar-servicio.component';
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+import { BrowserModule } from '@angular/platform-browser';
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 
 
 
@@ -21,7 +24,9 @@ import { AceptarServicioComponent } from './aceptar-servicio/aceptar-servicio.co
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    SocketIoModule.forRoot(config),
+    BrowserModule
   ],
   exports: [
     GeolocalizacionComponent
