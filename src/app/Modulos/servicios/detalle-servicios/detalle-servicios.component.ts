@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { GestionServicioService } from '../servicios/gestion-servicio.service';
 
 @Component({
   selector: 'app-detalle-servicios',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalleServiciosComponent implements OnInit {
 
-  constructor() { }
+  id: any;
+  idConvert: number;
+  Rol = localStorage.getItem('Rol');
+  token = localStorage.getItem('token');
+  constructor(public gestionServicioService:GestionServicioService, private rutaActiva: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.id = this.rutaActiva.snapshot.paramMap.get('variable');
+    this.idConvert = Number(this.id);
+    this.gestionServicioService.detalleServicio(this.idConvert);
   }
 
 }

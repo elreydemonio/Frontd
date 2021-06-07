@@ -21,15 +21,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td class="text-center">Pesada</td>
-      <td class="text-center">Parque berrio</td>
-      <td class="text-center">20 enero de 2020</td>
-      <td class="text-center">$20000</td>
+    <tr *ngFor="let servicio of gestionServicioService.listaServicios">
+      <td class="text-center">{{servicio.DescripcionCarga}}</td>
+      <td class="text-center">{{servicio.DireccionEntrega}}</td>
+      <td class="text-center">{{servicio.FechaFin}}</td>
+      <td class="text-center">{{servicio.PrecioServicio}}</td>
       <td class="text-center">
         <a href="conductores/detalle" style="color: rgb(255, 0, 0); margin:auto;"><i class="fa fa-times"></i></a>
         <a href="servicios/geolocalizacion" style="color: rgb(255, 255, 255)"><i class="fa fa-street-view"></i></a>
-        <a href="servicios/detalle" style="color: rgb(255, 255, 255)"><i class="fa fa-eye"></i></a>
+        <a href="servicios/detalle/{{servicio.IdServicio}}" style="color: rgb(255, 255, 255)"><i class="fa fa-eye"></i></a>
       </td>
     </tr>
   </tbody>
