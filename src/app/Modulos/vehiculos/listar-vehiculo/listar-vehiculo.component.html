@@ -2,7 +2,7 @@
   <h1>Lista de vehiculos</h1>
   <h3><a href="vehiculos/crearVehiculo">Agregar vehiculo</a></h3>
   <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col" *ngFor='let item of servicioVehiculo.listaVehiculos'>
+    <div class="col" *ngFor='let item of servicioVehiculo.listaVehiculos' >
       <div class="card h-100">
         <img src="assets/img/{{ item.FotoV }}" class="card-img-top" alt="...">
         <div class="card-body">
@@ -15,8 +15,8 @@
           </ul>
         </div>
         <div class="card-footer">
-          <small class="text-muted"><a href="Conductor/Agregar/" routerLink=''> Agregar conductor </a></small> &nbsp;
-          <small class="text-muted"><a href="vehiculos/Editar/" routerLink=''> Editar vehiculo</a></small> &nbsp;
+          <small class="text-muted"><a href="conductores/ListarConductoresVehiculos/{{ item.CodigoV }}" > Agregar conductor </a></small> &nbsp;
+          <small class="text-muted"><a href="vehiculos/Editar/" > Editar vehiculo</a></small> &nbsp;
           <small class="text-muted"><a href="vehiculos/detalle/{{ item.CodigoV }}">Detalle vehiculo</a></small>
         </div>
       </div>

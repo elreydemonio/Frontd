@@ -15,13 +15,14 @@ export class ListarUsuarioComponent implements OnInit {
     this.gestionUsuarioService.listarUsuarios();
   }
 
+  // tslint:disable-next-line: typedef
   CambiarEstado(IdEstadoUsuario: number, Id: string){
     this.gestionUsuarioService.EditarEstado(IdEstadoUsuario, Id).subscribe(
-      res=>{
+      res => {
         this.gestionUsuarioService.listarUsuarios();
-        this.toastr.success("Se cambio el estado");
+        this.toastr.success('Se cambio el estado');
       },
-      err=>{
+      err => {
         this.toastr.error('Error');
       }
     );

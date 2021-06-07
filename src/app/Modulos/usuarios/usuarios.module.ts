@@ -15,6 +15,7 @@ import { EditarConductorComponent } from './conductor/editar-conductor/editar-co
 import { DetalleConductorComponent } from './conductor/detalle-conductor/detalle-conductor.component';
 import { VerperfilConductorComponent } from './conductor/verperfil-conductor/verperfil-conductor.component';
 import { AuthInterceptor } from 'src/app/Components/auth/auth.interceptor';
+import { ListarConductorVehiculosComponent } from './conductor/listar-conductor-vehiculos/listar-conductor-vehiculos.component';
 @NgModule({
   declarations: [
       ListarUsuarioComponent,
@@ -26,7 +27,8 @@ import { AuthInterceptor } from 'src/app/Components/auth/auth.interceptor';
       RegistrarConductorComponent,
       EditarConductorComponent,
       DetalleConductorComponent,
-      VerperfilConductorComponent
+      VerperfilConductorComponent,
+      ListarConductorVehiculosComponent
   ],
   imports: [
     CommonModule,

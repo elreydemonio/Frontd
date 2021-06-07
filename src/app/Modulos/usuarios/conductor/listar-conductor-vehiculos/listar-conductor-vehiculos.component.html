@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-6" align="center">
+  <h1>Listado Conductores</h1>
+</div>
+<div class="col-md-6" align="center">
+  <a href="conductores/registrar" class="btn-dark btn-lg btn-block text-center" >Registrar Conductor</a>
+</div>
+  <div class="scroll">
+
+      <table>
+  <thead>
+    <tr>
+      <th scope="col">Tipo de usuario</th>
+      <th scope="col">Celular </th>
+      <th scope="col">Fecha Inicio</th>
+      <th scope="col">Nombres</th>
+      <th scope="col">Tipo de documento</th>
+      <th scope="col">Número de documento</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Detalle</th>
+      <th scope="col">Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usuario of listarConductor">
+      <td class="text-center">{{ usuario.NombreRol }}</td>
+      <td class="text-center">{{ usuario.Celular }}</td>
+      <td class="text-center">{{ usuario.FechaInicio }}</td>
+      <td class="text-center">{{ usuario.Nombre +' '+ usuario.Apellido }}</td>
+      <td class="text-center">{{ usuario.NombreDoocumento }}</td>
+      <td class="text-center">{{ usuario.NumeroDocumento }}</td>
+      <td class="text-center detalle"><a href="conductores/editar" style="color: rgb(255, 255, 255)"><i class="fa fa-pencil-square-o"></i></a></td>
+      <td class="text-center detalle"><a href="conductores/detalle/{{ usuario.Id }}" style="color: rgb(255, 255, 255)"><i class="fa fa-eye"></i></a></td>
+      <td *ngIf="usuario.IdEstado == 1"><button class=" text-center btn btn-outline-success " (click)="EditarEstadoConductor(usuario.Id ,usuario.Id )">{{ usuario.EstadoNombre }}</button></td>
+      <td *ngIf="usuario.IdEstado == 2"><button class=" text-center btn btn-outline-success "  (click)="EditarEstadoConductor(usuario.Id ,usuario.Id )">{{ usuario.EstadoNombre }}</button></td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+</div>
+

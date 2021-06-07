@@ -11,7 +11,11 @@ import { Vehiculo } from '../interfaz/vehiculo';
   providedIn: 'root'
 })
 export class ServicioVehiculosService {
+<<<<<<< HEAD
   readonly rootUrl = 'https://localhost:44310/api';
+=======
+  readonly rootUrl = 'https://localhost:44345/api';
+>>>>>>> 347da282a6575c025673d0d7f08ca4e63e6955aa
   listaVehiculos: ListaVehiculo[];
   vehiculo: Vehiculo;
   tipoVehiculo: TipoVehiculos[];
@@ -19,6 +23,7 @@ export class ServicioVehiculosService {
   Color: Colores[];
   detalleVehiculo: ListaVehiculo[];
   FormularioRegistro: FormGroup;
+  listaConductorValidation;
   constructor(private http: HttpClient) { }
   // tslint:disable-next-line: typedef
   ListarVehiculos(){
@@ -68,5 +73,11 @@ export class ServicioVehiculosService {
     this.http.get(this.rootUrl + '/Vehiculos/DetalleVehiculo/' + CodigoV)
     .toPromise()
     .then(res => this.detalleVehiculo = res as ListaVehiculo[]);
+  }
+  // tslint:disable-next-line: typedef
+  ListarValidation(){
+    this.http.get(this.rootUrl + '/Vehiculos/ListaConductoreValidation').
+    toPromise()
+    .then(res => this.listaConductorValidation = res);
   }
 }
