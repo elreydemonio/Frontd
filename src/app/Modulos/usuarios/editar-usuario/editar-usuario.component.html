@@ -7,48 +7,47 @@
       <!--Nombre de Usuario-->
 
       <div class="form-field col-lg-4">
-        <input type="hidden">
-        <input class="input-text" type="name" name="NombreUsuario" formControlName="NombreUsuario" [ngModel]="this.gestionUsuarioService.editardetalle.UserName">
+        <input type="hidden" name="Id">
+        <input class="input-text" type="name" name="NombreUsuario" formControlName="NombreUsuario">
         <label for="NombreUsuario" class="label">Nombre de usuario</label>
       </div>
 
       <div class="form-field col-lg-4" *ngIf="NombreUsuario.invalid && (NombreUsuario.touched || NombreUsuario.dirty)">
 
-        <div class="alert" *ngIf="this.NombreUsuario.hasError('required')">
+        <div class="alert" *ngIf="this.Nombre.hasError('required')">
           El Nombre de Usuario es requerido
         </div>
-        <div class="alert" *ngIf="this.NombreUsuario.hasError('pattern')">
+        <div class="alert" *ngIf="this.Nombre.hasError('pattern')">
           El Nombre de Usuario debe contener solo letras
         </div>
-        <div class="alert" *ngIf="this.NombreUsuario.hasError('maxlength')">
+        <div class="alert" *ngIf="this.Nombre.hasError('maxlength')">
           El Nombre de Usuario debe tener máximo 20 carácteres
         </div>
-        <div class="alert" *ngIf="this.NombreUsuario.hasError('minlength')">
+        <div class="alert" *ngIf="this.Nombre.hasError('minlength')">
           El Nombre de Usuario debe tener mínimo 4 carácteres
         </div>
       </div>
 
-      <!--Correo-->
 
-      <div class="form-field col-lg-4">
-        <input class="input-text" type="email" name="Email" formControlName="Email" [ngModel]="this.gestionUsuarioService.editardetalle.Email">
-        <label for="Email" class="label">Correo</label>
+    <!--Direccion-->
+
+    <div class="form-field col-lg-4">
+      <input class="input-text" type="text" name="Direccion" formControlName="Direccion">
+      <label for="direccion" class="label">Dirección</label>
+    </div>
+
+    <div class="form-field col-lg-4" *ngIf="Direccion.invalid && (Direccion.touched || Direccion.dirty)">
+
+      <div class="alert" *ngIf="this.Direccion.hasError('required')">
+        La dirección es requerida
       </div>
+    </div>
 
-      <div class="form-field col-lg-4" *ngIf="Email.invalid && (Email.touched || Email.dirty)">
-
-        <div class="alert" *ngIf="this.Email.hasError('required')">
-          El correo electrónico es requerido
-        </div>
-        <div class="alert" *ngIf="this.Email.hasError('pattern')">
-          El formato del correo electrónico es incorrecto
-        </div>
-      </div>
 
       <!--Numero de documento-->
 
       <div class="form-field col-lg-4">
-        <input class="input-text" type="number" name="NumeroDocumento" formControlName="NumeroDocumento" [ngModel]="this.gestionUsuarioService.editardetalle.NumeroDocumento">
+        <input class="input-text" type="number" name="NumeroDocumento" formControlName="NumeroDocumento">
         <label for="NumeroDocumento" class="label">Número de documento</label>
       </div>
 
@@ -72,7 +71,7 @@
 
       <div class="form-field col-lg-4">
         <select class="label-pablo" name="IdTipoDocumento" formControlName="IdTipoDocumento">
-        <option value="" style="background: #000">Seleccione su tipo de documento</option>
+        <option value=""  style="background: #000">Tipo de documento</option>
         <option *ngFor="let Documento of gestionUsuarioService.tipoDocumento" style="background: #000"
         value="{{ Documento.IdTipoDocumento }}"> {{Documento.NombreDoocumento }}</option>
         </select>
@@ -121,8 +120,8 @@
 
       <!--Nombre-->
 
-      <div class="form-field col-lg-3">
-        <input name="Nombre" class="input-text" type="text" formControlName = "Nombre" [ngModel]="this.gestionUsuarioService.editardetalle.Nombre">
+      <div class="form-field col-lg-4">
+        <input name="Nombre" class="input-text" type="text" formControlName = "Nombre">
         <label for="Nombre" class="label">Nombre</label>
       </div>
       <div class="form-field col-lg-4" *ngIf="Nombre.invalid && (Nombre.touched || Nombre.dirty)">
@@ -143,8 +142,8 @@
 
       <!--Apellido-->
 
-      <div class="form-field col-lg-3">
-        <input class="input-text" type="text" name="Apellido" formControlName="Apellido" [ngModel]="this.gestionUsuarioService.editardetalle.Apellido">
+      <div class="form-field col-lg-4">
+        <input class="input-text" type="text" name="Apellido" formControlName="Apellido">
         <label for="Apellido" class="label">Apellido</label>
       </div>
 
@@ -164,26 +163,26 @@
         </div>
       </div>
 
+      <!--Correo-->
 
-
-      <!--Direccion-->
-
-      <div class="form-field col-lg-3">
-        <input class="input-text" type="text" name="Direccion" formControlName="Direccion" [ngModel]="this.gestionUsuarioService.editardetalle.Direccion">
-        <label for="direccion" class="label">Dirección</label>
+       <div class="form-field col-lg-4">
+        <input class="input-text" type="email" name="Email" formControlName="Email">
+        <label for="Email" class="label">Correo</label>
       </div>
 
-      <div class="form-field col-lg-4" *ngIf="Direccion.invalid && (Direccion.touched || Direccion.dirty)">
+      <div class="form-field col-lg-4" *ngIf="Email.invalid && (Email.touched || Email.dirty)">
 
-        <div class="alert" *ngIf="this.Direccion.hasError('required')">
+        <div class="alert" *ngIf="this.Email.hasError('required')">
           El correo electrónico es requerido
         </div>
+        <div class="alert" *ngIf="this.Email.hasError('pattern')">
+          El formato del correo electrónico es incorrecto
+        </div>
       </div>
-
       <!--Celular-->
 
-      <div class="form-field col-lg-3">
-        <input class="input-text" type="number" name="Celular" formControlName="Celular" [ngModel]="this.gestionUsuarioService.editardetalle.Celular">
+      <div class="form-field col-lg-4">
+        <input class="input-text" type="number" name="Celular" formControlName="Celular">
         <label for="celular" class="label">Celular</label>
       </div>
 
@@ -200,13 +199,13 @@
         </div>
       </div>
 
-      <!--Editar-->
+      <!--Registrar-->
 
 
     </div>
     <div class="form-group" align="center">
-      <button class="btn-dark btn-lg btn-block" type="submit" [disabled]="gestionUsuarioService.formularioRegistroUsuario.invalid"><i class="fa fa-pencil"></i>Editar</button>
-      <a class="btn-dark btn-lg btn-block" href="usuarios/listar/"><i class="fa fa-undo" style="color: rgb(119, 0, 255);"></i>Volver</a>
+      <button class="btn-dark btn-lg btn-block" type="submit" [disabled]="gestionUsuarioService.formularioRegistroUsuario.invalid"><i class="fa fa-save" style="color: rgb(119, 0, 255);"></i>Registrar</button>
+      <a class="btn-dark btn-lg btn-block" href="Inicio/Login/"><i class="fa fa-undo" style="color: rgb(119, 0, 255);"></i>Volver</a>
     </div>
 </form>
 

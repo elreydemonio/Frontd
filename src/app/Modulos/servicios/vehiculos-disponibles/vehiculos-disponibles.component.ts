@@ -9,7 +9,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class VehiculosDisponiblesComponent implements OnInit {
 
-  constructor(public modal:NgbModal) { }
+  constructor(public modal: NgbModal) { }
 
   ngOnInit(): void {
   }

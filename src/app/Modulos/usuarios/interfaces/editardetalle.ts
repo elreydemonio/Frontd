@@ -1,7 +1,7 @@
 export interface Editardetalle {
   Nombre:String;
   Email:String;
-  UserName:String;
+  UserName: string;
   IdEstado:number;
   IdRol:number;
   NumeroDocumento:number;

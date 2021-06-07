@@ -38,6 +38,7 @@ import { DetallevehiculoComponent } from './Modulos/vehiculos/detallevehiculo/de
 import { AuthInterceptor } from './Components/auth/auth.interceptor';
 import { GeolocalizacionComponent } from './Modulos/servicios/geolocalizacion/geolocalizacion.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatPaginatorModule } from '@angular/material/paginator';
 registerLocaleData(en);
 
 @NgModule({
@@ -78,7 +79,8 @@ registerLocaleData(en);
     MatMenuModule,
     MatInputModule,
     MatFormFieldModule,
-    NgbModule
+    NgbModule,
+    MatPaginatorModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US },
     {

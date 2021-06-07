@@ -13,7 +13,7 @@ import { Usuario } from '../interfaces/usuario';
 })
 export class GestionUsuarioService {
 
-  readonly rootURL = 'https://localhost:44363/api';
+  readonly rootURL = 'https://localhost:44345/api';
 
   formularioRegistroUsuario: FormGroup;
   usuario: Usuario;
@@ -22,7 +22,7 @@ export class GestionUsuarioService {
   genero: Genero[];
   roles: Roles[];
   detalleusuario: Detalleusuario;
-  editardetalle: Editardetalle;
+  editardetalles: Editardetalle[];
 
   constructor(private http: HttpClient) { }
   // tslint:disable-next-line: typedef
@@ -87,9 +87,9 @@ export class GestionUsuarioService {
 
   // tslint:disable-next-line: typedef
   editarDetalle(id: string){
-    this.http.get(this.rootURL + '/Usuarios/EditarDetalle' + id)
+    this.http.get(this.rootURL + '/Usuarios/EditarDetalle/' + id)
     .toPromise()
-    .then(res => this.editardetalle = res as Editardetalle);
+    .then(res => this.editardetalles = res as Editardetalle[]);
   }
   // tslint:disable-next-line: typedef
   obtenerPerfil(){
