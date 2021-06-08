@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { GestionUsuarioService } from '../../servicios/gestion-usuario.service';
 
 import { Conductor } from '../../interfaces/conductor';
+import { ActivatedRoute } from '@angular/router';
 interface HtmlInputEvent extends Event {
   target: HTMLInputElement & EventTarget;
 }
@@ -15,12 +16,13 @@ interface HtmlInputEvent extends Event {
 })
 export class RegistrarConductorComponent implements OnInit {
 
-  constructor(private http:HttpClient, public gestionServicioUsuarios: GestionUsuarioService, private formBuilder:FormBuilder, private toastr: ToastrService) { }
+  constructor(private http:HttpClient, public gestionServicioUsuarios: GestionUsuarioService, private formBuilder:FormBuilder, private toastr: ToastrService, private rutaActiva:ActivatedRoute) { }
   file: File;
   conductor:Conductor;
   sw: number;
-
+  id: any;
   ngOnInit(): void {
+    this.id = this.rutaActiva.snapshot.paramMap.get('variable');
     this.gestionServicioUsuarios.ListaGenero();
     this.gestionServicioUsuarios.ListaTipoDocumento();
     this.gestionServicioUsuarios.ListaRol();
@@ -136,32 +138,14 @@ export class RegistrarConductorComponent implements OnInit {
         console.log(err);
       }
     );
-    this.gestionServicioUsuarios.GuardarConductor().subscribe(
-      (respuesta: any) => {
-        if (respuesta.Succeeded){
-          this.gestionServicioUsuarios.formularioRegistroUsuario.reset();
-          this.toastr.success( 'Usuario creado exitosamente' );
-          this.sw = 1;
-        }else{
-          respuesta.Errors.forEach(element => {
-            switch (element.Code){
-              case 'DuplicateUserName':
-                  this.toastr.error('El nombre de usario ya existe', 'Registro fallido');
-                  this.sw = 1;
-                  break ;
-              case 'DuplicateEmail':
-                  this.toastr.error('El email ya existe', 'Registro fallido');
-                  this.sw = 1;
-              // tslint:disable-next-line: no-switch-case-fall-through
-              default:
-                if (this.sw === 0){
-                  this.toastr.error(element.Description, 'Registro fallido');
-                }
-                break;
-            }
-          });
-      }
-    });
-  }
-
+    this.gestionServicioUsuarios.GuardarConductor(this.id).subscribe(
+      es=>{
+        this.gestionServicioUsuarios.formularioRegistroUsuario.reset();
+        this.toastr.success("Registro exitoso");
+       
+      },
+      err=>{
+        this.toastr.error("Ya hay un registro activo en este vehiculo");
+      });
+    }
 }

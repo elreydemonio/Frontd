@@ -15,7 +15,7 @@ import { Usuario } from '../interfaces/usuario';
 })
 export class GestionUsuarioService {
 
-  readonly rootURL = 'https://localhost:44323/api';
+  readonly rootURL = 'https://localhost:44384/api';
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
@@ -103,18 +103,18 @@ export class GestionUsuarioService {
   ListarConductorVehiculo(id: string){
     return this.http.get(this.rootURL + '/Vehiculos/ListarConductor/' + id);
   }
-  GuardarConductor(){
+  GuardarConductor(codigo: string){
     this.Conductor = this.formularioRegistroUsuario.value;
     Number(this.Conductor.IdEstado = 1);
     Number(this.Conductor.NumeroDocumento);
     Number(this.Conductor.IdGenero);
     Number(this.Conductor.IdRol);
     Number(this.Conductor.Celular);
+    Number(this.Conductor.IdInfo = 0);
     Number(this.Conductor.NumeroDocumento);
+    this.Conductor.CodigoV = codigo;
     console.log(this.Conductor);
-    this.Conductor.FechaInicio = null;
-    this.Conductor.FechaFin = null;
-    return this.http.post(this.rootURL + '/Usuarios/AgregarConductor', this.usuario);
+    return this.http.post(this.rootURL + '/Usuarios/AgregarConductor', this.Conductor);
 
   }
   registrarImaganes(file: File){

@@ -78,7 +78,7 @@ const routes: Routes = [
         component: ListarConductorComponent
       },
       {
-        path: 'registrar',
+        path: 'registrar/:variable',
         component: RegistrarConductorComponent
       },
       {
@@ -107,7 +107,7 @@ const routes: Routes = [
         redirectTo: 'listar'
       },
       {
-        path: 'crearVehiculo/:id',
+        path: 'crearVehiculo',
         component: CrearVehiculoComponent,
         canActivate: [PropietarioAuthGuard]
       },

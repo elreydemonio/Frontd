@@ -13,9 +13,6 @@ export interface Conductor {
     NumeroDocumento: number,
     Celular: number,
     IdInfo: number,
-    FechaInicio: undefined,
-    FechaFin: undefined,
-    FotoConductor: string,
     IdConductor: string,
     CodigoV: string
 }

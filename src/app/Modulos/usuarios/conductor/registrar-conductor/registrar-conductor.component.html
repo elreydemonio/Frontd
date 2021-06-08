@@ -1,4 +1,4 @@
-
+<h1>Registrar conductor del vehiculos {{ this.id }}</h1>
 <form [formGroup]="gestionServicioUsuarios.formularioRegistroUsuario" (ngSubmit)="onSubmit()">
     <div class="contact-form row">
 
@@ -36,13 +36,7 @@
 
       <!--Tipo de usuario-->
 
-      <div class="form-field col-lg-4">
-        <select class="label-pablo" name="IdRol" formControlName="IdRol">
-        <option value="">Seleccione su rol</option>
-        <option *ngFor="let Rol of gestionServicioUsuarios.roles"
-        value="{{Rol.IdRol}}">{{Rol.NombreRol}}</option>
-        </select>
-      </div>
+      
 
       <!--Genero-->
 
