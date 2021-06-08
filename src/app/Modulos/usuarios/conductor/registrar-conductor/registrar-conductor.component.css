@@ -71,7 +71,7 @@
 	font-weight: 400;
 	text-transform: capitalize;
 	transition: transform 0.2s ease-in-out;
-	background: linear-gradient(50deg, rgba(151,0,255,1) 5%, rgba(39,35,40,1) 50%);
+	background: #fff
 }
 
 img{

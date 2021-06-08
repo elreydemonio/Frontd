@@ -36,6 +36,7 @@ import { DetalleUsuarioComponent } from './Modulos/usuarios/detalle-usuario/deta
 import { ListarConductorComponent } from './Modulos/usuarios/conductor/listar-conductor/listar-conductor.component';
 import { DetallevehiculoComponent } from './Modulos/vehiculos/detallevehiculo/detallevehiculo.component';
 import { AuthInterceptor } from './Components/auth/auth.interceptor';
+import { RegistrarConductorComponent } from './Modulos/usuarios/conductor/registrar-conductor/registrar-conductor.component';
 import { GeolocalizacionComponent } from './Modulos/servicios/geolocalizacion/geolocalizacion.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -62,6 +63,7 @@ registerLocaleData(en);
     GeolocalizacionComponent,
     LoginComponent,
     ListarConductorVehiculosComponent,
+    RegistrarConductorComponent,
     DetalleConductorComponent
   ],
   imports: [
