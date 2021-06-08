@@ -11,11 +11,7 @@ import { Vehiculo } from '../interfaz/vehiculo';
   providedIn: 'root'
 })
 export class ServicioVehiculosService {
-<<<<<<< HEAD
-  readonly rootUrl = 'https://localhost:44310/api';
-=======
-  readonly rootUrl = 'https://localhost:44345/api';
->>>>>>> 347da282a6575c025673d0d7f08ca4e63e6955aa
+  readonly rootUrl = 'https://localhost:44384/api';
   listaVehiculos: ListaVehiculo[];
   vehiculo: Vehiculo;
   tipoVehiculo: TipoVehiculos[];
