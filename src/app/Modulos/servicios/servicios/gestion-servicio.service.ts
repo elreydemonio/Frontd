@@ -10,8 +10,8 @@ export class GestionServicioService {
 
   readonly rootURL = 'https://localhost:44310/api';
 
-  listaServicios:Listarservicios[];
-  detalleservicio:Detalleservicio;
+  listaServicios: Listarservicios[];
+  detalleservicio: Detalleservicio;
 
   constructor(private http: HttpClient) { }
 
