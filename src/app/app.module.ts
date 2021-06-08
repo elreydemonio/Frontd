@@ -1,3 +1,4 @@
+import { DetalleConductorComponent } from './Modulos/usuarios/conductor/detalle-conductor/detalle-conductor.component';
 import { ListarConductorVehiculosComponent } from './Modulos/usuarios/conductor/listar-conductor-vehiculos/listar-conductor-vehiculos.component';
 import { LoginComponent } from './Modulos/login/login.component';
 import { RegistroUsuarioComponent } from './Modulos/login/registro-usuario/registro-usuario.component';
@@ -36,6 +37,13 @@ import { ListarConductorComponent } from './Modulos/usuarios/conductor/listar-co
 import { DetallevehiculoComponent } from './Modulos/vehiculos/detallevehiculo/detallevehiculo.component';
 import { AuthInterceptor } from './Components/auth/auth.interceptor';
 import { RegistrarConductorComponent } from './Modulos/usuarios/conductor/registrar-conductor/registrar-conductor.component';
+import { GeolocalizacionComponent } from './Modulos/servicios/geolocalizacion/geolocalizacion.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { ListarServiciosComponent } from './Modulos/servicios/listar-servicios/listar-servicios.component';
+import { DetalleServiciosComponent } from './Modulos/servicios/detalle-servicios/detalle-servicios.component';
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 registerLocaleData(en);
 
 @NgModule({
@@ -45,14 +53,18 @@ registerLocaleData(en);
     RegistrarUsuarioComponent,
     EditarUsuarioComponent,
     DetalleUsuarioComponent,
+    DetalleServiciosComponent,
     ListarConductorComponent,
     ListarVehiculoComponent,
+    ListarServiciosComponent,
     CrearVehiculoComponent,
     DetallevehiculoComponent,
     RegistroUsuarioComponent,
+    GeolocalizacionComponent,
     LoginComponent,
     ListarConductorVehiculosComponent,
-    RegistrarConductorComponent
+    RegistrarConductorComponent,
+    DetalleConductorComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +86,9 @@ registerLocaleData(en);
     MatCardModule,
     MatMenuModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    NgbModule,
+    MatPaginatorModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US },
     {

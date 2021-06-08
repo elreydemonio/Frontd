@@ -35,7 +35,8 @@ export class EditarUsuarioComponent implements OnInit {
       NombreUsuario:["", [Validators.required , Validators.minLength(4), Validators.maxLength(20)]],
       Nombre:["", [Validators.required, Validators.pattern(this.exRegularLetras) , Validators.minLength(3), Validators.maxLength(30)]],
       Apellido:["", [Validators.required, Validators.pattern(this.exRegularLetras) , Validators.minLength(4), Validators.maxLength(50)]],
-      NumeroDocumento:["", [Validators.required, Validators.pattern(this.exRegularNumeros) , Validators.minLength(5), Validators.maxLength(15)]],
+      // tslint:disable-next-line: max-line-length
+      NumeroDocumento: ['', [Validators.required, Validators.pattern(this.exRegularNumeros) , Validators.minLength(5), Validators.maxLength(15)]],
       Celular:["", [Validators.required, Validators.pattern(this.exRegularNumeros), Validators.minLength(5)]]
     })
   }

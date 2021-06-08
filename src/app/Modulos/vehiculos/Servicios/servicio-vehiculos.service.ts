@@ -19,6 +19,7 @@ export class ServicioVehiculosService {
   Color: Colores[];
   detalleVehiculo: ListaVehiculo[];
   FormularioRegistro: FormGroup;
+  listaConductorValidation;
   constructor(private http: HttpClient) { }
   // tslint:disable-next-line: typedef
   ListarVehiculos(){
@@ -68,5 +69,11 @@ export class ServicioVehiculosService {
     this.http.get(this.rootUrl + '/Vehiculos/DetalleVehiculo/' + CodigoV)
     .toPromise()
     .then(res => this.detalleVehiculo = res as ListaVehiculo[]);
+  }
+  // tslint:disable-next-line: typedef
+  ListarValidation(){
+    this.http.get(this.rootUrl + '/Vehiculos/ListaConductoreValidation').
+    toPromise()
+    .then(res => this.listaConductorValidation = res);
   }
 }

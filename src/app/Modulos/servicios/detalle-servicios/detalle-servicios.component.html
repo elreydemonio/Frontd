@@ -1,0 +1,78 @@
+<div *ngIf="this.Rol === '3' && this.token !== null">
+
+<div class="container">
+  <h1 class="text-center">Detalle Servicios</h1>
+  <div class="card mb-3" *ngFor='let detalle of gestionServicioService.detalleservicio'>
+    <div class="card-body">
+
+      <div class="row">
+        <strong class="col-md-12 text-center">Id<h5 class="card-title text-center">{{ id }}</h5></strong>
+      </div>
+
+
+        <div class="row">
+        <strong class="col-md-4 text-center">Tipo de carga<h5 class="card-title text-center">{{ detalle.DescripcionCarga }}</h5></strong>
+        <strong class="col-md-4 text-center">Dirección de la entrega<h5 class="card-title text-center">{{ detalle.DireccionEntrega }}</h5></strong>
+        <strong class="col-md-4 text-center">Dirección de la carga<h5 class="card-title text-center">{{ detalle.DireccionCarga }}</h5></strong>
+      </div>
+
+      <div class="row">
+        <strong class="col-md-4 text-center">Persona que recibe<h5 class="card-title text-center">{{ detalle.PersonaRecibe }}</h5></strong>
+        <strong class="col-md-4 text-center">Celular persona que recibe<h5 class="card-title text-center">{{ detalle.CelularRecibe }}</h5></strong>
+        <strong class="col-md-4 text-center">Precio del servicio<h5 class="card-title text-center">{{ detalle.PrecioServicio }}</h5></strong>
+      </div>
+
+      <div class="row">
+        <strong class="col-md-4 text-center">Fecha inicio<h5 class="card-title text-center">{{ detalle.FechaInicio }}</h5></strong>
+        <strong class="col-md-4 text-center">Fecha final<h5 class="card-title text-center">{{ detalle.FechaFin }}</h5></strong>
+        <strong class="col-md-4 text-center">Estado del servicio<h5 class="card-title text-center">{{ detalle.Estado }}</h5></strong>
+      </div>
+
+        <div align="center">
+        <button class="btn btn-white"><a href="servicios/" style="color: rgba(151,0,255,1);">Volver</a></button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div *ngIf="this.Rol === '1' && this.token !== null">
+
+  <div class="container">
+    <h1 class="text-center">Detalle Servicios</h1>
+    <div class="card mb-3" *ngFor='let detalle of gestionServicioService.detalleservicio'>
+      <div class="card-body">
+
+        <div class="row">
+          <strong class="col-md-4 text-center">Id<h5 class="card-title text-center">{{ id }}</h5></strong>
+          <strong class="col-md-4 text-center">Nombre del conductor<h5 class="card-title text-center">{{ detalle.NombreConductor }}</h5></strong>
+          <strong class="col-md-4 text-center">Nombre del cliente<h5 class="card-title text-center">{{ detalle.NombreCliente }}</h5></strong>
+        </div>
+
+
+          <div class="row">
+          <strong class="col-md-4 text-center">Tipo de carga<h5 class="card-title text-center">{{ detalle.DescripcionCarga }}</h5></strong>
+          <strong class="col-md-4 text-center">Dirección de la entrega<h5 class="card-title text-center">{{ detalle.DireccionEntrega }}</h5></strong>
+          <strong class="col-md-4 text-center">Dirección de la carga<h5 class="card-title text-center">{{ detalle.DireccionCarga }}</h5></strong>
+        </div>
+
+        <div class="row">
+          <strong class="col-md-4 text-center">Persona que recibe<h5 class="card-title text-center">{{ detalle.PersonaRecibe }}</h5></strong>
+          <strong class="col-md-4 text-center">Celular persona que recibe<h5 class="card-title text-center">{{ detalle.CelularRecibe }}</h5></strong>
+          <strong class="col-md-4 text-center">Precio del servicio<h5 class="card-title text-center">{{ detalle.PrecioServicio }}</h5></strong>
+        </div>
+
+        <div class="row">
+          <strong class="col-md-4 text-center">Fecha inicio<h5 class="card-title text-center">{{ detalle.FechaInicio }}</h5></strong>
+          <strong class="col-md-4 text-center">Fecha final<h5 class="card-title text-center">{{ detalle.FechaFin }}</h5></strong>
+          <strong class="col-md-4 text-center">Estado del servicio<h5 class="card-title text-center">{{ detalle.Estado }}</h5></strong>
+        </div>
+
+          <div align="center">
+          <button class="btn btn-white"><a href="servicios/" style="color: rgba(151,0,255,1);">Volver</a></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+

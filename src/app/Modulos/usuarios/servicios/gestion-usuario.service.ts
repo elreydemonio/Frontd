@@ -14,11 +14,7 @@ import { Usuario } from '../interfaces/usuario';
   providedIn: 'root'
 })
 export class GestionUsuarioService {
-
-  readonly rootURL = 'https://localhost:44384/api';
-  httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
-  }
+  readonly rootURL = 'https://localhost:44345/api';
   formularioRegistroUsuario: FormGroup;
   usuario: Usuario;
   listaUsuarios: Usuario[];
@@ -28,6 +24,7 @@ export class GestionUsuarioService {
   detalleusuario: Detalleusuario;
   editardetalle: Editardetalle;
   Conductor: Conductor;
+  editardetalles: Editardetalle[];
   constructor(private http: HttpClient) { }
   // tslint:disable-next-line: typedef
   listarUsuarios(){
@@ -91,9 +88,9 @@ export class GestionUsuarioService {
 
   // tslint:disable-next-line: typedef
   editarDetalle(id: string){
-    this.http.get(this.rootURL + '/Usuarios/EditarDetalle' + id)
+    this.http.get(this.rootURL + '/Usuarios/EditarDetalle/' + id)
     .toPromise()
-    .then(res => this.editardetalle = res as Editardetalle);
+    .then(res => this.editardetalles = res as Editardetalle[]);
   }
   // tslint:disable-next-line: typedef
   obtenerPerfil(){
@@ -115,11 +112,16 @@ export class GestionUsuarioService {
     this.Conductor.CodigoV = codigo;
     console.log(this.Conductor);
     return this.http.post(this.rootURL + '/Usuarios/AgregarConductor', this.Conductor);
-
   }
   registrarImaganes(file: File){
     const formData = new FormData();
     formData.append('File', file);
     return this.http.post(this.rootURL + '/Vehiculos/Imagenes', formData);
+  // tslint:disable-next-line: typedef
+  DetalleConductor(id: string){
+    return this.http.get(this.rootURL + '/Usuarios/DetalleUsuarioConductor/' + id);
+  // tslint:disable-next-line: typedef
+  EditarEstadoConductor(IdEstadoUsuario: any, Id){
+    return this.http.put(this.rootURL + '/Usuarios/CambiarEstadoConductor/' + IdEstadoUsuario, Id);
   }
 }

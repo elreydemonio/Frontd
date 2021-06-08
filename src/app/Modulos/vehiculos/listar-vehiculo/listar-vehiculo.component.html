@@ -2,7 +2,7 @@
   <h1>Lista de vehiculos</h1>
   <h3><a href="vehiculos/crearVehiculo">Agregar vehiculo</a></h3>
   <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col" *ngFor='let item of servicioVehiculo.listaVehiculos'>
+    <div class="col" *ngFor='let item of servicioVehiculo.listaVehiculos ' >
       <div class="card h-100">
         <img src="assets/img/{{ item.FotoV }}" class="card-img-top" alt="...">
         <div class="card-body">

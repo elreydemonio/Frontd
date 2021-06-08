@@ -66,8 +66,4 @@ table {
   background: linear-gradient(50deg, rgba(151,0,255,1) 55%, rgb(29, 29, 29) 70%);
 }
 
-.scroll{
-  overflow:scroll;
-  width: 100%;
-  height: 450px;
-}
+
