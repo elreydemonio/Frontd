@@ -14,7 +14,7 @@ import { Usuario } from '../interfaces/usuario';
   providedIn: 'root'
 })
 export class GestionUsuarioService {
-  readonly rootURL = 'https://localhost:44345/api';
+  readonly rootURL = 'https://localhost:44366/api';
   formularioRegistroUsuario: FormGroup;
   usuario: Usuario;
   listaUsuarios: Usuario[];
@@ -105,7 +105,7 @@ export class GestionUsuarioService {
     Number(this.Conductor.IdEstado = 1);
     Number(this.Conductor.NumeroDocumento);
     Number(this.Conductor.IdGenero);
-    Number(this.Conductor.IdRol);
+    Number(this.Conductor.IdRol = 0);
     Number(this.Conductor.Celular);
     Number(this.Conductor.IdInfo = 0);
     Number(this.Conductor.NumeroDocumento);
@@ -117,9 +117,11 @@ export class GestionUsuarioService {
     const formData = new FormData();
     formData.append('File', file);
     return this.http.post(this.rootURL + '/Vehiculos/Imagenes', formData);
+  }
   // tslint:disable-next-line: typedef
   DetalleConductor(id: string){
     return this.http.get(this.rootURL + '/Usuarios/DetalleUsuarioConductor/' + id);
+  }
   // tslint:disable-next-line: typedef
   EditarEstadoConductor(IdEstadoUsuario: any, Id){
     return this.http.put(this.rootURL + '/Usuarios/CambiarEstadoConductor/' + IdEstadoUsuario, Id);

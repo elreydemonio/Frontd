@@ -8,7 +8,7 @@ import { Listarservicios } from '../interfaces/listarservicios';
 })
 export class GestionServicioService {
 
-  readonly rootURL = 'https://localhost:44310/api';
+  readonly rootURL = 'https://localhost:44366/api';
 
   listaServicios: Listarservicios[];
   detalleservicio: Detalleservicio;
