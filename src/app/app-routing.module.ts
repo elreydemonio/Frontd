@@ -25,6 +25,9 @@ import { DetalleServiciosComponent } from './Modulos/servicios/detalle-servicios
 import { PedirServicioComponent } from './Modulos/servicios/pedir-servicio/pedir-servicio.component';
 import { VehiculosDisponiblesComponent } from './Modulos/servicios/vehiculos-disponibles/vehiculos-disponibles.component';
 import { AceptarServicioComponent } from './Modulos/servicios/aceptar-servicio/aceptar-servicio.component';
+import { ModuloUsuariosComponent } from './Modulos/ayuda/modulo-usuarios/modulo-usuarios.component';
+import { ModuloVehiculosComponent } from './Modulos/ayuda/modulo-vehiculos/modulo-vehiculos.component';
+import { ModuloServiciosComponent } from './Modulos/ayuda/modulo-servicios/modulo-servicios.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'Inicio/Login' },
@@ -165,6 +168,23 @@ const routes: Routes = [
       {
         path: 'aceptar',
         component: AceptarServicioComponent
+      }
+    ]
+  },
+  {
+    path: 'ayuda',
+    children: [
+      {
+        path: 'usuarios',
+        component: ModuloUsuariosComponent
+      },
+      {
+        path: 'vehiculos',
+        component: ModuloVehiculosComponent
+      },
+      {
+        path: 'servicios',
+        component: ModuloServiciosComponent
       }
     ]
   }
