@@ -59,6 +59,14 @@
               <a routerLink="/usuarios/perfil">Ver perfil</a>
             </li>
           </div>
+          <div *ngIf="this.Rol === '4' && this.token !== null">
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/servicios/aceptar">Servicios</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/usuarios/perfil">Ver perfil</a>
+            </li>
+          </div>
         </ul>
       </li>
     </ul>

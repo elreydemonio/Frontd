@@ -8,11 +8,13 @@ import {  MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginato
 import { BrowserModule } from '@angular/platform-browser';
 import { ToastrModule } from 'ngx-toastr';
 import { DetallevehiculoComponent } from './detallevehiculo/detallevehiculo.component';
+import { PaginatePipe } from './pipes/paginate.pipe';
 @NgModule({
   declarations: [
     CrearVehiculoComponent,
     ListarVehiculoComponent,
-    DetallevehiculoComponent
+    DetallevehiculoComponent,
+    PaginatePipe
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { DetallevehiculoComponent } from './detallevehiculo/detallevehiculo.comp
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    ToastrModule
+    ToastrModule,
+    MatPaginatorModule
   ]
 })
 export class VehiculosModule { }

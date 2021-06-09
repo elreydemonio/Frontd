@@ -11,6 +11,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 import { BrowserModule } from '@angular/platform-browser';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { VehiculosdisponiblesComponent } from './interfaces/vehiculosdisponibles/vehiculosdisponibles.component';
+import { ServiciosAceptarComponent } from './servicios-aceptar/servicios-aceptar.component';
 
 
 
@@ -22,7 +23,8 @@ import { VehiculosdisponiblesComponent } from './interfaces/vehiculosdisponibles
     PedirServicioComponent,
     VehiculosDisponiblesComponent,
     AceptarServicioComponent,
-    VehiculosdisponiblesComponent
+    VehiculosdisponiblesComponent,
+    ServiciosAceptarComponent
   ],
   imports: [
     CommonModule,
