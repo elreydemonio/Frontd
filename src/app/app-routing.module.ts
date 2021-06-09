@@ -159,7 +159,7 @@ const routes: Routes = [
         component: PedirServicioComponent
       },
       {
-        path: 'vehiculos',
+        path: 'vehiculos/:variable',
         component: VehiculosDisponiblesComponent
       },
       {

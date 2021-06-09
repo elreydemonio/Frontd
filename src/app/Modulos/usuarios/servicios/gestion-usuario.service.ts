@@ -14,7 +14,7 @@ import { Usuario } from '../interfaces/usuario';
   providedIn: 'root'
 })
 export class GestionUsuarioService {
-  readonly rootURL = 'https://localhost:44366/api';
+  readonly rootURL = 'https://localhost:44310/api';
   formularioRegistroUsuario: FormGroup;
   usuario: Usuario;
   listaUsuarios: Usuario[];

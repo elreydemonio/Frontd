@@ -44,6 +44,8 @@ import { ListarServiciosComponent } from './Modulos/servicios/listar-servicios/l
 import { DetalleServiciosComponent } from './Modulos/servicios/detalle-servicios/detalle-servicios.component';
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
+import { PedirServicioComponent } from './Modulos/servicios/pedir-servicio/pedir-servicio.component';
+import { VehiculosDisponiblesComponent } from './Modulos/servicios/vehiculos-disponibles/vehiculos-disponibles.component';
 registerLocaleData(en);
 
 @NgModule({
@@ -51,6 +53,7 @@ registerLocaleData(en);
     AppComponent,
     ListarUsuarioComponent,
     RegistrarUsuarioComponent,
+    PedirServicioComponent,
     EditarUsuarioComponent,
     DetalleUsuarioComponent,
     DetalleServiciosComponent,
@@ -63,6 +66,8 @@ registerLocaleData(en);
     GeolocalizacionComponent,
     LoginComponent,
     ListarConductorVehiculosComponent,
+    DetalleConductorComponent,
+    VehiculosDisponiblesComponent
     RegistrarConductorComponent,
     DetalleConductorComponent
   ],

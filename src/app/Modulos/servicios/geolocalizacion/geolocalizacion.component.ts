@@ -56,7 +56,7 @@ export class GeolocalizacionComponent implements OnInit {
   }
 
   testMarker(): void {
-    this.mapCustomService.addMarkerCustom( [ -8.625044227016328, 41.15438304721189]);
+    window.location.href = "servicios/";
   }
 }
 
