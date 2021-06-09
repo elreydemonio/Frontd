@@ -1,5 +1,5 @@
 
-  <form>
+  <form [formGroup]="gestionServicioService.formularioRegistroServicio" (ngSubmit)="onSubmit()">
     <div class="contact-form row">
 
       <h1 align="center" style="color: blueviolet;">Pedir servicio</h1>
@@ -7,16 +7,45 @@
       <!--Nombre persona que recibe-->
 
       <div class="form-field col-lg-6">
-        <input type="hidden" name="Id">
-        <input class="input-text" type="text" name="NombreRecibe" formControlName="NombreRecibe">
-        <label for="NombreRecibe" class="label">Nombre de la persona que recibe</label>
+        <input type="hidden" name="IdServicio">
+        <input class="input-text" type="text" name="PersonaRecibe" formControlName="PersonaRecibe">
+        <label for="PersonaRecibe" class="label">Nombre de la persona que recibe</label>
+      </div>
+
+      <div class="form-field col-lg-6" *ngIf="PersonaRecibe.invalid && (PersonaRecibe.touched || PersonaRecibe.dirty)">
+
+        <div class="alert" *ngIf="this.PersonaRecibe.hasError('required')">
+          El nombre es requerido
+        </div>
+        <div class="alert" *ngIf="this.PersonaRecibe.hasError('pattern')">
+          El nombre debe contener solo letras
+        </div>
+        <div class="alert" *ngIf="this.PersonaRecibe.hasError('maxlength')">
+          El nombre debe tener máximo 30 carácteres
+        </div>
+        <div class="alert" *ngIf="this.PersonaRecibe.hasError('minlength')">
+          El nombre debe tener mínimo 3 carácteres
+        </div>
       </div>
 
       <!--Celular persona que recibe-->
 
       <div class="form-field col-lg-6">
-        <input class="input-text" type="number" name="PersonaRecibe" formControlName="PersonaRecibe">
+        <input class="input-text" type="number" name="CelularRecibe" formControlName="CelularRecibe">
         <label for="PersonaRecibe" class="label">Celular de la persona que recibe</label>
+      </div>
+
+      <div class="form-field col-lg-6" *ngIf="CelularRecibe.invalid && (CelularRecibe.touched || CelularRecibe.dirty)">
+
+        <div class="alert" *ngIf="this.CelularRecibe.hasError('required')">
+          El celular es requerido
+        </div>
+        <div class="alert" *ngIf="this.CelularRecibe.hasError('pattern')">
+          El celular debe contener solo números
+        </div>
+        <div class="alert" *ngIf="this.CelularRecibe.hasError('minlength')">
+          El celular debe tener mínimo 5 carácteres
+        </div>
       </div>
 
       <!--Dirección inicial de la carga-->
@@ -26,6 +55,13 @@
         <label for="DireccionCarga" class="label">Dirección inicial de la carga</label>
       </div>
 
+      <div class="form-field col-lg-6" *ngIf="DireccionCarga.invalid && (DireccionCarga.touched || DireccionCarga.dirty)">
+
+        <div class="alert" *ngIf="this.DireccionCarga.hasError('required')">
+          La dirección inicial es requerida
+        </div>
+      </div>
+
       <!--Dirección final de la carga-->
 
       <div class="form-field col-lg-6">
@@ -33,14 +69,20 @@
         <label for="DireccionEntrega" class="label">Dirección de entrega de la carga</label>
       </div>
 
+      <div class="form-field col-lg-6" *ngIf="DireccionEntrega.invalid && (DireccionEntrega.touched || DireccionEntrega.dirty)">
+
+        <div class="alert" *ngIf="this.DireccionEntrega.hasError('required')">
+          La dirección de entrega es requerida
+        </div>
+      </div>
+
       <!--Tipo de carga-->
 
       <div class="form-field col-lg-4">
         <select class="label-pablo" name="IdTipoCarga" formControlName="IdTipoCarga">
           <option value="" style="background: black;">Tipo de carga</option>
-          <option style="background: black;">Pesada</option>
-          <option style="background: black;">Ligera</option>
-          <option style="background: black;">Vidrio</option>
+          <option *ngFor="let Carga of gestionServicioService.tipoCarga" style="background: #000"
+        value="{{ Carga.IdTipoCarga }}"> {{Carga.DescripcionCarga }}</option>
         </select>
       </div>
 
@@ -52,11 +94,34 @@
         <label for="FechaFin" class="label">Fecha a realizar el servicio</label>
       </div>
 
+      <div class="form-field col-lg-6" *ngIf="FechaFin.invalid && (FechaFin.touched || FechaFin.dirty)">
+
+        <div class="alert" *ngIf="this.FechaFin.hasError('required')">
+          La fecha a realizar el servicio es requerida
+        </div>
+      </div>
+
       <!--Precio del servicio-->
 
       <div class="form-field col-lg-4">
-        <input class="input-text" type="number" name="Precio" formControlName="Precio">
-        <label for="Precio" class="label">Precio a ofrecer por el servicio</label>
+        <input class="input-text" type="number" name="PrecioServicio" formControlName="PrecioServicio">
+        <label for="PrecioServicio" class="label">Precio a ofrecer por el servicio</label>
+      </div>
+
+      <div class="form-field col-lg-4" *ngIf="PrecioServicio.invalid && (PrecioServicio.touched || PrecioServicio.dirty)">
+
+        <div class="alert" *ngIf="this.PrecioServicio.hasError('required')">
+          El precio del servicio es requerido
+        </div>
+        <div class="alert" *ngIf="this.PrecioServicio.hasError('pattern')">
+          El precio del servicio debe contener solo números
+        </div>
+        <div class="alert" *ngIf="this.PrecioServicio.hasError('maxlength')">
+          El precio del servicio debe tener máximo 9 carácteres
+        </div>
+        <div class="alert" *ngIf="this.PrecioServicio.hasError('minlength')">
+          El precio del servicio debe tener mínimo 3 carácteres
+        </div>
       </div>
 
       <!--Registrar-->
@@ -64,7 +129,7 @@
 
     </div>
     <div class="form-group" align="center">
-      <a class="btn btn-white" href="servicios/vehiculos" style="color: blueviolet;"><i class="fa fa-save">Solicitar</i></a>
+      <button class="btn btn-white" type="submit" ><i class="fa fa-save" style="color: rgb(119, 0, 255);"></i>Solicitar</button>
       <a class="btn btn-white" href="servicios/" style="color: blueviolet;"><i class="fa fa-arrow-circle-left">Volver</i></a>
     </div>
 </form>

@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { GestionServicioService } from '../servicios/gestion-servicio.service';
 
 @Component({
   selector: 'app-vehiculos-disponibles',
@@ -9,13 +11,35 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class VehiculosDisponiblesComponent implements OnInit {
 
-  constructor(public modal:NgbModal) { }
+  id: any;
+  idConvert: number;
+
+  constructor(public modal:NgbModal, public gestionServicioService:GestionServicioService, private rutaActiva: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.id = this.rutaActiva.snapshot.paramMap.get('variable');
+    this.idConvert = Number(this.id);
+    this.gestionServicioService.vehiculosDisponibles(this.idConvert);
   }
 
-  openFunciones(contenido){
+  openFunciones(contenido, IdServicio:number, IdConductor:number){
     this.modal.open(contenido,{centered:true, windowClass:'oscuro', scrollable:true});
+    this.gestionServicioService.conductorDisponible(IdConductor);
+    console.log(IdServicio, IdConductor);
+  }
+
+  openAsignar(IdInfo:number){
+    this.id = this.rutaActiva.snapshot.paramMap.get('variable');
+    this.idConvert = Number(this.id);
+    this.gestionServicioService.Asignar(IdInfo,this.idConvert).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      }
+    )
+    console.log(IdInfo,this.idConvert);
   }
 
 }

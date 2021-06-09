@@ -12,7 +12,7 @@
         <table>
     <thead>
       <tr>
-        <th >Tipo de vehículo</th>
+        <th>Tipo de vehículo</th>
         <th >Foto del vehículo</th>
         <th >Placa del vehículo</th>
         <th >Nombre del conductor</th>
@@ -20,13 +20,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td class="text-center">Chevrolet 4 puertas</td>
-        <td class="text-center"><img src="/assets/img/peugeot_e-208_portada_0.jpg"></td>
-        <td class="text-center">TKI677</td>
-        <td class="text-center">Eduardo manos tijeras</td>
+      <tr  *ngFor='let vehiculo of gestionServicioService.visualizarvehiculos'>
+        <td>{{vehiculo.Descripcion}}</td>
+        <td><img src="assets/img/{{vehiculo.FotoV}}"></td>
+        <td>{{vehiculo.Placa}}</td>
+        <td>{{vehiculo.NombreConductor}}</td>
         <td class="text-center">
-          <button type="button" (click)="openFunciones(contenido)"><i class="fa fa-check" style="color: #31d2f2;"></i></button>
+          <button type="button" (click)="openFunciones(contenido, vehiculo.IdServicio, vehiculo.IdConductor)" ><i class="fa fa-check" style="color: #31d2f2;"></i></button>
         </td>
       </tr>
     </tbody>
@@ -39,19 +39,19 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body">
-      <strong><img src="assets/img/fondo1.jpg" class="card-title text-center"></strong>
+    <div class="modal-body" *ngFor='let conductor of gestionServicioService.visualizarconductor'>
+      <strong><img src="assets/img/{{conductor.FotoConductor}}" class="card-title text-center"></strong>
       <br><br>
-      <strong>Nombre del conductor<h5 class="card-title text-center">Eduardo manos tijeras</h5></strong>
+      <strong>Nombre del conductor<h5 class="card-title text-center">{{conductor.NombreConductor}}</h5></strong>
       <br>
-      <strong>Fecha desde la que trabaja<h5 class="card-title text-center">20 de marzo de 2021</h5></strong>
+      <strong>Fecha desde la que trabaja<h5 class="card-title text-center">{{conductor.FechaInicio}}</h5></strong>
       <br>
-      <strong>Celular<h5 class="card-title text-center">646446456</h5></strong>
+      <strong>Celular<h5 class="card-title text-center">{{conductor.Celular}}</h5></strong>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" (click)="openAsignar(conductor.IdInfo)">Asignar!</button>
+      </div>
+    </div>
 
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-info" (click)="modal.close()">Asignar!</button>
-    </div>
   </ng-template>
 
 
