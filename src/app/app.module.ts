@@ -36,15 +36,16 @@ import { DetalleUsuarioComponent } from './Modulos/usuarios/detalle-usuario/deta
 import { ListarConductorComponent } from './Modulos/usuarios/conductor/listar-conductor/listar-conductor.component';
 import { DetallevehiculoComponent } from './Modulos/vehiculos/detallevehiculo/detallevehiculo.component';
 import { AuthInterceptor } from './Components/auth/auth.interceptor';
+import { RegistrarConductorComponent } from './Modulos/usuarios/conductor/registrar-conductor/registrar-conductor.component';
 import { GeolocalizacionComponent } from './Modulos/servicios/geolocalizacion/geolocalizacion.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { ListarServiciosComponent } from './Modulos/servicios/listar-servicios/listar-servicios.component';
 import { DetalleServiciosComponent } from './Modulos/servicios/detalle-servicios/detalle-servicios.component';
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { PedirServicioComponent } from './Modulos/servicios/pedir-servicio/pedir-servicio.component';
 import { VehiculosDisponiblesComponent } from './Modulos/servicios/vehiculos-disponibles/vehiculos-disponibles.component';
-
 registerLocaleData(en);
 
 @NgModule({
@@ -67,6 +68,8 @@ registerLocaleData(en);
     ListarConductorVehiculosComponent,
     DetalleConductorComponent,
     VehiculosDisponiblesComponent
+    RegistrarConductorComponent,
+    DetalleConductorComponent
   ],
   imports: [
     BrowserModule,
@@ -90,6 +93,7 @@ registerLocaleData(en);
     MatInputModule,
     MatFormFieldModule,
     NgbModule,
+    MatPaginatorModule,
     SocketIoModule.forRoot(config)
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US },

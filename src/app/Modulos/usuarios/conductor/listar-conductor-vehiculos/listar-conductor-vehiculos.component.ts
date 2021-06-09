@@ -33,7 +33,7 @@ export class ListarConductorVehiculosComponent implements OnInit {
         this.toastr.success('Se cambio el estado');
       },
       err => {
-        this.toastr.error('Error');
+        this.toastr.error('No se puede deasctivar conductor, tiene servicios activos');
       }
     );
   }

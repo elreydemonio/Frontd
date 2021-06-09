@@ -1,3 +1,4 @@
+import { ProAdminGuard } from './Components/auth/pro-admin.guard';
 import { ListarConductorVehiculosComponent } from './Modulos/usuarios/conductor/listar-conductor-vehiculos/listar-conductor-vehiculos.component';
 import { PropietarioAuthGuard } from './Components/auth/propietario-auth.guard';
 import { AdminGuard } from './Components/auth/admin.guard';
@@ -87,9 +88,8 @@ const routes: Routes = [
         component: ListarConductorComponent
       },
       {
-        path: 'registrar',
-        component: RegistrarConductorComponent,
-        canActivate: [PropietarioAuthGuard]
+        path: 'registrar/:variable',
+        component: RegistrarConductorComponent
       },
       {
         path: 'editar',
@@ -128,12 +128,12 @@ const routes: Routes = [
       {
         path: 'listar',
         component: ListarVehiculoComponent,
-        canActivate: [PropietarioAuthGuard]
+        canActivate: [ProAdminGuard]
       },
       {
         path: 'detalle/:id',
         component: DetallevehiculoComponent,
-        canActivate: [PropietarioAuthGuard]
+        canActivate: [ProAdminGuard]
       }
     ]},
 

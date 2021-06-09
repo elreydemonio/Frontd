@@ -10,7 +10,6 @@ import { GestionServicioService } from '../servicios/gestion-servicio.service';
   styleUrls: ['./vehiculos-disponibles.component.css']
 })
 export class VehiculosDisponiblesComponent implements OnInit {
-
   id: any;
   idConvert: number;
 

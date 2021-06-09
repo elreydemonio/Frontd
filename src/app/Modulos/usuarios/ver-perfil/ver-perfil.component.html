@@ -24,9 +24,86 @@
                 <button class="btn-light btn-lg" (click)="this.cerrarSesion()"><i class="fa fa-sign-out">Cerrar Sesión</i></button>
               </div>
                 <div class="col-md-6" align="center">
-                <button href="usuarios/registrar" class="btn-light btn-lg btn-block"><i class="fa fa-pencil-square-o">Editar</i></button>>
+                <button (click)="openFunciones(contenido)" class="btn-light btn-lg btn-block"><i class="fa fa-pencil-square-o">Editar</i></button>>
               </div>
           </div>
         </div>
-    </div>
+        <ng-template #contenido let-modal>
+          <div class="modal-header">
+            <h1 style="font-weight: 400;">Editar informacion</h1>
+            <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+           <form [formGroup]="gestionUsuarioService.formularioRegistroUsuario">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                      <i class="fa fa-car" [class.blue-icon]='NombreUsuario.valid' [NombreUsuario.red-icon]='NombreUsuario.invalid && NombreUsuario.touched'></i>
+                    </div>
+                  </div>
+                  <input name="NombreUsuario" formControlName="NombreUsuario" class="form-control" placeholder="Modelo del vehiculo" [value]="this.perfilUsuario.UserName">
+                </div>
+                <div class="form-field col-lg-4" *ngif="this.NombreUsuario.invalid && (this.NombreUsuario.touched || this.NombreUsuario.dirty)">
 
+                  <div class="alert" *ngif="this.NombreUsuario.hasError('required')">
+                    El Nombre de Usuario es requerido
+                  </div>
+                  <div class="alert" *ngif="this.NombreUsuario.hasError('pattern')">
+                    El Nombre de Usuario debe contener solo letras
+                  </div>
+                  <div class="alert" *ngif="this.NomNombreUsuariobre.hasError('maxlength')">
+                    El Nombre de Usuario debe tener máximo 20 carácteres
+                  </div>
+                  <div class="alert" *ngif="this.NombreUsuario.hasError('minlength')">
+                    El Nombre de Usuario debe tener mínimo 4 carácteres
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="form-group col-md-6">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                      <i class="fa fa-car"></i>
+                    </div>
+                  </div>
+                  <input name="Correo" class="form-control" placeholder="Modelo del vehiculo">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                      <i class="fa fa-car"></i>
+                    </div>
+                  </div>
+                  <input name="Celular" type="number" class="form-control" placeholder="Modelo del vehiculo">
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                      <i class="fa fa-car"></i>
+                    </div>
+                  </div>
+                  <input name="Direccion" class="form-control" placeholder="Modelo del vehiculo">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary btn-lg btn-block" [disabled]="gestionUsuarioService.formularioRegistroUsuario.invalid" type="submit"><i class="fa fa-save"></i> Guardar</button>
+            </div>
+           </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-info" (click)="modal.close()">Asignar!</button>
+          </div>
+        </ng-template>
+    </div>

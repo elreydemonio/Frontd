@@ -12,7 +12,7 @@ import { Visualizarconductor } from '../interfaces/visualizarconductor';
   providedIn: 'root'
 })
 export class GestionServicioService {
-
+  readonly rootURL = 'https://localhost:44345/api';
   readonly rootURL = 'https://localhost:44310/api';
 
   servicio:Servicio;
@@ -22,7 +22,8 @@ export class GestionServicioService {
   detalleservicio:Detalleservicio;
   visualizarvehiculos:Vehiculosdisponibles;
   visualizarconductor:Visualizarconductor;
-
+  listaServicios: Listarservicios[];
+  detalleservicio: Detalleservicio;
   constructor(private http: HttpClient) { }
 
   listarServicios(){
