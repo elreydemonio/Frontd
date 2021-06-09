@@ -56,10 +56,17 @@ export class GestionServicioService {
     .toPromise()
     .then(res => this.tipoCarga = res as Tipocarga[]);
   }
-
   // tslint:disable-next-line: typedef
   Asignar(IdServicio: number, IdInfo: number){
     console.log(IdServicio, IdInfo);
     return this.http.put(this.rootURL + '/Servicios/' + IdServicio, IdInfo);
+  }
+  // tslint:disable-next-line: typedef
+  ObternerServicios(){
+    return this.http.get(this.rootURL + '/Servicios/ServiciosPorAceptar');
+  }
+  // tslint:disable-next-line: typedef
+  AceptarServicio(id: number){
+    return this.http.get(this.rootURL + '/Servicios/AceptarServicio/' + id);
   }
 }

@@ -1,4 +1,4 @@
-<div *ngIf="this.Rol === '3' && this.token !== null">
+<div *ngIf="this.Rol === '3' || this.Rol === '4' && this.token !== null">
 
 <div class="container">
   <h1 class="text-center">Detalle Servicios</h1>
@@ -36,7 +36,7 @@
 </div>
 </div>
 
-<div *ngIf="this.Rol === '1' && this.token !== null">
+<div *ngIf="this.Rol === '1'  && this.token !== null">
 
   <div class="container">
     <h1 class="text-center">Detalle Servicios</h1>

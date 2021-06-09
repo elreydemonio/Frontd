@@ -1,5 +1,6 @@
   <div align="center">
     <h1 style="color: rgba(151,0,255,1);">Servicios pendientes por aceptar</h1>
+    <a href="servicios/" class="btn-dark btn-lg btn-block text-center" >Registrar Conductor</a>
   </div>
   <div class="scroll">
 
@@ -15,17 +16,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td class="text-center">Ramiro cardona</td>
-      <td class="text-center">Parque berrio</td>
-      <td class="text-center">Parque de las luces</td>
-      <td class="text-center">Pesada</td>
-      <td class="text-center">$20000</td>
+    <tr *ngFor="let Vehiculos of ListarServiciosAceotar">
+      <td class="text-center">{{ Vehiculos.NombreConductor }}</td>
+      <td class="text-center">{{ Vehiculos.DireccionCarga }}</td>
+      <td class="text-center">{{ Vehiculos.DireccionEntrega }}</td>
+      <td class="text-center">{{ Vehiculos.DescripcionCarga }}</td>
+      <td class="text-center">${{ Vehiculos.PrecioServicio }}</td>
       <td class="text-center">
-        <button type="button"><i class="fa fa-check" style="color: #00ff00;"></i></button>
+        <button type="button" (click)="AceptarServicio(Vehiculos.IdServicio)"><i class="fa fa-check" style="color: #00ff00;"></i></button>
       </td>
     </tr>
   </tbody>
 </table>
-
-    </div>
+</div>

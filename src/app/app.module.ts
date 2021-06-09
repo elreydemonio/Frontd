@@ -1,3 +1,4 @@
+import { AceptarServicioComponent } from './Modulos/servicios/aceptar-servicio/aceptar-servicio.component';
 import { DetalleConductorComponent } from './Modulos/usuarios/conductor/detalle-conductor/detalle-conductor.component';
 import { ListarConductorVehiculosComponent } from './Modulos/usuarios/conductor/listar-conductor-vehiculos/listar-conductor-vehiculos.component';
 import { LoginComponent } from './Modulos/login/login.component';
@@ -68,7 +69,8 @@ registerLocaleData(en);
     ListarConductorVehiculosComponent,
     DetalleConductorComponent,
     VehiculosDisponiblesComponent,
-    RegistrarConductorComponent
+    RegistrarConductorComponent,
+    AceptarServicioComponent
   ],
   imports: [
     BrowserModule,

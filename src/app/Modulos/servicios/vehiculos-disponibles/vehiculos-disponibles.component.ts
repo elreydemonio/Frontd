@@ -21,10 +21,9 @@ export class VehiculosDisponiblesComponent implements OnInit {
     this.gestionServicioService.vehiculosDisponibles(this.idConvert);
   }
 
-  openFunciones(contenido, IdServicio:number, IdConductor:number){
+  openFunciones(contenido, IdConductor: number){
     this.modal.open(contenido,{centered:true, windowClass:'oscuro', scrollable:true});
     this.gestionServicioService.conductorDisponible(IdConductor);
-    console.log(IdServicio, IdConductor);
   }
 
   openAsignar(IdInfo:number){

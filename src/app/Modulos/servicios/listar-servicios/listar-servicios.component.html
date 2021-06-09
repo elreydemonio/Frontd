@@ -2,11 +2,11 @@
   <div class="col-md-4" align="center">
   <h1 style="color: rgba(151,0,255,1);">Listado Servicios</h1>
 </div>
-<div class="col-md-4" align="center">
-  <a href="servicios/pedir" class="btn-dark btn-lg btn-block text-center" >Pedir servicio</a>
-</div>
-<div class="col-md-4" align="center">
-  <a href="conductores/registrar" class="btn-info btn-lg btn-block text-center" >Descargar informe</a>
+<div *ngIf="this.Rol === '1' || this.Rol === '3' && this.token !== null">
+  <div class="col-md-4" align="center">
+    <a href="servicios/pedir" class="btn-dark btn-lg btn-block text-center" >Pedir servicio</a>
+    <hr>
+  </div>
 </div>
   <div class="scroll">
 
