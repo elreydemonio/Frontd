@@ -13,8 +13,6 @@ import { Visualizarconductor } from '../interfaces/visualizarconductor';
 })
 export class GestionServicioService {
   readonly rootURL = 'https://localhost:44345/api';
-  readonly rootURL = 'https://localhost:44310/api';
-
   servicio:Servicio;
   tipoCarga: Tipocarga[];
   formularioRegistroServicio: FormGroup;
@@ -22,8 +20,6 @@ export class GestionServicioService {
   detalleservicio:Detalleservicio;
   visualizarvehiculos:Vehiculosdisponibles;
   visualizarconductor:Visualizarconductor;
-  listaServicios: Listarservicios[];
-  detalleservicio: Detalleservicio;
   constructor(private http: HttpClient) { }
 
   listarServicios(){
@@ -61,8 +57,9 @@ export class GestionServicioService {
     .then(res => this.tipoCarga = res as Tipocarga[]);
   }
 
-  Asignar(IdServicio: number, IdInfo:number){
-    console.log(IdServicio,IdInfo);
-    return this.http.put(this.rootURL + '/Servicios/' + IdInfo, IdServicio);
+  // tslint:disable-next-line: typedef
+  Asignar(IdServicio: number, IdInfo: number){
+    console.log(IdServicio, IdInfo);
+    return this.http.put(this.rootURL + '/Servicios/' + IdServicio, IdInfo);
   }
 }

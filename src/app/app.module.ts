@@ -67,9 +67,8 @@ registerLocaleData(en);
     LoginComponent,
     ListarConductorVehiculosComponent,
     DetalleConductorComponent,
-    VehiculosDisponiblesComponent
-    RegistrarConductorComponent,
-    DetalleConductorComponent
+    VehiculosDisponiblesComponent,
+    RegistrarConductorComponent
   ],
   imports: [
     BrowserModule,

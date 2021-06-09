@@ -30,15 +30,15 @@ export class VehiculosDisponiblesComponent implements OnInit {
   openAsignar(IdInfo:number){
     this.id = this.rutaActiva.snapshot.paramMap.get('variable');
     this.idConvert = Number(this.id);
-    this.gestionServicioService.Asignar(IdInfo,this.idConvert).subscribe(
+    console.log(IdInfo, this.idConvert);
+    this.gestionServicioService.Asignar(this.idConvert, IdInfo).subscribe(
       res => {
-        console.log(res);
+        window.location.href = 'servicios';
       },
       err => {
         console.log(err);
       }
-    )
-    console.log(IdInfo,this.idConvert);
+    );
   }
 
 }
