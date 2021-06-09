@@ -1,5 +1,5 @@
-
-  <form>
+<h1>Registrar conductor del vehiculos {{ this.id }}</h1>
+<form [formGroup]="gestionServicioUsuarios.formularioRegistroUsuario" (ngSubmit)="onSubmit()">
     <div class="contact-form row">
 
       <!--Nombre de Usuario-->
@@ -29,28 +29,22 @@
       <div class="form-field col-lg-4">
         <select class="label-pablo" name="IdTipoDocumento" formControlName="IdTipoDocumento">
         <option value="">Seleccione su tipo de documento</option>
-        <!--<option *ngFor="let Documento of gestionUsuarioService.tipoDocumento"
-        value="{{ Documento.IdTipoDocumento }}"> {{Documento.NombreDoocumento }}</option>-->
+        <option *ngFor="let Documento of gestionServicioUsuarios.tipoDocumento"
+        value="{{ Documento.IdTipoDocumento }}"> {{Documento.NombreDoocumento }}</option>
         </select>
       </div>
 
       <!--Tipo de usuario-->
 
-      <div class="form-field col-lg-4">
-        <select class="label-pablo" name="IdRol" formControlName="IdRol">
-        <option value="">Seleccione su rol</option>
-        <!--<option *ngFor="let Rol of gestionUsuarioService.roles"
-        value="{{Rol.IdRol}}">{{Rol.NombreRol}}</option>-->
-        </select>
-      </div>
+      
 
       <!--Genero-->
 
       <div class="form-field col-lg-4">
         <select class="label-pablo" name="IdGenero" formControlName="IdGenero">
         <option value="">Seleccione su genero</option>
-        <!--<option *ngFor="let IdGenero of gestionUsuarioService.genero"
-        value="{{ IdGenero.IdGenero }}">{{ IdGenero.NombreGenero }}</option>-->
+        <option *ngFor="let IdGenero of gestionServicioUsuarios.genero"
+        value="{{ IdGenero.IdGenero }}">{{ IdGenero.NombreGenero }}</option>
         </select>
       </div>
 
@@ -60,7 +54,7 @@
         <input name="Nombre" class="input-text" type="text" formControlName = "Nombre">
         <label for="Nombre" class="label">Nombre</label>
       </div>
-      <!--<div class="form-field col-lg-4" *ngIf="Nombre.invalid && (Nombre.touched || Nombre.dirty)">
+      <div class="form-field col-lg-4" *ngIf="Nombre.invalid && (Nombre.touched || Nombre.dirty)">
 
         <div class="alert" *ngIf="this.Nombre.hasError('required')">
           El nombre es requerido
@@ -74,7 +68,7 @@
         <div class="alert" *ngIf="this.Nombre.hasError('minlength')">
           El nombre debe tener mínimo 3 carácteres
         </div>
-      </div>-->
+      </div>
 
       <!--Apellido-->
 
@@ -83,7 +77,7 @@
         <label for="Apellido" class="label">Apellido</label>
       </div>
 
-      <!--<div class="form-field col-lg-4" *ngIf="Apellido.invalid && (Apellido.touched || Apellido.dirty)">
+      <div class="form-field col-lg-4" *ngIf="Apellido.invalid && (Apellido.touched || Apellido.dirty)">
 
         <div class="alert" *ngIf="this.Apellido.hasError('required')">
           El Apellido es requerido
@@ -97,7 +91,7 @@
         <div class="alert" *ngIf="this.Apellido.hasError('minlength')">
           El Apellido debe tener mínimo 3 carácteres
         </div>
-      </div>-->
+      </div>
 
       <!--Correo-->
 
@@ -106,7 +100,7 @@
         <label for="Email" class="label">Correo</label>
       </div>
 
-      <!--<div class="form-field col-lg-4" *ngIf="Email.invalid && (Email.touched || Email.dirty)">
+      <div class="form-field col-lg-4" *ngIf="Email.invalid && (Email.touched || Email.dirty)">
 
         <div class="alert" *ngIf="this.Email.hasError('required')">
           El correo electrónico es requerido
@@ -114,7 +108,7 @@
         <div class="alert" *ngIf="this.Email.hasError('pattern')">
           El formato del correo electrónico es incorrecto
         </div>
-      </div>-->
+      </div>
 
       <!--Direccion-->
 
@@ -123,12 +117,12 @@
         <label for="direccion" class="label">Dirección</label>
       </div>
 
-      <!--<div class="form-field col-lg-4" *ngIf="Direccion.invalid && (Direccion.touched || Direccion.dirty)">
+      <div class="form-field col-lg-4" *ngIf="Direccion.invalid && (Direccion.touched || Direccion.dirty)">
 
         <div class="alert" *ngIf="this.Direccion.hasError('required')">
           El correo electrónico es requerido
         </div>
-      </div>-->
+      </div>
 
       <!--Celular-->
 
@@ -137,8 +131,7 @@
         <label for="celular" class="label">Celular</label>
       </div>
 
-      <!--<div class="form-field col-lg-4" *ngIf="Celular.invalid && (Celular.touched || Celular.dirty)">
-
+      <div class="form-field col-lg-4" *ngIf="Celular.invalid && (Celular.touched || Celular.dirty)">
         <div class="alert" *ngIf="this.Celular.hasError('required')">
           El celular es requerido
         </div>
@@ -148,27 +141,28 @@
         <div class="alert" *ngIf="this.Celular.hasError('minlength')">
           El celular debe tener mínimo 5 carácteres
         </div>
-      </div>-->
+      </div>
+
 
       <!--Fecha inicio-->
 
-      <div class="form-field col-lg-3">
+     <!-- <div class="form-field col-lg-3">
         <input class="input-text" type="date" name="FechaInicio" formControlName="FechaInicio">
         <label for="fechainicio" class="label">Fecha inicio</label>
-      </div>
+      </div> -->
 
-      <!--Fecha Fin-->
+      <!--Fecha Fin
 
       <div class="form-field col-lg-3">
         <input class="input-text" type="date" name="FechaFin" formControlName="FechaFin">
-        <label for="fechafin" class="label">Fecha inicio</label>
-      </div>
+        <label for="fechafin" class="label">Fecha fin</label>
+      </div> -->
 
       <!--Foto-->
 
       <div class="form-field col-lg-12">
         <div class="custom-input-file">
-          <input class="input-file" type="file" name="Foto" formControlName="Foto"  (change)="readUrl($event)">
+          <input class="input-file" type="file" name="FotoConductor" formControlName="FotoConductor"  (change)="readUrl($event)">
           Subir foto
         </div>
       </div>
@@ -179,11 +173,13 @@
       <!--Registrar-->
 
 
-    </div>
+
     <div class="form-group" align="center">
-      <button class="btn-dark btn-lg btn-block" type="submit"><i class="fa fa-save"></i>Registrar</button>
+      <button class="btn-dark btn-lg btn-block" type="submit" ><i class="fa fa-save"></i>Registrar</button>
       <button class="btn-dark btn-lg btn-block"><i class="fa fa-arrow-circle-left"><a href="conductores/">Volver</a></i></button>
     </div>
+  </div>
+
 </form>
 
 

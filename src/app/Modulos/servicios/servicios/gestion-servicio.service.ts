@@ -7,11 +7,10 @@ import { Listarservicios } from '../interfaces/listarservicios';
   providedIn: 'root'
 })
 export class GestionServicioService {
-
   readonly rootURL = 'https://localhost:44345/api';
 
-  listaServicios:Listarservicios[];
-  detalleservicio:Detalleservicio;
+  listaServicios: Listarservicios[];
+  detalleservicio: Detalleservicio;
 
   constructor(private http: HttpClient) { }
 
