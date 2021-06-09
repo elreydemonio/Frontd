@@ -86,7 +86,8 @@ registerLocaleData(en);
     MatInputModule,
     MatFormFieldModule,
     NgbModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US },
     {

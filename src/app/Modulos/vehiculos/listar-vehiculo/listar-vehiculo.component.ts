@@ -9,7 +9,8 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class ListarVehiculoComponent implements OnInit {
   strLength: any = [];
-
+  Rol = localStorage.getItem('Rol');
+  token = localStorage.getItem('token');
   dtOptions: any = {};
   pageSizeOptions: any;
   constructor(public servicioVehiculo: ServicioVehiculosService, private toast: ToastrService) { }
