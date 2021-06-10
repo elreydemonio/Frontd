@@ -1,3 +1,4 @@
+import { ConductorAuthGuard } from './Components/auth/conductor-auth.guard';
 import { ProAdminGuard } from './Components/auth/pro-admin.guard';
 import { ListarConductorVehiculosComponent } from './Modulos/usuarios/conductor/listar-conductor-vehiculos/listar-conductor-vehiculos.component';
 import { PropietarioAuthGuard } from './Components/auth/propietario-auth.guard';
@@ -167,7 +168,8 @@ const routes: Routes = [
       },
       {
         path: 'aceptar',
-        component: AceptarServicioComponent
+        component: AceptarServicioComponent,
+        canActivate: [ConductorAuthGuard]
       }
     ]
   },

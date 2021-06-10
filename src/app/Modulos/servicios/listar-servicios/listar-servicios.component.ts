@@ -9,9 +9,9 @@ import { GestionServicioService } from '../servicios/gestion-servicio.service';
   styleUrls: ['./listar-servicios.component.css']
 })
 export class ListarServiciosComponent implements OnInit {
-
   @ViewChild('htmlData') htmlData:ElementRef;
-
+  Rol = localStorage.getItem('Rol');
+  token = localStorage.getItem('token');
   constructor(public gestionServicioService:GestionServicioService) { }
 
   public imprimirLista():void {
