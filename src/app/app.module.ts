@@ -67,7 +67,7 @@ registerLocaleData(en);
     LoginComponent,
     ListarConductorVehiculosComponent,
     DetalleConductorComponent,
-    VehiculosDisponiblesComponent
+    VehiculosDisponiblesComponent,
     RegistrarConductorComponent,
     DetalleConductorComponent
   ],
