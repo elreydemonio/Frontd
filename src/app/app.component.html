@@ -13,14 +13,11 @@
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
-      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
+      <li nz-submenu nzOpen nzTitle="Gestión" nzIcon="setting" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
         <ul style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
           <div *ngIf="this.token === null">
             <li nz-menu-item nzMatchRouter>
               <a routerLink="/Inicio/Login">Login</a>
-            </li>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/Inicio/Registro">Registro</a>
             </li>
           </div>
           <div *ngIf="this.Rol === '1' && this.token !== null">
@@ -67,20 +64,21 @@
         </ul>
       </li>
 
-
+    <div *ngIf="token === null">
       <li nz-submenu nzOpen nzTitle="Ayuda en línea" nzIcon="code-sandbox" style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
         <ul style="background: linear-gradient(90deg, rgba(39,35,40,1) 50%, rgba(151,0,255,1) 100%);">
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/ayuda/usuarios">Módulo de usuarios</a>
-            </li>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/ayuda/vehiculos">Módulo de vehículos</a>
-            </li>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/ayuda/servicios">Módulo de servicios</a>
-            </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/ayuda/usuarios">Módulo de usuarios</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/ayuda/vehiculos">Módulo de vehículos</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/ayuda/servicios">Módulo de servicios</a>
+          </li>
         </ul>
       </li>
+    </div>
     </ul>
   </nz-sider>
   <nz-layout>

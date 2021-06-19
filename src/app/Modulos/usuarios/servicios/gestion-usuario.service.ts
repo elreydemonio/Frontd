@@ -100,6 +100,9 @@ export class GestionUsuarioService {
   ListarConductorVehiculo(id: string){
     return this.http.get(this.rootURL + '/Vehiculos/ListarConductor/' + id);
   }
+  listrConductor(){
+    return this.http.get((this.rootURL + '/Usuarios/ListarConductor'));
+  }
   GuardarConductor(codigo: string){
     this.Conductor = this.formularioRegistroUsuario.value;
     Number(this.Conductor.IdEstado = 1);

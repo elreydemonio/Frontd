@@ -1,9 +1,10 @@
 <div class="row">
-  <div class="col-md-4" align="center">
+<div class="col-md-4" align="center">
   <h1 style="color: rgba(151,0,255,1);">Listado Servicios</h1>
 </div>
 <div class="col-md-4" align="center">
   <button type="button" class="btn-info btn-lg btn-block text-center" (click)="imprimirLista()">Descargar informe</button>
+</div>
 <div *ngIf="this.Rol === '1' || this.Rol === '3' && this.token !== null">
   <div class="col-md-4" align="center">
     <a href="servicios/pedir" class="btn-dark btn-lg btn-block text-center" >Pedir servicio</a>
@@ -31,7 +32,9 @@
       <td class="text-center">{{servicio.PrecioServicio}}</td>
       <td class="text-center">{{servicio.Estado}}</td>
       <td class="text-center">
-        <a href="conductores/detalle" style="color: rgb(255, 0, 0); margin:auto;"><i class="fa fa-times"></i></a>
+        <div *ngIf="servicio.IdEstadoServicio !== 3">
+          <a href="conductores/detalle" style="color: rgb(255, 0, 0); margin:auto;"><i class="fa fa-times"></i></a>
+        </div>
         <a href="servicios/geolocalizacion" style="color: rgb(255, 255, 255)"><i class="fa fa-street-view"></i></a>
         <a href="servicios/detalle/{{servicio.IdServicio}}" style="color: rgb(255, 255, 255)"><i class="fa fa-eye"></i></a>
       </td>
@@ -40,4 +43,3 @@
 </table>
 
     </div>
-</div>

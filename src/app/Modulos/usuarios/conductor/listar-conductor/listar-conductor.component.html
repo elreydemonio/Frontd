@@ -15,22 +15,18 @@
       <th scope="col">Nombres</th>
       <th scope="col">Tipo de documento</th>
       <th scope="col">Número de documento</th>
-      <th scope="col">Editar</th>
       <th scope="col">Detalle</th>
-      <th scope="col">Estado</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td class="text-center">Conductor</td>
-      <td class="text-center">Hombre</td>
-      <td class="text-center">20 enero de 2020</td>
-      <td class="text-center">Armando Gruas</td>
-      <td class="text-center">Pasaporte</td>
-      <td class="text-center">1049493</td>
-      <td class="text-center detalle"><a href="conductores/editar" style="color: rgb(255, 255, 255)"><i class="fa fa-pencil-square-o"></i></a></td>
-      <td class="text-center detalle"><a href="conductores/detalle" style="color: rgb(255, 255, 255)"><i class="fa fa-eye"></i></a></td>
-      <td><button class=" text-center btn btn-outline-success ">activo</button></td>
+    <tr *ngFor="let conductor of listarConductor">
+      <td class="text-center">{{ conductor.NombreRol }}</td>
+      <td class="text-center">{{ conductor.NombreGenero }}</td>
+      <td class="text-center">{{ conductor.FechaInicio }}</td>
+      <td class="text-center">{{ conductor.Nombre + ' ' + conductor.Apellido }}</td>
+      <td class="text-center">{{ conductor.NombreDoocumento }}</td>
+      <td class="text-center">{{ conductor.NumeroDocumento }}</td>
+      <td class="text-center detalle"><a href="conductores/detalle/{{ conductor.Id }}" style="color: rgb(255, 255, 255)"><i class="fa fa-eye"></i></a></td>
     </tr>
   </tbody>
 </table>
