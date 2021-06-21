@@ -21,7 +21,7 @@ export class EditarUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.rutaActiva.snapshot.paramMap.get('variable');
-    this.gestionUsuarioService.EditarDetalle(this.id).subscribe(
+    this.gestionUsuarioService.editarDetalle(this.id).subscribe(
       res => {
         this.editarDetalle = res;
       },
