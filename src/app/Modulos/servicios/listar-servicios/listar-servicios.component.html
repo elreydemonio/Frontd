@@ -33,7 +33,7 @@
       <td class="text-center">{{servicio.Estado}}</td>
       <td class="text-center">
         <div *ngIf="servicio.IdEstadoServicio !== 3">
-          <a href="conductores/detalle" style="color: rgb(255, 0, 0); margin:auto;"><i class="fa fa-times"></i></a>
+          <button (click)="CancelarServicio(servicio.IdServicio)" style="color: rgb(255, 0, 0); margin:auto;"><i class="fa fa-times"></i></button>
         </div>
         <a href="servicios/geolocalizacion" style="color: rgb(255, 255, 255)"><i class="fa fa-street-view"></i></a>
         <a href="servicios/detalle/{{servicio.IdServicio}}" style="color: rgb(255, 255, 255)"><i class="fa fa-eye"></i></a>

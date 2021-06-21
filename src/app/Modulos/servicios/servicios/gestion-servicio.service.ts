@@ -69,4 +69,7 @@ export class GestionServicioService {
   AceptarServicio(id: number){
     return this.http.get(this.rootURL + '/Servicios/AceptarServicio/' + id);
   }
+  CancelarServicio(id: number){
+    return this.http.get(this.rootURL + '/Servicios/CancelarServicio/' + id);
+  }
 }
