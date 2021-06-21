@@ -29,6 +29,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
+    "jspdf": "^2.3.1",
     "jwt-decode": "^3.1.2",
     "mapbox-gl": "^2.3.0",
     "ng-zorro-antd": "^11.4.1",

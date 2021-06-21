@@ -30,6 +30,7 @@ import { AceptarServicioComponent } from './Modulos/servicios/aceptar-servicio/a
 import { ModuloUsuariosComponent } from './Modulos/ayuda/modulo-usuarios/modulo-usuarios.component';
 import { ModuloVehiculosComponent } from './Modulos/ayuda/modulo-vehiculos/modulo-vehiculos.component';
 import { ModuloServiciosComponent } from './Modulos/ayuda/modulo-servicios/modulo-servicios.component';
+import { EditarVehiculoComponent } from './Modulos/vehiculos/editar-vehiculo/editar-vehiculo.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'Inicio/Login' },
@@ -134,6 +135,11 @@ const routes: Routes = [
       {
         path: 'detalle/:id',
         component: DetallevehiculoComponent,
+        canActivate: [ProAdminGuard]
+      },
+      {
+        path: 'editar',
+        component: EditarVehiculoComponent,
         canActivate: [ProAdminGuard]
       }
     ]},
