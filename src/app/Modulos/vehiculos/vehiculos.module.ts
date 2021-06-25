@@ -9,12 +9,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ToastrModule } from 'ngx-toastr';
 import { DetallevehiculoComponent } from './detallevehiculo/detallevehiculo.component';
 import { PaginatePipe } from './pipes/paginate.pipe';
+import { EditarVehiculoComponent } from './editar-vehiculo/editar-vehiculo.component';
 @NgModule({
   declarations: [
     CrearVehiculoComponent,
     ListarVehiculoComponent,
     DetallevehiculoComponent,
-    PaginatePipe
+    PaginatePipe,
+    EditarVehiculoComponent
   ],
   imports: [
     CommonModule,

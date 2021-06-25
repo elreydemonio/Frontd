@@ -39,7 +39,7 @@
         </span>
         <input type="password" id="pwd" name="Password" class="form-input" formControlName="Password" placeholder="Contraseña">
         <span>
-          <i class="fa fa-eye" aria-hidden="true"  type="button" id="eye"></i>
+          <i class="fa fa-eye" aria-hidden="true"  type="button" id="eye" (click)="password()"></i>
        </span>
         <br>
         <button type="submit" name="button" class="btn btn" [disabled]="this.usuarioService.formularioLogin.invalid">Ingresar</button>

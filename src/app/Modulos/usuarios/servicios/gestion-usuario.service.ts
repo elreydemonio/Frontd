@@ -14,7 +14,7 @@ import { Usuario } from '../interfaces/usuario';
   providedIn: 'root'
 })
 export class GestionUsuarioService {
-  readonly rootURL = 'https://localhost:44345/api';
+  readonly rootURL = 'https://localhost:44340/api';
   formularioRegistroUsuario: FormGroup;
   usuario: Usuario;
   listaUsuarios: Usuario[];
@@ -86,11 +86,8 @@ export class GestionUsuarioService {
     .then(res => this.detalleusuario = res as Detalleusuario);
   }
 
-  // tslint:disable-next-line: typedef
   editarDetalle(id: string){
-    this.http.get(this.rootURL + '/Usuarios/EditarDetalle/' + id)
-    .toPromise()
-    .then(res => this.editardetalles = res as Editardetalle[]);
+    return this.http.get(this.rootURL + '/Usuarios/EditarDetalle/' + id);
   }
   // tslint:disable-next-line: typedef
   obtenerPerfil(){

@@ -38,4 +38,28 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+   show() {
+    var p = document.getElementById('pwd');
+    p.setAttribute('type', 'text');
+}
+
+ hide() {
+    var p = document.getElementById('pwd');
+    p.setAttribute('type', 'password');
+}
+
+ pwShown = 0;
+
+ password(){
+   document.getElementById("eye");
+   if (this.pwShown == 0) {
+     this.pwShown = 1;
+     this.show();
+   }else{
+     this.pwShown = 0;
+     this.hide();
+   }
+ }
+
 }

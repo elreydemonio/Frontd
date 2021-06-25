@@ -12,6 +12,7 @@ import { GestionUsuarioService } from '../servicios/gestion-usuario.service';
 export class EditarUsuarioComponent implements OnInit {
 
   id: any;
+  editarDetalle;
   constructor(
     public gestionUsuarioService:GestionUsuarioService,
     private rutaActiva:ActivatedRoute,
@@ -20,12 +21,19 @@ export class EditarUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.rutaActiva.snapshot.paramMap.get('variable');
-    this.gestionUsuarioService.editarDetalle(this.id);
+    this.gestionUsuarioService.editarDetalle(this.id).subscribe(
+      res => {
+        this.editarDetalle = res;
+      },
+      err => {
+        console.log(err);
+      }
+    );
     this.gestionUsuarioService.ListaGenero();
     this.gestionUsuarioService.ListaTipoDocumento();
     this.gestionUsuarioService.ListaRol();
     this.gestionUsuarioService.formularioRegistroUsuario = this.formBuilder.group({
-      Id:[""],
+      Id:[this.id],
       IdEstadoUsuario:[""],
       IdTipoDocumento:["", [Validators.required]],
       IdRol:["", [Validators.required]],
@@ -90,6 +98,7 @@ export class EditarUsuarioComponent implements OnInit {
       res=>{
         this.gestionUsuarioService.formularioRegistroUsuario.reset();
         this.toastr.success("Se ha actualizado el usuario");
+        //window.location.href = "usuarios/";
       },
       err=>{
         this.toastr.error(err);
