@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { GestionServicioService } from '../servicios/gestion-servicio.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-listar-servicios',
@@ -12,7 +13,7 @@ export class ListarServiciosComponent implements OnInit {
   @ViewChild('htmlData') htmlData:ElementRef;
   Rol = localStorage.getItem('Rol');
   token = localStorage.getItem('token');
-  constructor(public gestionServicioService:GestionServicioService) { }
+  constructor(public gestionServicioService:GestionServicioService, private toast: ToastrService) { }
 
   public imprimirLista():void {
     let data = document.getElementById('htmlData');
@@ -33,6 +34,17 @@ export class ListarServiciosComponent implements OnInit {
 
   ngOnInit(): void {
     this.gestionServicioService.listarServicios();
+  }
+
+  CancelarServicio(id: number){
+    this.gestionServicioService.CancelarServicio(id).subscribe(
+      res => {
+        this.toast.info('Se a cancelado el servicio correctamente');
+      },
+      err => {
+        this.toast.error('Error');
+      },
+    )
   }
 
 }

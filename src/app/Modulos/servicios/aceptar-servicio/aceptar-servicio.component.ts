@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GestionServicioService } from '../servicios/gestion-servicio.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-aceptar-servicio',
@@ -9,7 +10,7 @@ import { GestionServicioService } from '../servicios/gestion-servicio.service';
 })
 export class AceptarServicioComponent implements OnInit {
   ListarServiciosAceotar;
-  constructor( public gestionServicioService: GestionServicioService, private rutaActiva: ActivatedRoute) { }
+  constructor( public gestionServicioService: GestionServicioService, private rutaActiva: ActivatedRoute, private toast: ToastrService) { }
 
   ngOnInit(): void {
     this.gestionServicioService.ObternerServicios().subscribe(
@@ -26,7 +27,7 @@ export class AceptarServicioComponent implements OnInit {
   AceptarServicio(id: number){
     this.gestionServicioService.AceptarServicio(id).subscribe(
       res => {
-        console.log('Logrado');
+        this.toast.success("Has aceptado el servicio")
       },
       err => {
         console.log(err);

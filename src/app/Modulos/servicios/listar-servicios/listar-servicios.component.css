@@ -5,7 +5,6 @@ table {
   border-collapse: collapse;
   border: 3px solid rgb(0, 0, 0);
 }
-
 thead th:nth-child(1) {
   width: 10%;
 }
@@ -26,10 +25,9 @@ thead th:nth-child(5) {
   width: 10%;
 }
 
-thead th:nth-child(5) {
+thead th:nth-child(6) {
   width: 13%;
 }
-
 a i:nth-child(1){
   margin-left: 20px;
   margin-right: 20px;

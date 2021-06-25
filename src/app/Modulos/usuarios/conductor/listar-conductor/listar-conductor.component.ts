@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {GestionUsuarioService} from '../../servicios/gestion-usuario.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-listar-conductor',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarConductorComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public gestionUsuarioService:GestionUsuarioService, private toastr:ToastrService) { }
+  listarConductor;
   ngOnInit(): void {
+    this.gestionUsuarioService.listrConductor().subscribe(
+      res => {
+        this.listarConductor = res;
+      },
+      error => {
+        console.log(error);
+      }
+    )
   }
 
 }
