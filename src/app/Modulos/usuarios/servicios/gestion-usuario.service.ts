@@ -80,6 +80,22 @@ export class GestionUsuarioService {
   }
 
   // tslint:disable-next-line: typedef
+  EditarConductor(){
+    this.Conductor = this.formularioRegistroUsuario.value;
+    Number(this.Conductor.IdEstado = 1);
+    Number(this.Conductor.IdInfo = 1);
+    Number(this.Conductor.NumeroDocumento);
+    Number(this.Conductor.IdGenero);
+    Number(this.Conductor.IdRol);
+    Number(this.Conductor.Celular);
+    Number(this.Conductor.NumeroDocumento);
+    if (this.Conductor.id === "") {
+      console.log(this.usuario);
+    }
+    return this.http.put(this.rootURL + '/Usuarios/EditarConductor/' + this.Conductor.id, this.Conductor);
+  }
+
+  // tslint:disable-next-line: typedef
   detalleUsuario(id: string){
     this.http.get(this.rootURL + '/Usuarios/DetalleUsuario/' + id)
     .toPromise()

@@ -22,6 +22,7 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { ListarUsuarioComponent } from './Modulos/usuarios/listar-usuario/listar-usuario.component';
 import { RegistrarUsuarioComponent } from './Modulos/usuarios/registrar-usuario/registrar-usuario.component';
 import { EditarUsuarioComponent } from './Modulos/usuarios/editar-usuario/editar-usuario.component';
+import { EditarConductorComponent } from './Modulos/usuarios/conductor/editar-conductor/editar-conductor.component';
 import { ToastrModule } from 'ngx-toastr';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -57,6 +58,7 @@ registerLocaleData(en);
     RegistrarUsuarioComponent,
     PedirServicioComponent,
     EditarUsuarioComponent,
+    EditarConductorComponent,
     DetalleUsuarioComponent,
     DetalleServiciosComponent,
     ListarConductorComponent,

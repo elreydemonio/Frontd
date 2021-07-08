@@ -96,7 +96,7 @@ const routes: Routes = [
         component: RegistrarConductorComponent
       },
       {
-        path: 'editar',
+        path: 'editar/:variable',
         component: EditarConductorComponent,
         canActivate: [PropietarioAuthGuard]
       },
