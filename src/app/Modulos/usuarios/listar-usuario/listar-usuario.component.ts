@@ -17,7 +17,7 @@ export class ListarUsuarioComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   CambiarEstado(IdEstadoUsuario: number, Id: string){
-    this.gestionUsuarioService.EditarEstado(IdEstadoUsuario, Id).subscribe(
+    this.gestionUsuarioService.EditarEstado(44, "das").subscribe(
       res => {
         this.gestionUsuarioService.listarUsuarios();
         this.toastr.success('Se cambio el estado');

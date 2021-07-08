@@ -57,7 +57,8 @@ const routes: Routes = [
       },
       {
         path: 'listar',
-        component: ListarUsuarioComponent
+        component: ListarUsuarioComponent,
+        canActivate: [AdminGuard]
       },
       {
         path: 'registrar',
@@ -65,7 +66,8 @@ const routes: Routes = [
       },
       {
         path: 'editar/:variable',
-        component: EditarUsuarioComponent
+        component: EditarUsuarioComponent,
+        canActivate: [AdminGuard]
       },
       {
         path: 'detalle/:variale',
@@ -138,7 +140,7 @@ const routes: Routes = [
         canActivate: [ProAdminGuard]
       },
       {
-        path: 'editar',
+        path: 'editar/:id',
         component: EditarVehiculoComponent,
         canActivate: [ProAdminGuard]
       }

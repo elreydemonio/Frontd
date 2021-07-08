@@ -2,6 +2,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ServicioVehiculosService } from './../Servicios/servicio-vehiculos.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import {ActivatedRoute} from '@angular/router';
 interface HtmlInputEvent extends Event {
   target: HTMLInputElement & EventTarget;
 }
@@ -17,9 +18,12 @@ export class EditarVehiculoComponent implements OnInit {
   SegurodecargaFile: File;
   SoatFile: File;
   TecnoMecanicaFile: File;
-  constructor(public servicioVehiculo: ServicioVehiculosService, private formbuilder: FormBuilder, private toast: ToastrService) { }
+  id: string;
+  DetalleVehiculo;
+  constructor(public servicioVehiculo: ServicioVehiculosService, private formbuilder: FormBuilder, private toast: ToastrService, private rutaActiva: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.id = this.rutaActiva.snapshot.paramMap.get('id');
     this.servicioVehiculo.ListarTiposVehiculos();
     this.servicioVehiculo.ListarMarca();
     this.servicioVehiculo.listarColor();
@@ -36,6 +40,14 @@ export class EditarVehiculoComponent implements OnInit {
       Placa: [''],
       Soat: ['', [Validators.required]]
     });
+    this.servicioVehiculo.DetalleVehiculoEditar(this.id).subscribe(
+      res => {
+        this.DetalleVehiculo = res;
+      },
+      error => {
+        console.log(error);
+      }
+    )
   }
 
   url: any= '';
@@ -186,9 +198,9 @@ export class EditarVehiculoComponent implements OnInit {
         console.log(err);
       }
     );
-    this.servicioVehiculo.registrarVehiculo().subscribe(
+    this.servicioVehiculo.EditarVehiculo().subscribe(
       res => {
-        this.toast.success('Guardado correctamente');
+        this.toast.success('Editado correctamente');
       },
       err => {
         console.log(err);

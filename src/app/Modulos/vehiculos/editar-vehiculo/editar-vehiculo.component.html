@@ -10,9 +10,14 @@
               <div class="row">
 
               <div class="form-group col-md-6">
+                <input type="hidden" name="CodigoV" formControlName="CodigoV" [ngModel]="DetalleVehiculo.CodigoV">
+                <input type="hidden" name="IdMarca" formControlName="IdMarca" [ngModel]="DetalleVehiculo.IdMarca">
+                <input type="hidden" name="Modelo" formControlName="Modelo" [ngModel]="DetalleVehiculo.Modelo">
+                <input type="hidden" name="Placa" formControlName="Placa" [ngModel]="DetalleVehiculo.Placa">
+                <input type="hidden" name="IdTipoVehiculo" formControlName="IdTipoVehiculo" [ngModel]="DetalleVehiculo.IdTipoVehiculo">
                 <label for="formFile" class="form-label">Foto del vehículo</label>
                 <div class="input-group">
-                  <input class="form-control" type="file" id="formFile" name="FotoV" formControlName="FotoV" (change)="saveImage($event)">
+                  <input class="form-control" type="file" id="formFile" name="FotoV" formControlName="FotoV" (change)="saveImage($event)" [ngModel]="this.DetalleVehiculo.FotoV" >
                 </div>
                 <img [src]="url">
                 <!--Mesanje de error-->
@@ -87,8 +92,7 @@
                       </div>
                     </div>
                     <select name="IdTipoVehiculo" formControlName="IdColor" class="form-control" id="">
-                      <option value="">Rojo</option>
-                      <option *ngFor="let Color of servicioVehiculo.Color"  value="{{Color.Id}}" >{{ Color.NombreColor }}</option>
+                      <option *ngFor="let Color of servicioVehiculo.Color"  value="{{Color.Id}}" [selected]="DetalleVehiculo.IdColor" >{{ Color.NombreColor }}</option>
                     </select>
                   </div>
                   <!--Mesanje de error-->
@@ -107,7 +111,7 @@
                     <i class="fa fa-wrench" [class.blue-icon]='Cilindraje.valid' [class.red-icon]='Cilindraje.invalid && Cilindraje.touched'></i>
                   </div>
                   </div>
-                    <input name="Cilindraje" type="number" formControlName="Cilindraje" class="form-control" placeholder="4">
+                    <input name="Cilindraje" type="number" formControlName="Cilindraje" class="form-control" [ngModel]="DetalleVehiculo.Cilindraje">
                   </div>
                   <!--Mesanje de error-->
                     <div class="alert-danger" *ngIf='Cilindraje.invalid && (Cilindraje.touched || Cilindraje.dirty)'>

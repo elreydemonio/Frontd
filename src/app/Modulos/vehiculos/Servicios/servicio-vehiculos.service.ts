@@ -11,7 +11,7 @@ import { Vehiculo } from '../interfaz/vehiculo';
   providedIn: 'root'
 })
 export class ServicioVehiculosService {
-  readonly rootUrl = 'https://localhost:44340/api';
+  readonly rootUrl = 'https://localhost:44345/api';
   listaVehiculos: ListaVehiculo[];
   vehiculo: Vehiculo;
   tipoVehiculo: TipoVehiculos[];
@@ -75,5 +75,15 @@ export class ServicioVehiculosService {
     this.http.get(this.rootUrl + '/Vehiculos/ListaConductoreValidation').
     toPromise()
     .then(res => this.listaConductorValidation = res);
+  }
+  DetalleVehiculoEditar(id: string){
+    return  this.http.get(this.rootUrl + '/Vehiculos/EdtiarVehiculoDetalle/' + id)
+  }
+  EditarVehiculo(){
+    this.vehiculo = this.FormularioRegistro.value;
+    Number(this.vehiculo.IdTipoVehiculo);
+    Number(this.vehiculo.IdColor);
+    Number(this.vehiculo.IdMarca);
+    return this.http.put(this.rootUrl + '/Vehiculos/' + this.vehiculo.CodigoV, this.vehiculo)
   }
 }
