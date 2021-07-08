@@ -1,14 +1,14 @@
 
   <form [formGroup]="gestionUsuarioService.formularioRegistroUsuario" (ngSubmit)="onSubmit()">
-    <div class="contact-form row">
+    <div class="contact-form row" *ngFor="let usuario of editarDetalle">
 
-      <h1 align="center" style="color: blueviolet;">Registrar Usuario</h1>
+      <h1 align="center" style="color: blueviolet;">Editar Usuario</h1>
 
       <!--Nombre de Usuario-->
 
       <div class="form-field col-lg-4">
         <input type="hidden" name="Id">
-        <input class="input-text" type="name" name="NombreUsuario" formControlName="NombreUsuario">
+        <input class="input-text" type="name" name="NombreUsuario" formControlName="NombreUsuario" [ngModel]="usuario.UserName">
         <label for="NombreUsuario" class="label">Nombre de usuario</label>
       </div>
 
@@ -32,7 +32,7 @@
     <!--Direccion-->
 
     <div class="form-field col-lg-4">
-      <input class="input-text" type="text" name="Direccion" formControlName="Direccion">
+      <input class="input-text" type="text" name="Direccion" formControlName="Direccion" [ngModel]="usuario.Direccion">
       <label for="direccion" class="label">Dirección</label>
     </div>
 
@@ -47,7 +47,7 @@
       <!--Numero de documento-->
 
       <div class="form-field col-lg-4">
-        <input class="input-text" type="number" name="NumeroDocumento" formControlName="NumeroDocumento">
+        <input class="input-text" type="number" name="NumeroDocumento" formControlName="NumeroDocumento" [ngModel]="usuario.NumeroDocumento">
         <label for="NumeroDocumento" class="label">Número de documento</label>
       </div>
 
@@ -71,7 +71,7 @@
 
       <div class="form-field col-lg-4">
         <select class="label-pablo" name="IdTipoDocumento" formControlName="IdTipoDocumento">
-        <option value=""  style="background: #000">Tipo de documento</option>
+        <option value=""  style="background: #000">Seleccione su documento</option>
         <option *ngFor="let Documento of gestionUsuarioService.tipoDocumento" style="background: #000"
         value="{{ Documento.IdTipoDocumento }}"> {{Documento.NombreDoocumento }}</option>
         </select>
@@ -121,7 +121,7 @@
       <!--Nombre-->
 
       <div class="form-field col-lg-4">
-        <input name="Nombre" class="input-text" type="text" formControlName = "Nombre">
+        <input name="Nombre" class="input-text" type="text" formControlName = "Nombre" [ngModel]="usuario.Nombre">
         <label for="Nombre" class="label">Nombre</label>
       </div>
       <div class="form-field col-lg-4" *ngIf="Nombre.invalid && (Nombre.touched || Nombre.dirty)">
@@ -143,7 +143,7 @@
       <!--Apellido-->
 
       <div class="form-field col-lg-4">
-        <input class="input-text" type="text" name="Apellido" formControlName="Apellido">
+        <input class="input-text" type="text" name="Apellido" formControlName="Apellido" [ngModel]="usuario.Apellido">
         <label for="Apellido" class="label">Apellido</label>
       </div>
 
@@ -166,7 +166,7 @@
       <!--Correo-->
 
        <div class="form-field col-lg-4">
-        <input class="input-text" type="email" name="Email" formControlName="Email">
+        <input class="input-text" type="email" name="Email" formControlName="Email" [ngModel]="usuario.Email">
         <label for="Email" class="label">Correo</label>
       </div>
 
@@ -182,7 +182,7 @@
       <!--Celular-->
 
       <div class="form-field col-lg-4">
-        <input class="input-text" type="number" name="Celular" formControlName="Celular">
+        <input class="input-text" type="number" name="Celular" formControlName="Celular" [ngModel]="usuario.Celular">
         <label for="celular" class="label">Celular</label>
       </div>
 
@@ -204,8 +204,8 @@
 
     </div>
     <div class="form-group" align="center">
-      <button class="btn-dark btn-lg btn-block" type="submit" [disabled]="gestionUsuarioService.formularioRegistroUsuario.invalid"><i class="fa fa-save" style="color: rgb(119, 0, 255);"></i>Registrar</button>
-      <a class="btn-dark btn-lg btn-block" href="Inicio/Login/"><i class="fa fa-undo" style="color: rgb(119, 0, 255);"></i>Volver</a>
+      <button class="btn-dark btn-lg btn-block" type="submit" [disabled]="gestionUsuarioService.formularioRegistroUsuario.invalid"><i class="fa fa-save" style="color: rgb(119, 0, 255);"></i>Editar</button>
+      <a class="btn-dark btn-lg btn-block" href="usuarios/"><i class="fa fa-undo" style="color: rgb(119, 0, 255);"></i>Volver</a>
     </div>
 </form>
 

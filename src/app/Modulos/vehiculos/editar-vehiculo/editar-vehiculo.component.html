@@ -1,0 +1,146 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col text-center">
+      <mat-card>
+        <mat-card-title>Editar Vehículo</mat-card-title>
+          <mat-card-content>
+          <hr>
+            <form [formGroup]="servicioVehiculo.FormularioRegistro" (ngSubmit)= "onSubmit()">
+
+              <div class="row">
+
+              <div class="form-group col-md-6">
+                <input type="hidden" name="CodigoV" formControlName="CodigoV" [ngModel]="DetalleVehiculo.CodigoV">
+                <input type="hidden" name="IdMarca" formControlName="IdMarca" [ngModel]="DetalleVehiculo.IdMarca">
+                <input type="hidden" name="Modelo" formControlName="Modelo" [ngModel]="DetalleVehiculo.Modelo">
+                <input type="hidden" name="Placa" formControlName="Placa" [ngModel]="DetalleVehiculo.Placa">
+                <input type="hidden" name="IdTipoVehiculo" formControlName="IdTipoVehiculo" [ngModel]="DetalleVehiculo.IdTipoVehiculo">
+                <label for="formFile" class="form-label">Foto del vehículo</label>
+                <div class="input-group">
+                  <input class="form-control" type="file" id="formFile" name="FotoV" formControlName="FotoV" (change)="saveImage($event)" [ngModel]="this.DetalleVehiculo.FotoV" >
+                </div>
+                <img [src]="url">
+                <!--Mesanje de error-->
+                <div class="alert-danger" *ngIf='FotoV.invalid && (FotoV.touched || FotoV.dirty)'>
+                  <div *ngIf="this.FotoV.hasError('required')">
+                    la foto  es requerida
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="formFile" class="form-label">Tecnomecánica</label>
+                <div class="input-group">
+                  <input class="form-control" type="file" id="formFile" name="TecnoMecanica" formControlName="TecnoMecanica" (change)="saveImage2($event)">
+                </div>
+                <img [src]="url2">
+                <!--Mesanje de error-->
+                <div class="alert-danger" *ngIf='TecnoMecanica.invalid && (TecnoMecanica.touched || TecnoMecanica.dirty)'>
+                  <div *ngIf="this.TecnoMecanica.hasError('required')">
+                    la tecnomecánica es requerida
+                  </div>
+                </div>
+              </div>
+
+              </div>
+
+              <br>
+
+              <div class="row">
+
+              <div class="form-group col-md-6">
+                <label for="formFile" class="form-label">Seguro de carga</label>
+                <div class="input-group">
+                  <input class="form-control" type="file" id="formFile" name="SeguroCarga" formControlName="SeguroCarga" (change)="saveImage3($event)">
+                </div>
+                <img [src]="url3">
+                <!--Mesanje de error-->
+                <div class="alert-danger" *ngIf='SeguroCarga.invalid && (SeguroCarga.touched || SeguroCarga.dirty)'>
+                  <div *ngIf="this.SeguroCarga.hasError('required')">
+                    la foto del seguro es requerida
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="formFile" class="form-label">Soat</label>
+                <div class="input-group">
+                  <input class="form-control" type="file" id="formFile" name="Soat" formControlName="Soat" (change)="saveImage4($event)">
+                </div>
+                <img [src]="url4">
+                <!--Mesanje de error-->
+                <div class="alert-danger" *ngIf='Soat.invalid && (Soat.touched || Soat.dirty)'>
+                  <div *ngIf="this.Soat.hasError('required')">
+                    la placa es obligatoria
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <br>
+
+
+
+              <div class="row">
+
+                <div class="form-group col-md-6">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text bg-white">
+                        <i class="fa fa-tint" [class.blue-icon]='IdColor.valid' [class.red-icon]='IdColor.invalid && IdColor.touched'></i>
+                      </div>
+                    </div>
+                    <select name="IdTipoVehiculo" formControlName="IdColor" class="form-control" id="">
+                      <option *ngFor="let Color of servicioVehiculo.Color"  value="{{Color.Id}}" [selected]="DetalleVehiculo.IdColor" >{{ Color.NombreColor }}</option>
+                    </select>
+                  </div>
+                  <!--Mesanje de error-->
+                  <div class="alert-danger" *ngIf='IdColor.invalid && (IdColor.touched || IdColor.dirty)'>
+                      <div *ngIf="this.IdColor.hasError('required')">
+                        El color es requerido
+                      </div>
+                  </div>
+               </div>
+
+
+               <div class="form-group col-md-6">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                  <div class="input-group-text bg-white">
+                    <i class="fa fa-wrench" [class.blue-icon]='Cilindraje.valid' [class.red-icon]='Cilindraje.invalid && Cilindraje.touched'></i>
+                  </div>
+                  </div>
+                    <input name="Cilindraje" type="number" formControlName="Cilindraje" class="form-control" [ngModel]="DetalleVehiculo.Cilindraje">
+                  </div>
+                  <!--Mesanje de error-->
+                    <div class="alert-danger" *ngIf='Cilindraje.invalid && (Cilindraje.touched || Cilindraje.dirty)'>
+                      <div *ngIf="this.Cilindraje.hasError('required')">
+                        El Cilindraje es requerido
+                      </div>
+                      <div *ngIf="this.Cilindraje.hasError('pattern')">
+                        El Cilindraje debe tener solo números
+                      </div>
+                    </div>
+                </div>
+
+              </div>
+              <br>
+
+
+              <div class="form-group">
+                <button class="btn btn-info btn-lg btn-block" [disabled]="servicioVehiculo.FormularioRegistro.invalid" type="submit"><i class="fa fa-save"></i> Guardar</button>
+              </div>
+
+            </form>
+          </mat-card-content>
+          <mat-card-footer>
+
+          </mat-card-footer>
+        </mat-card>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>

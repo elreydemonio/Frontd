@@ -6,7 +6,7 @@
 }
 
 .app-layout {
-  height: 100vh;
+  position: static;
 }
 
 .menu-sidebar {
@@ -29,7 +29,7 @@
 }
 
 .sidebar-logo {
-  position: relative;
+  position: static;
   height: 64px;
   padding-left: 24px;
   overflow: hidden;
@@ -62,7 +62,7 @@ nz-header {
 }
 
 .app-header {
-  position: relative;
+  position: static;
   height: 64px;
   padding: 0;
   background: #fff;

@@ -11,7 +11,6 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Cilindraje: {{ item.Cilindraje }}</li>
             <li class="list-group-item">Tipo Vehiculo: {{ item.Descripcion }}</li>
-            <li class="list-group-item"><button class="btn btn-outline-info" (click)="CambiarEstado(item.CodigoV)">Cambiar estado</button> </li>
           </ul>
         </div>
         <div class="card-footer">
@@ -41,7 +40,7 @@
           </div>
           <div class="card-footer">
             <small class="text-muted"><a href="conductores/ListarConductoresVehiculos/{{ item.CodigoV }}" > Agregar conductor </a></small> &nbsp;
-            <small class="text-muted"><a href="vehiculos/Editar/" > Editar vehiculo</a></small> &nbsp;
+            <small class="text-muted"><a href="vehiculos/editar/{{ item.CodigoV }}" > Editar vehiculo</a></small> &nbsp;
             <small class="text-muted"><a href="vehiculos/detalle/{{ item.CodigoV }}">Detalle vehiculo</a></small>
           </div>
         </div>

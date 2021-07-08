@@ -47,6 +47,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { PedirServicioComponent } from './Modulos/servicios/pedir-servicio/pedir-servicio.component';
 import { VehiculosDisponiblesComponent } from './Modulos/servicios/vehiculos-disponibles/vehiculos-disponibles.component';
+import { EditarVehiculoComponent } from './Modulos/vehiculos/editar-vehiculo/editar-vehiculo.component';
 registerLocaleData(en);
 
 @NgModule({
@@ -70,7 +71,8 @@ registerLocaleData(en);
     DetalleConductorComponent,
     VehiculosDisponiblesComponent,
     RegistrarConductorComponent,
-    AceptarServicioComponent
+    AceptarServicioComponent,
+    EditarVehiculoComponent
   ],
   imports: [
     BrowserModule,

@@ -86,11 +86,8 @@ export class GestionUsuarioService {
     .then(res => this.detalleusuario = res as Detalleusuario);
   }
 
-  // tslint:disable-next-line: typedef
   editarDetalle(id: string){
-    this.http.get(this.rootURL + '/Usuarios/EditarDetalle/' + id)
-    .toPromise()
-    .then(res => this.editardetalles = res as Editardetalle[]);
+    return this.http.get(this.rootURL + '/Usuarios/EditarDetalle/' + id);
   }
   // tslint:disable-next-line: typedef
   obtenerPerfil(){
