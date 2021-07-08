@@ -73,7 +73,7 @@ export class PedirServicioComponent implements OnInit {
         window.location.href = "servicios/vehiculos/" + res;
       },
       err=>{
-        console.log(err)
+        this.toastr.error('Error')
       }
     );
   }

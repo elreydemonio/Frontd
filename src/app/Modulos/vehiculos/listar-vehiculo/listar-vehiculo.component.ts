@@ -30,7 +30,7 @@ export class ListarVehiculoComponent implements OnInit {
   CambiarEstado(CodgioV: any){
     this.servicioVehiculo.CambarEstado(CodgioV).subscribe(
       res => {
-          this.toast.info('Se ha cambiado correctamente el estado');
+          this.toast.error('Servicios activos');
       },
       err => {
       }

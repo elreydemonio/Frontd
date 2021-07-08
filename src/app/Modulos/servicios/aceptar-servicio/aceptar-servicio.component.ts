@@ -25,12 +25,12 @@ export class AceptarServicioComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   AceptarServicio(id: number){
-    this.gestionServicioService.AceptarServicio(id).subscribe(
+    this.gestionServicioService.AceptarServicio(44).subscribe(
       res => {
         this.toast.success("Has aceptado el servicio")
       },
       err => {
-        console.log(err);
+        this.toast.error("Error")
       }
     )
   }

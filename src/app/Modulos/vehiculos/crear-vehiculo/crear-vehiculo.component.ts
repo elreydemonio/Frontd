@@ -146,10 +146,10 @@ export class CrearVehiculoComponent implements OnInit {
     );
     this.servicioVehiculo.registrarVehiculo().subscribe(
       res => {
-        this.toast.success('Guardado correctamente');
+        this.toast.error('Error');
       },
-      err => {
-        console.log(err);
+      err => {   
+        console.log(err); 
       }
     );
   }
