@@ -12,7 +12,7 @@ import { Visualizarconductor } from '../interfaces/visualizarconductor';
   providedIn: 'root'
 })
 export class GestionServicioService {
-  readonly rootURL = 'https://localhost:44345/api';
+  readonly rootURL = 'https://localhost:44384/api';
   servicio:Servicio;
   tipoCarga: Tipocarga[];
   formularioRegistroServicio: FormGroup;

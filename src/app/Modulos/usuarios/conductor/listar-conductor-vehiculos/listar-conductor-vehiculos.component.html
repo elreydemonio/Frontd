@@ -29,7 +29,7 @@
       <td class="text-center">{{ usuario.Nombre +' '+ usuario.Apellido }}</td>
       <td class="text-center">{{ usuario.NombreDoocumento }}</td>
       <td class="text-center">{{ usuario.NumeroDocumento }}</td>
-      <td class="text-center detalle"><a href="conductores/editar" style="color: rgb(255, 255, 255)"><i class="fa fa-pencil-square-o"></i></a></td>
+      <td class="text-center detalle"><a href="conductores/editar/{{ usuario.Id }}" style="color: rgb(255, 255, 255)"><i class="fa fa-pencil-square-o"></i></a></td>
       <td class="text-center detalle"><a href="conductores/detalle/{{ usuario.Id }}" style="color: rgb(255, 255, 255)"><i class="fa fa-eye"></i></a></td>
       <td *ngIf="usuario.IdEstado == 1"><button class=" text-center btn btn-outline-success " (click)="EditarEstadoConductor(usuario.Id ,usuario.Id )">{{ usuario.EstadoNombre }}</button></td>
       <td *ngIf="usuario.IdEstado == 2"><button class=" text-center btn btn-outline-success "  (click)="EditarEstadoConductor(usuario.Id ,usuario.Id )">{{ usuario.EstadoNombre }}</button></td>

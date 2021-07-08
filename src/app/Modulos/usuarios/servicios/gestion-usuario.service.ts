@@ -14,7 +14,7 @@ import { Usuario } from '../interfaces/usuario';
   providedIn: 'root'
 })
 export class GestionUsuarioService {
-  readonly rootURL = 'https://localhost:44345/api';
+  readonly rootURL = 'https://localhost:44384/api';
   formularioRegistroUsuario: FormGroup;
   usuario: Usuario;
   listaUsuarios: Usuario[];
@@ -77,6 +77,22 @@ export class GestionUsuarioService {
       console.log(this.usuario);
     }
     return this.http.put(this.rootURL + '/Usuarios/EditarClieProp/' + this.usuario.Id, this.usuario);
+  }
+
+  // tslint:disable-next-line: typedef
+  EditarConductor(){
+    this.Conductor = this.formularioRegistroUsuario.value;
+    Number(this.Conductor.IdEstado = 1);
+    Number(this.Conductor.IdInfo = 1);
+    Number(this.Conductor.NumeroDocumento);
+    Number(this.Conductor.IdGenero);
+    Number(this.Conductor.IdRol);
+    Number(this.Conductor.Celular);
+    Number(this.Conductor.NumeroDocumento);
+    if (this.Conductor.id === "") {
+      console.log(this.usuario);
+    }
+    return this.http.put(this.rootURL + '/Usuarios/EditarConductor/' + this.Conductor.id, this.Conductor);
   }
 
   // tslint:disable-next-line: typedef

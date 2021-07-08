@@ -14,5 +14,6 @@ export interface Conductor {
     Celular: number,
     IdInfo: number,
     IdConductor: string,
+    FotoConductor: string,
     CodigoV: string
 }
